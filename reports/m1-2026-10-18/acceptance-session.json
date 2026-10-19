@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1-draft",
+  "record_type": "terminal_acceptance_summary",
+  "source": "Observed terminal tool result from this M1 implementation session; not a new execution or fabricated JUnit log.",
+  "date_local": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --basetemp .work/pytest-m1-verified",
+  "execution_context": "escalated after Windows temporary-directory permission failure",
+  "exit_code": 0,
+  "passed": 34,
+  "failed": 0,
+  "skipped": 0,
+  "pytest_elapsed_seconds": 19.78,
+  "observed_summary": "34 passed in 19.78s",
+  "earlier_attempt": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --basetemp .work/pytest-m1-first",
+    "exit_code": 1,
+    "classification": "environment_failure",
+    "message": "PermissionError [WinError 5] while accessing .work/pytest-m1-first, including pytest temporary-directory cleanup.",
+    "not_used_as_correctness_result": true
+  },
+  "limitations": [
+    "The outer pytest stdout was observed in the session, not redirected to a file. This is its explicit summary.",
+    "Raw protected-contract subprocess stdout and JUnit XML are separately saved by the M1 validation runner."
+  ]
+}

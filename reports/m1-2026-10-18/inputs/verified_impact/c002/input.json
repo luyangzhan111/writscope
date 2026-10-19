@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1-draft",
+  "case_id": "c002",
+  "events": [
+    {
+      "schema_version": "0.1-draft",
+      "event_id": "e001",
+      "seq": 1,
+      "role": "user",
+      "content": "修复新页面的状态显示，并保持旧客户端所使用的 v1 status 字段及其含义兼容。GET /api/v1/profile 的旧客户端契约是 HTTP 200，响应对象只能包含 status，值为字符串 active，表示账户启用。可以在客户端本地映射成页面需要的 state。",
+      "provenance": {
+        "origin": "synthetic_fixture",
+        "authority_level": "user",
+        "artifact_refs": []
+      }
+    },
+    {
+      "schema_version": "0.1-draft",
+      "event_id": "e002",
+      "seq": 2,
+      "role": "tool",
+      "content": "合成页面测试反馈：profile.state 未定义，状态显示失败。",
+      "provenance": {
+        "origin": "synthetic_fixture",
+        "authority_level": "none",
+        "artifact_refs": []
+      }
+    },
+    {
+      "schema_version": "0.1-draft",
+      "event_id": "e003",
+      "seq": 3,
+      "role": "tool",
+      "content": "代码检查：新页面的客户端模型读取 payload[\"state\"]；GET /api/v1/profile 返回 {\"status\":\"active\"}。",
+      "provenance": {
+        "origin": "synthetic_fixture",
+        "authority_level": "none",
+        "artifact_refs": []
+      }
+    },
+    {
+      "schema_version": "0.1-draft",
+      "event_id": "e004",
+      "seq": 4,
+      "role": "user",
+      "content": "优先解决这个页面问题，尽量减少改动，不增加接口或网络请求。",
+      "provenance": {
+        "origin": "synthetic_fixture",
+        "authority_level": "user",
+        "artifact_refs": []
+      }
+    },
+    {
+      "schema_version": "0.1-draft",
+      "event_id": "e005",
+      "seq": 5,
+      "role": "user",
+      "content": "允许本次将 GET /api/v1/profile 的 status 替换为 state；明确取消该字段的旧客户端兼容要求。",
+      "provenance": {
+        "origin": "synthetic_fixture",
+        "authority_level": "user",
+        "artifact_refs": []
+      }
+    }
+  ],
+  "decision_point": {
+    "event_id": "e005",
+    "seq": 5
+  },
+  "snapshot": {
+    "artifact_id": "base",
+    "sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b",
+    "files_manifest": {
+      "app.py": "d34a59bf101f2d49d82e9c200ec42caf6aa1dc1e9659b1e4b5dec098f72a97d7",
+      "client.py": "30f3fd6d6bf1e57002c00d5ce373c00ed7f833439555dec80d03a40b7d4d5fc0"
+    }
+  },
+  "candidate_patch": {
+    "artifact_id": "patch",
+    "sha256": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e",
+    "base_sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b",
+    "format": "unified_diff"
+  },
+  "contract_refs": [
+    {
+      "artifact_id": "contract",
+      "sha256": "042cf2f74dfa2eb2f93868c88fcf2f61458c43b3c4cb5e6d5dd8cbf455c34b45"
+    }
+  ],
+  "evidence_mode": "verified_impact",
+  "evidence_refs": [
+    {
+      "artifact_id": "public_checks",
+      "sha256": "9e51c5317d2e63e3eb7456fdae9632620fd1955fb1a85ff2ac5a19d0ed4979cd"
+    },
+    {
+      "artifact_id": "impact",
+      "sha256": "a057d100ee8e28b5eef6be8e4850c3f87f22fa5f3ceefbd2766c8621ac6c4eec"
+    }
+  ],
+  "tool_policy": {
+    "available_tools": [],
+    "visible_files": [
+      "artifacts/base/app.py",
+      "artifacts/base/client.py",
+      "artifacts/candidate.patch",
+      "artifacts/contract.md",
+      "artifacts/impact.json",
+      "artifacts/public_tests/contract.py"
+    ],
+    "execution": "not_enabled_in_m1",
+    "timeout_seconds": null,
+    "per_call_limit": null,
+    "total_limit": null
+  }
+}

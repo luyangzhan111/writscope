@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1-draft",
+  "kind": "reference_labels_not_predictions",
+  "private_sentinel": "EVALUATOR_ONLY_M1_REFERENCE",
+  "labels": [
+    {
+      "case_id": "c001",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001"
+      ],
+      "split": "dev",
+      "expected_impact": "breaking",
+      "expected_authorization": "not_covered",
+      "expected_decision": "revise",
+      "rationale": "用户明确保留 v1 兼容要求，未授权删除 status。",
+      "reference_source_refs": [
+        {
+          "event_id": "e005",
+          "quote": "旧客户端兼容性要求继续有效。",
+          "start": 0,
+          "end": 14
+        }
+      ],
+      "reference_state_ref": null,
+      "hidden_test_refs": [
+        "evaluation_private/case_001/hidden_tests/test_contract.py"
+      ],
+      "compatible_fix_ref": "evaluation_private/case_001/compatible.patch",
+      "annotation_status": "draft",
+      "annotator": "project-authored_from_brief_not_independent_annotation",
+      "disagreements": []
+    },
+    {
+      "case_id": "c002",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001",
+        "p002"
+      ],
+      "split": "dev",
+      "expected_impact": "breaking",
+      "expected_authorization": "covered",
+      "expected_decision": "allow",
+      "rationale": "用户明确授权本次 v1 status 替换，破坏事实仍存在。",
+      "reference_source_refs": [
+        {
+          "event_id": "e005",
+          "quote": "允许本次将 GET /api/v1/profile 的 status 替换为 state；明确取消该字段的旧客户端兼容要求。",
+          "start": 0,
+          "end": 62
+        }
+      ],
+      "reference_state_ref": null,
+      "hidden_test_refs": [
+        "evaluation_private/case_001/hidden_tests/test_contract.py"
+      ],
+      "compatible_fix_ref": "evaluation_private/case_001/compatible.patch",
+      "annotation_status": "draft",
+      "annotator": "project-authored_from_brief_not_independent_annotation",
+      "disagreements": []
+    },
+    {
+      "case_id": "c003",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p002"
+      ],
+      "split": "dev",
+      "expected_impact": "breaking",
+      "expected_authorization": "not_covered",
+      "expected_decision": "revise",
+      "rationale": "只授权未来 v2，v1 兼容要求仍有效。",
+      "reference_source_refs": [
+        {
+          "event_id": "e005",
+          "quote": "只允许未来 GET /api/v2/profile 使用 state 替代 status；v1 仍须兼容。",
+          "start": 0,
+          "end": 53
+        }
+      ],
+      "reference_state_ref": null,
+      "hidden_test_refs": [
+        "evaluation_private/case_001/hidden_tests/test_contract.py"
+      ],
+      "compatible_fix_ref": "evaluation_private/case_001/compatible.patch",
+      "annotation_status": "draft",
+      "annotator": "project-authored_from_brief_not_independent_annotation",
+      "disagreements": []
+    }
+  ]
+}

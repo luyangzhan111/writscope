@@ -1,0 +1,323 @@
+{
+  "schema_version": "0.1-draft",
+  "execution_kind": "fixture_validation",
+  "run_id": "m1-e48b41a86211",
+  "status": "succeeded",
+  "started_at": "2026-10-17T17:53:33.237593+00:00",
+  "authorization_evaluation": "not_run",
+  "model_calls": 0,
+  "model_tokens": 0,
+  "model_cost": 0,
+  "variants": {
+    "original": {
+      "snapshot_sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b",
+      "patch_sha256": null,
+      "contract_tests": [
+        {
+          "test_id": "test_http_200",
+          "status": "passed"
+        },
+        {
+          "test_id": "test_status_exists",
+          "status": "passed"
+        },
+        {
+          "test_id": "test_exact_response",
+          "status": "passed"
+        }
+      ],
+      "probe": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "writscope.probe",
+          "D:\\AI-Project\\writscope\\.work\\m1-e48b41a86211\\original",
+          "D:\\AI-Project\\writscope\\fixtures\\case_001\\public_tests\\contract.py"
+        ],
+        "exit_code": 0,
+        "error": null,
+        "elapsed_ms": 2102.222,
+        "stdout_ref": "original.probe.stdout.txt",
+        "stderr_ref": "original.probe.stderr.txt"
+      },
+      "observation": {
+        "http_status": 200,
+        "response": {
+          "status": "active"
+        },
+        "old_contract_checks": {
+          "http_200": true,
+          "status_exists": true,
+          "exact_response": true
+        },
+        "page": {
+          "status": "failed",
+          "model": null,
+          "error": {
+            "type": "KeyError",
+            "missing_key": "state"
+          }
+        },
+        "page_requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/profile"
+          }
+        ],
+        "business_routes": [
+          "GET /api/v1/profile"
+        ]
+      },
+      "pytest": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "pytest",
+          "D:\\AI-Project\\writscope\\evaluation_private\\case_001\\hidden_tests\\test_contract.py",
+          "-c",
+          "D:\\AI-Project\\writscope\\pyproject.toml",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--junitxml",
+          "D:\\AI-Project\\writscope\\reports\\m1-2026-10-18\\original.junit.xml"
+        ],
+        "exit_code": 0,
+        "error": null,
+        "elapsed_ms": 3198.946,
+        "stdout_ref": "original.pytest.stdout.txt",
+        "stderr_ref": "original.pytest.stderr.txt"
+      },
+      "junit_ref": "original.junit.xml"
+    },
+    "candidate": {
+      "snapshot_sha256": "79cc0bcde3fcd0da6341eb4a894c59c352820e82959a7236340cc28aead00d64",
+      "patch_sha256": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e",
+      "contract_tests": [
+        {
+          "test_id": "test_http_200",
+          "status": "passed"
+        },
+        {
+          "test_id": "test_status_exists",
+          "status": "failed"
+        },
+        {
+          "test_id": "test_exact_response",
+          "status": "failed"
+        }
+      ],
+      "probe": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "writscope.probe",
+          "D:\\AI-Project\\writscope\\.work\\m1-e48b41a86211\\candidate",
+          "D:\\AI-Project\\writscope\\fixtures\\case_001\\public_tests\\contract.py"
+        ],
+        "exit_code": 0,
+        "error": null,
+        "elapsed_ms": 2097.183,
+        "stdout_ref": "candidate.probe.stdout.txt",
+        "stderr_ref": "candidate.probe.stderr.txt"
+      },
+      "observation": {
+        "http_status": 200,
+        "response": {
+          "state": "active"
+        },
+        "old_contract_checks": {
+          "http_200": true,
+          "status_exists": false,
+          "exact_response": false
+        },
+        "page": {
+          "status": "succeeded",
+          "model": {
+            "state": "active"
+          },
+          "error": null
+        },
+        "page_requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/profile"
+          }
+        ],
+        "business_routes": [
+          "GET /api/v1/profile"
+        ]
+      },
+      "pytest": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "pytest",
+          "D:\\AI-Project\\writscope\\evaluation_private\\case_001\\hidden_tests\\test_contract.py",
+          "-c",
+          "D:\\AI-Project\\writscope\\pyproject.toml",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--junitxml",
+          "D:\\AI-Project\\writscope\\reports\\m1-2026-10-18\\candidate.junit.xml"
+        ],
+        "exit_code": 1,
+        "error": null,
+        "elapsed_ms": 3860.292,
+        "stdout_ref": "candidate.pytest.stdout.txt",
+        "stderr_ref": "candidate.pytest.stderr.txt"
+      },
+      "junit_ref": "candidate.junit.xml"
+    },
+    "compatible": {
+      "snapshot_sha256": "45842122c3335e078c126d2355bb80ea3285f89c9800020c57f0f89a39c9b0d3",
+      "patch_sha256": "175d8cc02ff93ec029100ff3d8ebcb727f3660db539beb7e139ae2c4c52c23d9",
+      "contract_tests": [
+        {
+          "test_id": "test_http_200",
+          "status": "passed"
+        },
+        {
+          "test_id": "test_status_exists",
+          "status": "passed"
+        },
+        {
+          "test_id": "test_exact_response",
+          "status": "passed"
+        }
+      ],
+      "probe": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "writscope.probe",
+          "D:\\AI-Project\\writscope\\.work\\m1-e48b41a86211\\compatible",
+          "D:\\AI-Project\\writscope\\fixtures\\case_001\\public_tests\\contract.py"
+        ],
+        "exit_code": 0,
+        "error": null,
+        "elapsed_ms": 2120.15,
+        "stdout_ref": "compatible.probe.stdout.txt",
+        "stderr_ref": "compatible.probe.stderr.txt"
+      },
+      "observation": {
+        "http_status": 200,
+        "response": {
+          "status": "active"
+        },
+        "old_contract_checks": {
+          "http_200": true,
+          "status_exists": true,
+          "exact_response": true
+        },
+        "page": {
+          "status": "succeeded",
+          "model": {
+            "state": "active"
+          },
+          "error": null
+        },
+        "page_requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/profile"
+          }
+        ],
+        "business_routes": [
+          "GET /api/v1/profile"
+        ]
+      },
+      "pytest": {
+        "command": [
+          "D:\\AI-Project\\writscope\\.venv\\Scripts\\python.exe",
+          "-I",
+          "-m",
+          "pytest",
+          "D:\\AI-Project\\writscope\\evaluation_private\\case_001\\hidden_tests\\test_contract.py",
+          "-c",
+          "D:\\AI-Project\\writscope\\pyproject.toml",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--junitxml",
+          "D:\\AI-Project\\writscope\\reports\\m1-2026-10-18\\compatible.junit.xml"
+        ],
+        "exit_code": 0,
+        "error": null,
+        "elapsed_ms": 3193.796,
+        "stdout_ref": "compatible.pytest.stdout.txt",
+        "stderr_ref": "compatible.pytest.stderr.txt"
+      },
+      "junit_ref": "compatible.junit.xml"
+    }
+  },
+  "failures": [],
+  "fixture_manifest_sha256": "d8c20dcd9e02ed65f48ef1dc4de52cca47f6993590acd8e6cf416e8ba4761f31",
+  "environment": {
+    "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "fastapi": "0.143.3",
+      "pydantic": "2.14.1",
+      "httpx": "0.28.1",
+      "pytest": "9.1.1"
+    },
+    "lock_sha256": "d4959a6b13e98f045a7bcf8b0ad597cb96fa3e6fc6dd9910dd81b75ccffb94bc"
+  },
+  "source_files": {
+    "pyproject.toml": "aa58a0a07cffbd32e6e99d5cdfdf360ee8df05fb1372fee47844d773391b7322",
+    "src/writscope/__init__.py": "6258903121cdf30b5972d01a69f634ace5bf9731f5e4904e65bacb90d11f471b",
+    "src/writscope/artifacts.py": "60eb129096dce66736d4a5791395c10e690c80ab49987fae9077965fffb01bd4",
+    "src/writscope/events.py": "8bc3056c10666ae496714f7868e7c0d36c1ba55940c81ad7cc21c5b199219d95",
+    "src/writscope/inputs.py": "11d5761d2cb7e1cf9d1353e1ce0c412df6d4e2d842ab194109f09d40feb75620",
+    "src/writscope/m1.py": "c5b0e30ca3e36911f003316c964ecde1c00fb27be1c751be56f4438fd1b4a4da",
+    "src/writscope/probe.py": "134e315c1f8f7c4298d29d4c185bc39a79f8b3c7f24ea76fe897888b11a61610"
+  },
+  "source_tree_sha256": "f6479f3615e75d95f7d386d6670132af2952b0e2c79598a7aaf202af3a313707",
+  "source_revision": null,
+  "base_sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b",
+  "input_bundles": {
+    "verified_impact": {
+      "c001": {
+        "input_sha256": "357959a27f23bac384049aca3230a940a55e7dfcf935537707a4a31589c30bd4",
+        "common_evidence_sha256": "2cd10ec17d516e03139d8b394cfa685754848e544094765257c90b30345218e9",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      },
+      "c002": {
+        "input_sha256": "a372942885280a885887c811d9b1291247ec5f8b5818d66b75599226577c2dbe",
+        "common_evidence_sha256": "2cd10ec17d516e03139d8b394cfa685754848e544094765257c90b30345218e9",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      },
+      "c003": {
+        "input_sha256": "a43ba1f432dd042c431d53c68c9b3f4ddd0094b3ad7d118c7f11c1b93f2fdded",
+        "common_evidence_sha256": "2cd10ec17d516e03139d8b394cfa685754848e544094765257c90b30345218e9",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      }
+    },
+    "code_tools": {
+      "c001": {
+        "input_sha256": "87937b8f1757ac2f69ee2c95d86b83d8464d23179a1575ca44111d5c65d92ffc",
+        "common_evidence_sha256": "352b7de73079d15f9c385785e4ca60ab7ba12c80949c31814afb79cc821aa0d5",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      },
+      "c002": {
+        "input_sha256": "7f6ed498f1f9138b7b4d03827f0d40fe207a645b28498f79425fd5d23698d0b4",
+        "common_evidence_sha256": "352b7de73079d15f9c385785e4ca60ab7ba12c80949c31814afb79cc821aa0d5",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      },
+      "c003": {
+        "input_sha256": "5ccbe6e22b6ce89d9437285e09ca75e19312913d50d3c123875117d0cf8a30f5",
+        "common_evidence_sha256": "352b7de73079d15f9c385785e4ca60ab7ba12c80949c31814afb79cc821aa0d5",
+        "prefix_sha256": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb"
+      }
+    }
+  },
+  "ended_at": "2026-10-17T17:53:51.257400+00:00",
+  "elapsed_ms": 18020.508
+}

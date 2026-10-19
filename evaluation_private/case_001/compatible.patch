@@ -1,0 +1,6 @@
+--- a/client.py
++++ b/client.py
+@@ -1,2 +1,2 @@
+ def to_page_model(payload):
+-    return {"state": payload["state"]}
++    return {"state": payload["status"]}

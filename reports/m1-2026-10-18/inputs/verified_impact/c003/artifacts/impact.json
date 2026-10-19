@@ -1,0 +1,134 @@
+{
+  "schema_version": "0.1-draft",
+  "evidence_id": "impact_001",
+  "mode": "verified_impact",
+  "snapshot_sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b",
+  "patch_sha256": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e",
+  "scope": [
+    {
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/profile",
+      "api_version": "v1",
+      "location": "response.body",
+      "field": "status"
+    }
+  ],
+  "assessment": "breaking",
+  "impacts": [
+    {
+      "impact_id": "impact_001",
+      "subject": {
+        "protocol": "http",
+        "method": "GET",
+        "path": "/api/v1/profile",
+        "api_version": "v1",
+        "location": "response.body",
+        "field": "status"
+      },
+      "change_type": "replace_field",
+      "before": {
+        "status": "active"
+      },
+      "after": {
+        "state": "active"
+      },
+      "violated_contract_refs": [
+        "contract"
+      ],
+      "evidence_refs": [
+        "observed_candidate"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "artifact_id": "observed_original",
+      "kind": "executed_public_checks",
+      "description": "Observed HTTP response and Python page adapter",
+      "run_id": "m1-e48b41a86211",
+      "test_id": "public_contract_checks",
+      "exit_code": 0,
+      "stdout_ref": null,
+      "stderr_ref": null,
+      "observed_response": {
+        "http_status": 200,
+        "response": {
+          "status": "active"
+        },
+        "old_contract_checks": {
+          "http_200": true,
+          "status_exists": true,
+          "exact_response": true
+        },
+        "page": {
+          "status": "failed",
+          "model": null,
+          "error": {
+            "type": "KeyError",
+            "missing_key": "state"
+          }
+        },
+        "page_requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/profile"
+          }
+        ],
+        "business_routes": [
+          "GET /api/v1/profile"
+        ]
+      },
+      "visibility": "public_input"
+    },
+    {
+      "artifact_id": "observed_candidate",
+      "kind": "executed_public_checks",
+      "description": "Observed HTTP response and Python page adapter",
+      "run_id": "m1-e48b41a86211",
+      "test_id": "public_contract_checks",
+      "exit_code": 0,
+      "stdout_ref": null,
+      "stderr_ref": null,
+      "observed_response": {
+        "http_status": 200,
+        "response": {
+          "state": "active"
+        },
+        "old_contract_checks": {
+          "http_200": true,
+          "status_exists": false,
+          "exact_response": false
+        },
+        "page": {
+          "status": "succeeded",
+          "model": {
+            "state": "active"
+          },
+          "error": null
+        },
+        "page_requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/profile"
+          }
+        ],
+        "business_routes": [
+          "GET /api/v1/profile"
+        ]
+      },
+      "visibility": "public_input"
+    }
+  ],
+  "limitations": [
+    "Only this finite synthetic response contract is tested.",
+    "Meaning of active is declared by the fixture, not inferred from runtime.",
+    "No authorization inference. No browser or untrusted-code sandbox."
+  ],
+  "execution_refs": [
+    {
+      "run_id": "m1-e48b41a86211",
+      "record": "report.json"
+    }
+  ]
+}

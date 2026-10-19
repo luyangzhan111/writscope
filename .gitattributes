@@ -1,0 +1,2 @@
+# Preserve evidence and fixture byte hashes across Windows/Linux checkouts.
+* -text

@@ -1,0 +1,1 @@
+{"http_status": 200, "response": {"state": "active"}, "old_contract_checks": {"http_200": true, "status_exists": false, "exact_response": false}, "page": {"status": "succeeded", "model": {"state": "active"}, "error": null}, "page_requests": [{"method": "GET", "path": "/api/v1/profile"}], "business_routes": ["GET /api/v1/profile"]}

@@ -1,0 +1,40 @@
+.FF                                                                      [100%]
+================================== FAILURES ===================================
+_____________________________ test_status_exists ______________________________
+
+response = <Response [200 OK]>
+
+    def test_status_exists(response):
+>       assert "status" in response.json(), "missing status"
+E       AssertionError: missing status
+E       assert 'status' in {'state': 'active'}
+E        +  where {'state': 'active'} = json()
+E        +    where json = <Response [200 OK]>.json
+
+..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py:24: AssertionError
+_____________________________ test_exact_response _____________________________
+
+response = <Response [200 OK]>
+
+    def test_exact_response(response):
+>       assert response.json() == {"status": "active"}, "response contract changed"
+E       AssertionError: response contract changed
+E       assert {'state': 'active'} == {'status': 'active'}
+E         
+E         Left contains 1 more item:
+E         {'state': 'active'}
+E         Right contains 1 more item:
+E         {'status': 'active'}
+E         Use -v to get more diff
+
+..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py:28: AssertionError
+============================== warnings summary ===============================
+..\..\..\.venv\Lib\site-packages\fastapi\testclient.py:1
+  D:\AI-Project\writscope\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED ..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py::test_status_exists
+FAILED ..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py::test_exact_response
+2 failed, 1 passed, 1 warning in 2.39s

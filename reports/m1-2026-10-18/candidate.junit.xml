@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="2.248" timestamp="2026-10-18T01:53:42.561927+08:00" hostname="LAPTOP-QAJO512M"><testcase classname="evaluation_private.case_001.hidden_tests.test_contract" name="test_http_200" time="0.087" /><testcase classname="evaluation_private.case_001.hidden_tests.test_contract" name="test_status_exists" time="0.001"><failure message="AssertionError: missing status&#10;assert 'status' in {'state': 'active'}&#10; +  where {'state': 'active'} = json()&#10; +    where json = &lt;Response [200 OK]&gt;.json">response = &lt;Response [200 OK]&gt;
+
+    def test_status_exists(response):
+&gt;       assert "status" in response.json(), "missing status"
+E       AssertionError: missing status
+E       assert 'status' in {'state': 'active'}
+E        +  where {'state': 'active'} = json()
+E        +    where json = &lt;Response [200 OK]&gt;.json
+
+..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py:24: AssertionError</failure></testcase><testcase classname="evaluation_private.case_001.hidden_tests.test_contract" name="test_exact_response" time="0.001"><failure message="AssertionError: response contract changed&#10;assert {'state': 'active'} == {'status': 'active'}&#10;  &#10;  Left contains 1 more item:&#10;  {'state': 'active'}&#10;  Right contains 1 more item:&#10;  {'status': 'active'}&#10;  Use -v to get more diff">response = &lt;Response [200 OK]&gt;
+
+    def test_exact_response(response):
+&gt;       assert response.json() == {"status": "active"}, "response contract changed"
+E       AssertionError: response contract changed
+E       assert {'state': 'active'} == {'status': 'active'}
+E         
+E         Left contains 1 more item:
+E         {'state': 'active'}
+E         Right contains 1 more item:
+E         {'status': 'active'}
+E         Use -v to get more diff
+
+..\..\..\evaluation_private\case_001\hidden_tests\test_contract.py:28: AssertionError</failure></testcase></testsuite></testsuites>

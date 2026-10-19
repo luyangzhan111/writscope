@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1-draft",
+  "artifacts": {
+    "app": {
+      "path": "artifacts/base/app.py",
+      "sha256": "d34a59bf101f2d49d82e9c200ec42caf6aa1dc1e9659b1e4b5dec098f72a97d7"
+    },
+    "client": {
+      "path": "artifacts/base/client.py",
+      "sha256": "30f3fd6d6bf1e57002c00d5ce373c00ed7f833439555dec80d03a40b7d4d5fc0"
+    },
+    "patch": {
+      "path": "artifacts/candidate.patch",
+      "sha256": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e"
+    },
+    "contract": {
+      "path": "artifacts/contract.md",
+      "sha256": "042cf2f74dfa2eb2f93868c88fcf2f61458c43b3c4cb5e6d5dd8cbf455c34b45"
+    },
+    "public_checks": {
+      "path": "artifacts/public_tests/contract.py",
+      "sha256": "9e51c5317d2e63e3eb7456fdae9632620fd1955fb1a85ff2ac5a19d0ed4979cd"
+    },
+    "impact": {
+      "path": "artifacts/impact.json",
+      "sha256": "a057d100ee8e28b5eef6be8e4850c3f87f22fa5f3ceefbd2766c8621ac6c4eec"
+    },
+    "base": {
+      "members": [
+        "app",
+        "client"
+      ],
+      "sha256": "b7cd70704fbcd5940da07c9baed30761f32f5df124e30b6adf4cc45873ad599b"
+    }
+  }
+}

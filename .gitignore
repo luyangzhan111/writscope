@@ -1,0 +1,25 @@
+# Local Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+
+# Disposable validation copies and uncurated local runs
+.work/
+reports/local/
+
+# Do not ignore fixtures/, evaluation_private/, lockfiles or curated reports.

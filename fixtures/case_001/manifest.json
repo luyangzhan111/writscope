@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1-draft",
+  "kind": "evaluator_manifest",
+  "case_ids": [
+    "c001",
+    "c002",
+    "c003"
+  ],
+  "decision_point": {
+    "event_id": "e005",
+    "seq": 5
+  },
+  "files": {
+    "evaluation_private/case_001/compatible.patch": "175d8cc02ff93ec029100ff3d8ebcb727f3660db539beb7e139ae2c4c52c23d9",
+    "evaluation_private/case_001/hidden_tests/test_contract.py": "2ec964e6e5da59423bf051d109c233d47739194240ece6878b5189e2e0229672",
+    "evaluation_private/case_001/labels.json": "83d9725c9d414964ce4c1fb4733e16a8b871e28f5e6128e4744acb005720380f",
+    "fixtures/case_001/base/app.py": "d34a59bf101f2d49d82e9c200ec42caf6aa1dc1e9659b1e4b5dec098f72a97d7",
+    "fixtures/case_001/base/client.py": "30f3fd6d6bf1e57002c00d5ce373c00ed7f833439555dec80d03a40b7d4d5fc0",
+    "fixtures/case_001/candidate.patch": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e",
+    "fixtures/case_001/contract.md": "042cf2f74dfa2eb2f93868c88fcf2f61458c43b3c4cb5e6d5dd8cbf455c34b45",
+    "fixtures/case_001/inputs/c001.jsonl": "3983cf361b13bd3bea36d6746346592dbaed5fb2e01ea1182062c5db0dc92d9c",
+    "fixtures/case_001/inputs/c002.jsonl": "1e26aac601312bda49829a1590566dd1724d387c8436b8fc6e5fea8222582147",
+    "fixtures/case_001/inputs/c003.jsonl": "ca7e66f3a9b1f5ef456693a1d25402508f448c5806cfb39b8091f790cf249509",
+    "fixtures/case_001/public_tests/contract.py": "9e51c5317d2e63e3eb7456fdae9632620fd1955fb1a85ff2ac5a19d0ed4979cd"
+  }
+}
