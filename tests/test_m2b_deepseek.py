@@ -13,6 +13,18 @@ from writscope.providers.deepseek import DeepSeekProvider, ENDPOINT, wire_bytes,
 from writscope.runner import RunPolicy, run_suite
 
 
+def quote_only_response(text):
+    def strip_offsets(value):
+        if isinstance(value, dict):
+            return {key: strip_offsets(item) for key, item in value.items()
+                    if key not in {"start", "end"}}
+        if isinstance(value, list):
+            return [strip_offsets(item) for item in value]
+        return value
+
+    return json.dumps(strip_offsets(json.loads(text)), ensure_ascii=False)
+
+
 def test_deepseek_wire_and_usage_without_network(root):
     requests, manifest, _ = prepare(root, policy(Decimal("20")))
     request = requests[0]
@@ -67,8 +79,8 @@ def test_deepseek_http_error_does_not_echo_body(root):
 
 def test_real_runner_with_injected_transport_only(root, tmp_path):
     requests, preflight, model = prepare(root, policy(Decimal("20")))
-    direct_text = (root / "examples" / "m2a" / "direct_response.json").read_text(encoding="utf-8")
-    checklist_text = (root / "examples" / "m2a" / "checklist_response.json").read_text(encoding="utf-8")
+    direct_text = quote_only_response((root / "examples" / "m2a" / "direct_response.json").read_text(encoding="utf-8"))
+    checklist_text = quote_only_response((root / "examples" / "m2a" / "checklist_response.json").read_text(encoding="utf-8"))
     calls = []
 
     class InjectedProvider:
@@ -100,6 +112,7 @@ def test_real_runner_with_injected_transport_only(root, tmp_path):
     assert manifest["totals"]["provider_reported_usage_and_estimates"]["billed_cost_cny"]["complete_total"] is None
     summary = score_run(output, root / "evaluation_private" / "case_001" / "labels.json", tmp_path / "score")
     assert summary["execution_kind"] == "real_model"
+    assert summary["methods"]["full_direct"]["status_counts"] == {"succeeded": 3}
     assert summary["methods"]["full_direct"]["axes"]["authorization"]["correct"] == 2
 
 

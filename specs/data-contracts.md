@@ -116,6 +116,8 @@ unknown 时仅在无法识别待授权影响时使用 not_needed，并在 limita
 
 `per_impact_authorization[]` 包含 `impact_id, verdict, authorization_refs, constraint_refs, source_refs, reason`。直接复核也须输出依据；清单与增量方法额外保存相同结构的约束/授权表作为 method_generated 工件。人工参考状态不传给任何正式方法。
 
+模型输出契约 `source_quote_v1`：两种完整上下文方法共同使用；所有 `source_refs`（顶层、`derived_items`、逐影响授权行）只提交 `{event_id, quote}`，不提交字符位置。运行器仅在决策点前的可见事件中查找该原文；**恰好出现一次**才派生 Unicode 字符 `[start,end)` 并写入持久化 `ReviewResult`。缺失、重复、未来事件或非用户授权引用均拒绝。这个结构校验不证明引用在语义上足以授权。首次真实运行使用历史 `source_span_v0`（模型直接提交位置），其错误与评分不按新契约重算；历史 M2a 脚本仍可按原严格跨度读取。新真实请求保存 `output_contract` 及新的提示词/JSON schema 哈希，不与历史记录混同。
+
 示例（**设计预期，不是运行结果**）：精确 v1 授权应为 `impact=breaking, authorization=covered, decision=allow`，指向 e005 的明确许可与 v1.status 删除证据；旧契约失败事实不得隐藏。
 
 ## 8. 评测器私有记录
@@ -142,7 +144,7 @@ unknown 时仅在无法识别待授权影响时使用 not_needed，并在 limita
 
 ## 10. 最小契约验收与当前实现
 
-M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足现有严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。现有 manifest 是上述完整 RunManifest 的实现子集：共同配置、prompt/evidence hash 在 request，代码/锁文件哈希在 provenance，逐次耗时、用量来源及成本估计在 attempt。提供商账单费用仍未知，模型实际修订版须以运行时响应为准；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
+M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足当时严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。后续 `source_quote_v1` 的离线修订见 [引文契约验收](../docs/m2b-quote-contract-review.md)，尚未付费重跑。现有 manifest 是上述完整 RunManifest 的实现子集：共同配置、prompt/evidence hash 在 request，代码/锁文件哈希在 provenance，逐次耗时、用量来源及成本估计在 attempt。提供商账单费用仍未知，模型实际修订版须以运行时响应为准；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
 
 M1 的实际文件格式：
 

@@ -238,6 +238,17 @@ class DerivedItem(StrictModel):
     source_refs: list[SourceRef] = Field(min_length=1)
 
 
+class SourceQuote(StrictModel):
+    """Model-facing citation; the runner derives its unique character span."""
+
+    event_id: Text
+    quote: Text
+
+
+class QuoteDerivedItem(DerivedItem):
+    source_refs: list[SourceQuote] = Field(min_length=1)
+
+
 class ImpactAuthorization(StrictModel):
     impact_id: Text
     verdict: Authorization
@@ -245,6 +256,10 @@ class ImpactAuthorization(StrictModel):
     authorization_refs: list[Text]
     source_refs: list[SourceRef] = Field(min_length=1)
     reason: Text
+
+
+class QuoteImpactAuthorization(ImpactAuthorization):
+    source_refs: list[SourceQuote] = Field(min_length=1)
 
 
 class Checklist(StrictModel):
@@ -270,14 +285,69 @@ class ReviewPayload(JudgmentLabels):
     checklist: Checklist | None
 
 
+class QuoteReviewPayload(ReviewPayload):
+    """source_quote_v1: exact visible quotes, no model-supplied offsets."""
+
+    per_impact_authorization: list[QuoteImpactAuthorization]
+    source_refs: list[SourceQuote] = Field(min_length=1)
+    derived_items: list[QuoteDerivedItem]
+
+
 class ReviewResult(ReviewPayload):
     schema_version: Version
     case_id: Text
     decision_point: DecisionPoint
 
 
-def validate_output(raw: str, bundle: PublicBundle, method: str) -> ReviewResult:
-    payload = ReviewPayload.model_validate(parse_json(raw))
+def _contains_model_offsets(value) -> bool:
+    if isinstance(value, dict):
+        if "event_id" in value and "quote" in value and ("start" in value or "end" in value):
+            return True
+        return any(_contains_model_offsets(item) for item in value.values())
+    if isinstance(value, list):
+        return any(_contains_model_offsets(item) for item in value)
+    return False
+
+
+def _resolve_quote(ref: SourceQuote, events: list[ConversationEvent], *, authorization: bool = False) -> dict:
+    event = next((item for item in events if item.event_id == ref.event_id), None)
+    if event is None:
+        raise ValueError("source outside visible history")
+    start = event.content.find(ref.quote)
+    if start < 0:
+        raise ValueError("source quote mismatch")
+    if event.content.find(ref.quote, start + 1) >= 0:
+        raise ValueError("source quote is not unique within event")
+    resolved = SourceRef(event_id=ref.event_id, quote=ref.quote, start=start,
+                         end=start + len(ref.quote))
+    validate_source(resolved, events, authorization=authorization)
+    return resolved.model_dump()
+
+
+def _resolve_quote_payload(draft: QuoteReviewPayload, events: list[ConversationEvent]) -> ReviewPayload:
+    data = draft.model_dump()
+    data["source_refs"] = [_resolve_quote(ref, events) for ref in draft.source_refs]
+    for source, target in zip(draft.derived_items, data["derived_items"], strict=True):
+        target["source_refs"] = [_resolve_quote(ref, events, authorization=True) for ref in source.source_refs]
+    for source, target in zip(draft.per_impact_authorization, data["per_impact_authorization"], strict=True):
+        target["source_refs"] = [_resolve_quote(ref, events, authorization=True) for ref in source.source_refs]
+    return ReviewPayload.model_validate(data)
+
+
+def validate_output(raw: str, bundle: PublicBundle, method: str,
+                    *, output_contract: Literal["auto", "source_span_v0", "source_quote_v1"] = "auto") -> ReviewResult:
+    data = parse_json(raw)
+    has_offsets = _contains_model_offsets(data)
+    if output_contract == "source_quote_v1" and has_offsets:
+        raise ValueError("source_quote_v1 forbids model-supplied offsets")
+    if output_contract == "source_span_v0" or (output_contract == "auto" and has_offsets):
+        # Read old scripted fixtures without changing their historical record.
+        # A new model response that supplies even one span must still meet the
+        # original strict contract; no failed run is silently repaired.
+        payload = ReviewPayload.model_validate(data)
+    else:
+        payload = _resolve_quote_payload(QuoteReviewPayload.model_validate(data),
+                                         bundle.review_input.events)
     inp = bundle.review_input
     if method == "full_checklist" and payload.checklist is None:
         raise ValueError("checklist method must reconstruct and check scope")

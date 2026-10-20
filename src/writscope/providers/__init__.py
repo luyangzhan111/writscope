@@ -16,6 +16,8 @@ class ModelConfig(StrictModel):
 
 class ModelRequest(StrictModel):
     schema_version: Literal["0.1-draft"] = "0.1-draft"
+    # Missing in historical M2a/M2b requests, which required model offsets.
+    output_contract: Literal["source_span_v0", "source_quote_v1"] = "source_span_v0"
     method: Literal["full_direct", "full_checklist"]
     model_config_values: ModelConfig
     instructions: str

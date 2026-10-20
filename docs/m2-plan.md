@@ -1,6 +1,6 @@
 # M2 计划：两种完整上下文基线与可复现评测流程
 
-日期：2026-10-20。状态：**M2a P0–P5 已落地；M2b 的 DeepSeek 单后端、六任务预检和首次真实接通已执行，但六项输出均被引文位置契约拒绝。** 实际证据见 [M2a 验收](m2a-review.md)、[M2b 离线验收](m2b-offline-review.md)和 [真实接通记录](m2b-real-review.md)。M2 对应 [总计划](implementation-plan.md) 的 S2，不增加新的研究阶段。
+日期：2026-10-20。状态：**M2a P0–P5 已落地；M2b 的 DeepSeek 单后端、六任务预检和首次真实接通已执行，但六项输出均被当时的引文位置契约拒绝；后续 `source_quote_v1` 已离线修订，未付费重跑。** 实际证据见 [M2a 验收](m2a-review.md)、[M2b 离线验收](m2b-offline-review.md)、[真实接通记录](m2b-real-review.md)和 [引文契约验收](m2b-quote-contract-review.md)。M2 对应 [总计划](implementation-plan.md) 的 S2，不增加新的研究阶段。
 
 ## 1. 建议与依据
 

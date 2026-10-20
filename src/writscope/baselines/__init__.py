@@ -1,7 +1,7 @@
 """Equal-evidence request construction. No filesystem or evaluator access."""
 
 from ..artifacts import canonical_hash, digest
-from ..contracts import PublicBundle, ReviewPayload
+from ..contracts import PublicBundle, QuoteReviewPayload
 from ..providers import ModelConfig, ModelRequest
 
 METHODS = ("full_direct", "full_checklist")
@@ -21,5 +21,5 @@ def build_request(bundle: PublicBundle, method: str, instructions: str, config: 
         method=method, model_config_values=config.model_copy(deep=True),
         instructions=instructions, prompt_sha256=digest(instructions.encode("utf-8")),
         evidence_sha256=canonical_hash(public), public_input=public,
-        output_schema=ReviewPayload.model_json_schema(),
+        output_contract="source_quote_v1", output_schema=QuoteReviewPayload.model_json_schema(),
     )

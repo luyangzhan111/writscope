@@ -167,7 +167,9 @@ async def run_suite(input_dirs: list[Path], output: Path, prompts: dict[str, str
                                 raise ValueError("provider usage missing; stop future paid calls")
                             if response.finish_reason != "stop":
                                 raise ValueError("provider finish reason is not stop: " + str(response.finish_reason))
-                        result = validate_output(raw_response, bundle, plan["method"])
+                        result = validate_output(raw_response, bundle, plan["method"],
+                                                 output_contract=request.output_contract
+                                                 if policy.execution_kind == "real_model" else "auto")
                         write_json(job_dir / "result.json", result.model_dump())
                         job["result_ref"] = "result.json"
                         attempt["status"] = "succeeded"
