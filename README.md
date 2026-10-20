@@ -26,6 +26,7 @@
 10. [M2b 离线验收](docs/m2b-offline-review.md)：DeepSeek 接口、预算边界、预检记录、密钥设置与待运行项。
 11. [M2b 首次真实接通](docs/m2b-real-review.md)：六任务实际状态、成本估算、共同校验失败及后续边界。
 12. [M2b 引文契约验收](docs/m2b-quote-contract-review.md)：离线修订、来源边界、验证结果和后续条件。
+13. [研究方向与接下来的两步](docs/research-direction-2026-10-20.md)：近期论文/开源项目对照、创新边界、技术栈与短期验收。
 
 协作约定见 [AGENTS.md](AGENTS.md)。这些设计文档含参考答案，不能直接作为被测方法的输入。
 
