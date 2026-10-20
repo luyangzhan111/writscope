@@ -10,9 +10,10 @@
 uv --cache-dir .work/uv-cache sync --locked --python 3.12
 .\.venv\Scripts\python.exe -m pytest -q -p no:cacheprovider --basetemp .work/pytest-local-new
 .\.venv\Scripts\python.exe -m writscope.m2 run
+.\.venv\Scripts\python.exe -m writscope.m2b preflight
 ```
 
-Linux/macOS 将解释器路径换成 `.venv/bin/python`；pytest 的 `--basetemp` 每次用新的工作区内路径。M1 可用 `.venv` 解释器运行 `-m writscope.m1`。M2a 第二步评分命令见 [README](README.md)，必须在运行完成之后执行。无需模型凭据。CI 配置是无密钥测试，远程运行状态以实际工作流为准。
+Linux/macOS 将解释器路径换成 `.venv/bin/python`；pytest 的 `--basetemp` 每次用新的工作区内路径。M1 可用 `.venv` 解释器运行 `-m writscope.m1`。M2a 第二步评分命令见 [README](README.md)，必须在运行完成之后执行。上述 M2b 命令只做无密钥预检，不调用模型；真实接通步骤与边界见 [M2b 离线验收](docs/m2b-offline-review.md)。CI 配置是无密钥测试，远程运行状态以实际工作流为准。
 
 ## 添加案例或方法
 

@@ -9,8 +9,8 @@ from .events import JudgmentLabels
 
 def read_run(run_dir: Path) -> dict:
     run = parse_json(safe_path(run_dir, "run.json").read_text(encoding="utf-8"))
-    if run.get("status") != "completed" or run.get("execution_kind") != "offline_mock":
-        raise ValueError("only completed offline mock runs can be scored in M2a")
+    if run.get("status") != "completed" or run.get("execution_kind") not in {"offline_mock", "real_model"}:
+        raise ValueError("only completed M2 runs can be scored")
     artifacts = run.get("artifacts")
     if not isinstance(artifacts, dict) or not artifacts:
         raise ValueError("missing run artifact manifest")
@@ -34,6 +34,21 @@ def _synthetic_cost(attempts: list[dict]) -> dict:
         fields[field] = {"known_subtotal": sum(known), "unknown_attempts": len(values) - len(known),
                          "complete_total": sum(known) if len(values) == len(known) else None}
     return {"actual_model_calls": 0, "provider_attempts": len(attempts), "synthetic_test_usage": fields,
+            "provider_elapsed_ms": round(sum(attempt["elapsed_ms"] for attempt in attempts), 3)}
+
+
+def _real_cost(attempts: list[dict]) -> dict:
+    from decimal import Decimal
+
+    fields = {}
+    for field in ("input_tokens", "output_tokens", "cache_hit_input_tokens", "cache_miss_input_tokens",
+                  "reasoning_tokens", "estimated_cost_cny", "billed_cost_cny"):
+        values = [(attempt.get("actual_usage") or {}).get(field) for attempt in attempts]
+        known = [Decimal(str(value)) for value in values if value is not None]
+        subtotal = sum(known, Decimal("0"))
+        fields[field] = {"known_subtotal": str(subtotal), "unknown_attempts": len(values) - len(known),
+                         "complete_total": str(subtotal) if len(known) == len(values) else None}
+    return {"provider_attempts": len(attempts), "provider_reported_usage_and_estimates": fields,
             "provider_elapsed_ms": round(sum(attempt["elapsed_ms"] for attempt in attempts), 3)}
 
 
@@ -97,7 +112,7 @@ def score_run(run_dir: Path, labels_path: Path, output: Path) -> dict:
         false_allow_denominator = sum(row["expected"]["impact"] == "breaking" and row["expected"]["authorization"] == "not_covered" for row in subset)
         false_allow = sum(row["expected"]["impact"] == "breaking" and row["expected"]["authorization"] == "not_covered" and row["observed"] is not None and row["observed"]["decision"] == "allow" for row in subset)
         false_block_denominator = sum(row["expected"]["decision"] == "allow" for row in subset)
-        false_block = sum(row["expected"]["decision"] == "allow" and row["observed"] is not None and row["observed"]["decision"] in {"revise", "ask"} for row in subset)
+        false_block = sum(row["expected"]["decision"] == "allow" and row["observed"] is not None and row["observed"]["decision"] in {"revise", "ask", "investigate"} for row in subset)
         pairs = sorted({pair for row in subset for pair in row["pair_ids"]})
         pair_rows = {pair: [row for row in subset if pair in row["pair_ids"]] for pair in pairs}
         pair_correct = sum(len(items) == 2 and all(all(row["correct"].values()) for row in items) for items in pair_rows.values())
@@ -110,16 +125,17 @@ def score_run(run_dir: Path, labels_path: Path, output: Path) -> dict:
             "false_allow": {"count": false_allow, "denominator": false_allow_denominator, "rate": _ratio(false_allow, false_allow_denominator)},
             "false_block": {"count": false_block, "denominator": false_block_denominator, "rate": _ratio(false_block, false_block_denominator)},
             "diagnostic_pairs": {"correct": pair_correct, "denominator": len(pairs), "rate": _ratio(pair_correct, len(pairs))},
-            "cost": _synthetic_cost(attempts_by_method[method]),
+            "cost": _synthetic_cost(attempts_by_method[method]) if run["execution_kind"] == "offline_mock" else _real_cost(attempts_by_method[method]),
         }
     summary = {
-        "schema_version": "0.1-draft", "execution_kind": "offline_mock",
-        "claim_scope": "pipeline_test_only_not_model_performance",
+        "schema_version": "0.1-draft", "execution_kind": run["execution_kind"],
+        "claim_scope": "pipeline_test_only_not_model_performance" if run["execution_kind"] == "offline_mock" else "six_task_connection_pilot_not_formal_comparison",
         "run_id": run["run_id"], "run_artifact_set_sha256": run["artifact_set_sha256"],
         "reference_sha256": digest(raw_labels), "reference_status": "project_authored_draft",
-        "cost": run["totals"], "methods": methods, "rows": rows,
+        "cost": run["totals"], "budget": run.get("budget"), "methods": methods, "rows": rows,
         "limitations": ["One synthetic scenario with three authorization histories; pairs overlap.",
-                        "Scripted responses are not model judgments; source syntax is not semantic evidence quality."],
+                        "Source syntax is not semantic evidence quality.",
+                        "Offline responses are scripted; real six-task pilot is not a formal method comparison."],
     }
     output.mkdir(parents=True, exist_ok=False)
     write_json(output / "summary.json", summary)

@@ -1,0 +1,73 @@
+{
+  "schema_version": "0.1-draft",
+  "track": "verified_impact",
+  "jobs": 6,
+  "model_id": "deepseek-flash",
+  "cases": {
+    "c001": {
+      "evidence_sha256": "27dad62cf5864f30127c550366ed9745b82ad26081449131b428c6da82e7731a",
+      "input_json_sha256": "357959a27f23bac384049aca3230a940a55e7dfcf935537707a4a31589c30bd4",
+      "prompt_sha256": {
+        "full_direct": "38882bae004e51ff0b1f0e29260b54228b958a19146d5e88514e40cace9e6be3",
+        "full_checklist": "a7b3a1169b9afafd968070e2d16079b44cb14ff8a544d991feb69a6f69b6976f"
+      }
+    },
+    "c002": {
+      "evidence_sha256": "5b228a37d0cbc69553dccf1d669b2abb0b2f1b9efd50bcaa5e3be00def57323c",
+      "input_json_sha256": "a372942885280a885887c811d9b1291247ec5f8b5818d66b75599226577c2dbe",
+      "prompt_sha256": {
+        "full_direct": "38882bae004e51ff0b1f0e29260b54228b958a19146d5e88514e40cace9e6be3",
+        "full_checklist": "a7b3a1169b9afafd968070e2d16079b44cb14ff8a544d991feb69a6f69b6976f"
+      }
+    },
+    "c003": {
+      "evidence_sha256": "38fb863ce6d50d91e99ca2f54c1caca8883e12bf5791c3e3e42a8ccb18ffb891",
+      "input_json_sha256": "a43ba1f432dd042c431d53c68c9b3f4ddd0094b3ad7d118c7f11c1b93f2fdded",
+      "prompt_sha256": {
+        "full_direct": "38882bae004e51ff0b1f0e29260b54228b958a19146d5e88514e40cace9e6be3",
+        "full_checklist": "a7b3a1169b9afafd968070e2d16079b44cb14ff8a544d991feb69a6f69b6976f"
+      }
+    }
+  },
+  "request_sha256": [
+    "2bc6cfbee4562168a98c48f2d3cc0d2b36a343a33b60805a0d0ad5195ba94f41",
+    "903fc30c85ccacece19063d725cd5ab8192ae93b5c3b8bb5a667e6753d47c2d5",
+    "3705c31e5b3c0c0fef0dcff7335fcc8bac5c57b9ab6aa2d302099cff79a2bfb1",
+    "d0b0fc7244f89b95c1ae4454ad83a9ec5b24c0b37ab29d01298e6494498aaae3",
+    "33595d6d6c22495a568c5f60a85b9624f8ad407f0fa07d11ed54f6d57bc22acf",
+    "c4b64e0dcbeb3bdd12bf8d0c8f554c14e2a3ba17ffc4a6fa49d8daaa451b1260"
+  ],
+  "request_set_sha256": "79d7a32371e44843ee424e06c34d2a606f2ba6f5c8e6ab6daffab60823bf4d90",
+  "execution_kind": "preflight_no_model_call",
+  "provider": "deepseek",
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "currency": "CNY",
+  "authorized_max_cny": "20",
+  "peak_price_ceiling": {
+    "input_cny_per_million": "2",
+    "output_cny_per_million": "8",
+    "source_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_at_utc": "2026-10-20T02:30:00Z",
+    "framing_token_allowance": 8192
+  },
+  "request_wire_bytes": [
+    18956,
+    19192,
+    19030,
+    19266,
+    18997,
+    19233
+  ],
+  "per_call_estimated_reservation_cny": [
+    "0.087064",
+    "0.087536",
+    "0.087212",
+    "0.087684",
+    "0.087146",
+    "0.087618"
+  ],
+  "six_call_estimated_reservation_cny": "0.524260",
+  "budget_note": "local conservative estimate, not a provider billing guarantee",
+  "source_tree_sha256": "0d55fb2ad87f9ddbfc5e4dbff5300fd0a94d48fbc6206fbf612128b035689c3d",
+  "environment_lock_sha256": "d4959a6b13e98f045a7bcf8b0ad597cb96fa3e6fc6dd9910dd81b75ccffb94bc"
+}

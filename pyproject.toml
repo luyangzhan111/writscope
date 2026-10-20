@@ -13,6 +13,7 @@ dependencies = [
 [project.scripts]
 writscope-m1 = "writscope.m1:main"
 writscope-m2 = "writscope.m2:main"
+writscope-m2b = "writscope.m2b:main"
 
 [build-system]
 requires = ["hatchling>=1.26"]
