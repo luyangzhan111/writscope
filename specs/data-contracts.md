@@ -1,6 +1,6 @@
 # 数据契约
 
-版本：`0.1-draft`；更新：2026-10-20。**本文件是全阶段规格；M1 实现事件、时点和输入导出，M2a 实现 A 轨公开输入、ReviewResult 与离线调用/评分记录子集，M2b 首次真实六任务已调用，但输出均被来源引文位置校验拒绝。增量状态、提供商实付账单和 B 轨仍待后续阶段。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
+版本：`0.1-draft`；更新：2026-10-20。**本文件是全阶段规格；M1 实现事件、时点和输入导出，M2a 实现 A 轨公开输入、ReviewResult 与离线调用/评分记录子集。M2b 首次旧契约真实六任务均因引文位置无效；新版 `source_quote_v1` 的独立六任务真实运行得到 5/6 有效输出。增量状态、提供商实付账单和 B 轨仍待后续阶段。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
 
 ## 1. 编码、身份与可见性
 
@@ -144,7 +144,7 @@ unknown 时仅在无法识别待授权影响时使用 not_needed，并在 limita
 
 ## 10. 最小契约验收与当前实现
 
-M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足当时严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。后续 `source_quote_v1` 的离线修订见 [引文契约验收](../docs/m2b-quote-contract-review.md)，尚未付费重跑。现有 manifest 是上述完整 RunManifest 的实现子集：共同配置、prompt/evidence hash 在 request，代码/锁文件哈希在 provenance，逐次耗时、用量来源及成本估计在 attempt。提供商账单费用仍未知，模型实际修订版须以运行时响应为准；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
+M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足当时严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。`source_quote_v1` 的离线修订见 [引文契约验收](../docs/m2b-quote-contract-review.md)；新版真实六任务得到 5/6 有效输出，另一个因缺少必填字段无效，见 [新版真实验证](../docs/m2b-quote-real-review.md)。现有 manifest 是上述完整 RunManifest 的实现子集：共同配置、prompt/evidence hash 在 request，代码/锁文件哈希在 provenance，逐次耗时、用量来源及成本估计在 attempt。提供商账单费用仍未知；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
 
 M1 的实际文件格式：
 
