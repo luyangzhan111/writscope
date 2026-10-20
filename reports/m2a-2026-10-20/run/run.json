@@ -1,0 +1,148 @@
+{
+  "schema_version": "0.1-draft",
+  "run_id": "m2a-1c636d8c30dc",
+  "execution_kind": "offline_mock",
+  "status": "completed",
+  "started_at": "2026-10-20T02:19:47.131256+00:00",
+  "policy": {
+    "execution_kind": "offline_mock",
+    "timeout_seconds": 5.0,
+    "max_attempts_per_job": 2,
+    "max_total_attempts": 12,
+    "max_request_bytes": 1000000,
+    "max_response_bytes": 100000
+  },
+  "model": {
+    "model_id": "scripted-mock-v1",
+    "temperature": 0.0,
+    "max_output_tokens": 4096
+  },
+  "jobs": [
+    {
+      "job_id": "job_000",
+      "input_index": 0,
+      "case_id_hint": "c001",
+      "method": "full_direct",
+      "repeat_index": 0
+    },
+    {
+      "job_id": "job_001",
+      "input_index": 0,
+      "case_id_hint": "c001",
+      "method": "full_checklist",
+      "repeat_index": 0
+    },
+    {
+      "job_id": "job_002",
+      "input_index": 1,
+      "case_id_hint": "c002",
+      "method": "full_direct",
+      "repeat_index": 0
+    },
+    {
+      "job_id": "job_003",
+      "input_index": 1,
+      "case_id_hint": "c002",
+      "method": "full_checklist",
+      "repeat_index": 0
+    },
+    {
+      "job_id": "job_004",
+      "input_index": 2,
+      "case_id_hint": "c003",
+      "method": "full_direct",
+      "repeat_index": 0
+    },
+    {
+      "job_id": "job_005",
+      "input_index": 2,
+      "case_id_hint": "c003",
+      "method": "full_checklist",
+      "repeat_index": 0
+    }
+  ],
+  "provenance": {
+    "input_bundle_sha256": {
+      "c001": "357959a27f23bac384049aca3230a940a55e7dfcf935537707a4a31589c30bd4",
+      "c002": "a372942885280a885887c811d9b1291247ec5f8b5818d66b75599226577c2dbe",
+      "c003": "a43ba1f432dd042c431d53c68c9b3f4ddd0094b3ad7d118c7f11c1b93f2fdded"
+    },
+    "script_sha256": {
+      "full_direct": "c61c12ce53416d45fff069c54dd95f5ada676da4ae9353b4fdba30b6bf183c27",
+      "full_checklist": "f7ae002f4b935ad36bc52e205225fc2b27fd43928124b824389841591f5d1d8d"
+    },
+    "script_response_sha256": {
+      "full_direct": [
+        "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7",
+        "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7",
+        "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7"
+      ],
+      "full_checklist": [
+        "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff",
+        "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff",
+        "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff"
+      ]
+    },
+    "source_tree_sha256": "642fb06041584f8474d59230f5fa1169f0552ebe431bad06b8cdf0648e4c2289",
+    "environment_lock_sha256": "d4959a6b13e98f045a7bcf8b0ad597cb96fa3e6fc6dd9910dd81b75ccffb94bc"
+  },
+  "artifacts": {
+    "job_000/attempt_01.json": "0ec5928d40f5e740934bbb0cf89b60088a408a629e29ba1cb9bd96abc1cf0a56",
+    "job_000/job.json": "14b8594438d7e3dababaddc93872f4bb66372aa1bb901c7bfdfae629b19d2e29",
+    "job_000/request.json": "955ccb1c728e7b33a40ca5511b65a79652a320e1ce0cd0712c235b7a432ac748",
+    "job_000/response_01.txt": "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7",
+    "job_000/result.json": "d90bc7666c7ce766de92531f3bd46cc5ad75f27c2833e643fd1377f98a8fa6b3",
+    "job_001/attempt_01.json": "5de50b5a57fd52144dfb41a547f522a1f9e5178cfea876394e639b7dfb765061",
+    "job_001/job.json": "81ca767df55a51bad7c5bf643aba046fc5bcc009aa21b301cc98fe72a2c4c8c0",
+    "job_001/request.json": "fac3693a7c854376870a3147f341a742dc6438cc24bf29c2b89900a418a44a06",
+    "job_001/response_01.txt": "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff",
+    "job_001/result.json": "4b16357876909e990e73827fb8194f58910c8c77cbfd8fa48aa39420f845de23",
+    "job_002/attempt_01.json": "cbfd6f85f7756bb91e4975e212e982a302a7bd8bf03c0cb783388dbaa4db7f99",
+    "job_002/job.json": "c827261d9fbcc960078bd5403d9b06a17be8f7f475a3d0efe5dd7134fbf388ad",
+    "job_002/request.json": "bce1170515f32d4c58405cddb375612d3dd4f59ca50dc3236cfe75698a0fa0d5",
+    "job_002/response_01.txt": "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7",
+    "job_002/result.json": "e45ecba885fbd1a2823b90c8726bd2c20c22051030f893e2c57ccf522ac52bf4",
+    "job_003/attempt_01.json": "1d09ee1ee67b0d01977f18e66a1533fd0eaf45310fb5abd60d4cbb791ea003b5",
+    "job_003/job.json": "8131f2d28b2bff8e96c80cf9d6014e375270af42f1a8e69e4635fe503e6f9122",
+    "job_003/request.json": "305f848f94e9b0c1c045e0c93062eb4f53dcb40a3cf45c4ab1691e587c6d2348",
+    "job_003/response_01.txt": "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff",
+    "job_003/result.json": "7ffbced3d838d046d4929d26be6a5749204ee90a444b99eb0a93d3ff6a8beffe",
+    "job_004/attempt_01.json": "8f70362f2f1933d3095d51e034c24a31cb24b8c3d28218d3d2aadeb271a8bd39",
+    "job_004/job.json": "5dbfa10e2029b451393409badf45f302f4ca797ed48bf3eec6c69941078e25ee",
+    "job_004/request.json": "902b55e600d86e97e24d365a10eb60481103e7a137913466d76c0e9f62bd42cd",
+    "job_004/response_01.txt": "bd1c77551b8c616444d0e905f2b1e3c42ce18379b9f58f685a404162394ba7e7",
+    "job_004/result.json": "4a18f41438819d10e12809a7241b47ff3e5d49d7f4d0329d2af46546eae64cb6",
+    "job_005/attempt_01.json": "ae9227f736ac0e1607ebf907e02e179270c0ba345de2b6da932337a5d8284aca",
+    "job_005/job.json": "b9f0b42a82bc33ff0e803486ae9fbd0d1ac60bc6b5a06fe3c6467b5cc39811a5",
+    "job_005/request.json": "a4cd033f6b5570a8352aaf3e5fe2308d0948cc3f09104d81330f0fa4cf18b7c2",
+    "job_005/response_01.txt": "5875d3e52393a765b598e9f4ffda2dec4f7c3b4a0e6bc331abb560b3219cb4ff",
+    "job_005/result.json": "f7fd08bdc3bc8876059316a7811f50e6f233c6aa722f72fb645684ddc1ea33a3"
+  },
+  "ended_at": "2026-10-20T02:19:47.761551+00:00",
+  "elapsed_ms": 627.323,
+  "totals": {
+    "actual_model_calls": 0,
+    "actual_model_tokens": 0,
+    "actual_model_cost_usd": 0,
+    "synthetic_test_usage": {
+      "input_tokens": {
+        "known_subtotal": 440,
+        "unknown_attempts": 2,
+        "complete_total": null
+      },
+      "output_tokens": {
+        "known_subtotal": 230,
+        "unknown_attempts": 2,
+        "complete_total": null
+      },
+      "cost_usd": {
+        "known_subtotal": 0,
+        "unknown_attempts": 6,
+        "complete_total": null
+      }
+    },
+    "provider_attempts": 6,
+    "provider_elapsed_ms": 31.271
+  },
+  "artifact_set_sha256": "826831209989d54955f9a0045bf56900c1ea3af41f7e0c869a6ab4a009cfe059"
+}

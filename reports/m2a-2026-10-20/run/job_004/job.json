@@ -1,0 +1,20 @@
+{
+  "job_id": "job_004",
+  "input_index": 2,
+  "case_id_hint": "c003",
+  "method": "full_direct",
+  "repeat_index": 0,
+  "execution_kind": "offline_mock",
+  "case_id": "c003",
+  "status": "succeeded",
+  "started_at": "2026-10-20T02:19:47.552896+00:00",
+  "attempt_refs": [
+    "attempt_01.json"
+  ],
+  "result_ref": "result.json",
+  "request_ref": "request.json",
+  "error": null,
+  "evidence_sha256": "38fb863ce6d50d91e99ca2f54c1caca8883e12bf5791c3e3e42a8ccb18ffb891",
+  "ended_at": "2026-10-20T02:19:47.626417+00:00",
+  "elapsed_ms": 74.276
+}

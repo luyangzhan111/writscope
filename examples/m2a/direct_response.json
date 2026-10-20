@@ -1,0 +1,15 @@
+{
+  "impact": "breaking",
+  "authorization": "not_covered",
+  "decision": "revise",
+  "affected_subjects": [{"protocol": "http", "method": "GET", "path": "/api/v1/profile", "api_version": "v1", "location": "response.body", "field": "status"}],
+  "per_impact_authorization": [{"impact_id": "impact_001", "verdict": "not_covered", "constraint_refs": ["constraint_1"], "authorization_refs": [], "source_refs": [{"event_id": "e001", "quote": "v1 status", "start": 23, "end": 32}], "reason": "The old field is required and no permission was identified."}],
+  "constraint_refs": ["constraint_1"],
+  "authorization_refs": [],
+  "source_refs": [{"event_id": "e001", "quote": "v1 status", "start": 23, "end": 32}],
+  "evidence_refs": ["impact_001"],
+  "reason": "The verified impact removes the old v1 field; the static script always says it is not covered.",
+  "limitations": ["Static test response. It deliberately ignores later authorization."],
+  "derived_items": [{"item_id": "constraint_1", "kind": "constraint", "subjects": [{"protocol": "http", "method": "GET", "path": "/api/v1/profile", "api_version": "v1", "location": "response.body", "field": "status"}], "predicate": "Keep the v1 status field compatible.", "change_types": ["replace_field"], "conditions": [], "lifecycle": "active", "interpretation": "resolved", "source_refs": [{"event_id": "e001", "quote": "v1 status", "start": 23, "end": 32}]}],
+  "checklist": null
+}

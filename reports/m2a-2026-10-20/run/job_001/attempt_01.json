@@ -1,0 +1,18 @@
+{
+  "attempt": 1,
+  "stage": "review",
+  "started_at": "2026-10-20T02:19:47.294409+00:00",
+  "request_sha256": "fac3693a7c854376870a3147f341a742dc6438cc24bf29c2b89900a418a44a06",
+  "execution_kind": "offline_mock",
+  "usage_source": "synthetic_script",
+  "synthetic_usage": {
+    "input_tokens": 120,
+    "output_tokens": 65,
+    "cost_usd": null
+  },
+  "response_ref": "response_01.txt",
+  "error": null,
+  "status": "succeeded",
+  "ended_at": "2026-10-20T02:19:47.310914+00:00",
+  "elapsed_ms": 4.405
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1-draft",
+  "execution_kind": "offline_mock",
+  "description": "Three identical static checklist responses; intentionally wrong on c002.",
+  "steps": [
+    {"action": "response", "response_ref": "checklist_response.json", "synthetic_usage": {"input_tokens": 120, "output_tokens": 65, "cost_usd": null}},
+    {"action": "response", "response_ref": "checklist_response.json", "synthetic_usage": null},
+    {"action": "response", "response_ref": "checklist_response.json", "synthetic_usage": {"input_tokens": 120, "output_tokens": 65, "cost_usd": null}}
+  ]
+}

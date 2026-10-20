@@ -1,10 +1,10 @@
 # 数据契约
 
-版本：`0.1-draft`；日期：2026-10-18。**本文件是全阶段规格；M1 仅实现事件、时点、原文引用、标签组合校验及输入包导出。完整状态、ReviewResult 和模型运行记录仍待 S2/S3。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
+版本：`0.1-draft`；更新：2026-10-20。**本文件是全阶段规格；M1 实现事件、时点和输入导出，M2a 实现 A 轨公开输入、ReviewResult 与离线调用/评分记录子集。增量状态、真实模型账单字段和 B 轨仍待 S3/M2b。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
 
 ## 1. 编码、身份与可见性
 
-- UTF-8；原始事件和运行调用记录采用 JSONL，一行一个对象；状态及最终结果采用 JSON。
+- UTF-8；原始事件采用 JSONL，一行一个对象。M2a 的单次 attempt、job、run 和结果采用独立 JSON 文件并在 manifest 中列出哈希；S3 的追加式转换日志仍按 JSONL 规划。状态及最终结果采用 JSON。
 - 全部顶层记录包含 `schema_version`；未知版本拒绝解析，不静默迁移。实现采用 Pydantic，输入多余字段默认报错。
 - ID 为非空、中性字符串，不包含答案提示。`case_id` 对方法可见；配对、家族、split 与标签映射由评测器保存。
 - `seq` 是从 1 开始的连续整数，是顺序和截断的唯一依据；时间戳只能作辅助信息。事件 ID 在一条轨迹内唯一。
@@ -142,7 +142,7 @@ unknown 时仅在无法识别待授权影响时使用 not_needed，并在 limita
 
 ## 10. 最小契约验收与当前实现
 
-M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。S2 仍需完整输入/输出 Schema 与模型调用/错误/成本记录；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
+M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。当前 manifest 是上述完整 RunManifest 的离线子集：共同配置、prompt/evidence hash 在 request，代码/锁文件及脚本 hash 在 provenance，逐次耗时/合成用量在 attempt。真实 provider 修订版/账单/缓存/并发仍未实现；S3 仍需局部例外、语义范围匹配、撤销/重授权和状态回放。
 
 M1 的实际文件格式：
 

@@ -2,7 +2,7 @@
 
 研究编码任务中的兼容性约束与用户授权状态维护：结合历史要求、候选补丁和影响证据，判断变更是否处于有效授权范围内，并提供可追溯依据。
 
-**当前阶段：准备材料已验收，M1 首例与验证基础设施已实现。** 可以独立复现原始代码、破坏补丁和兼容修复的 HTTP/页面结果。尚无授权检查器、模型实验或方法性能结论；授权答案仍是参考标签。
+**当前阶段：M1 已验证，M2a 无密钥离线流程已实现。** 可以独立复现原始代码、破坏补丁和兼容修复的 HTTP/页面结果，并让两种完整上下文基线走过相同输入、脚本化响应、结构校验和独立评分。尚无真实模型实验或方法性能结论；授权答案仍是项目编制的参考标签。
 
 ## 第一版边界
 
@@ -22,6 +22,7 @@
 6. [决策记录](docs/decisions.md)：已确定事项、工程选择与待决事项。
 7. [准备阶段审核](docs/preparation-review.md)：环境检查、产物、缺口和进入条件。
 8. [M1 验收与运行说明](docs/m1-review.md)：准备复核、实际观测、复现步骤和剩余边界。
+9. [M2a 验收](docs/m2a-review.md)：两基线、离线流程、失败/成本记录与实际验证。
 
 协作约定见 [AGENTS.md](AGENTS.md)。这些设计文档含参考答案，不能直接作为被测方法的输入。
 
@@ -39,4 +40,13 @@ Linux/macOS 使用 `.venv/bin/python` 替代 Windows 解释器路径；当前只
 
 实测报告见 [M1 执行记录](reports/m1-2026-10-18/report.md)，运行细节与权限问题说明见 [M1 验收](docs/m1-review.md)。依赖由 [uv.lock](uv.lock) 锁定；固定样例和输入哈希由 [manifest.json](fixtures/case_001/manifest.json) 约束。
 
-后续为两种完整上下文基线 → 增量授权状态组件 → 首轮 30 实例开发评测。真实调用前仍须确定模型、凭据和预算。项目仅为本地仓库，未发布 GitHub；许可证及包名发布可用性待定。
+## 运行 M2a（无需密钥）
+
+```powershell
+.\.venv\Scripts\python.exe -m writscope.m2 run --output reports/local/m2a-demo-run
+.\.venv\Scripts\python.exe -m writscope.m2 score --run reports/local/m2a-demo-run --labels evaluation_private/case_001/labels.json --output reports/local/m2a-demo-score
+```
+
+两步分开运行：第一步只读公开输入和固定脚本，第二步才读参考标签。示例的两个输出目录必须事先不存在；再次运行请换新名称。省略 `--output` 会自动创建新的 `reports/local/m2a-*` 目录。默认脚本对三例给出同一判断，故意错判 c002，只用于验收管线。精选实际记录在 [M2a 报告](reports/m2a-2026-10-20/score/summary.md)，方法提示词在 [prompts](prompts)，脚本在 [examples/m2a](examples/m2a)。贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+后续为真实接口接通（M2b，待模型/凭据/预算和调用授权）→ 增量授权状态组件 → 首轮 30 实例开发评测。项目仅为本地仓库，未发布 GitHub；许可证及包名发布可用性待定。

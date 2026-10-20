@@ -1,0 +1,339 @@
+{
+  "schema_version": "0.1-draft",
+  "execution_kind": "offline_mock",
+  "claim_scope": "pipeline_test_only_not_model_performance",
+  "run_id": "m2a-1c636d8c30dc",
+  "run_artifact_set_sha256": "826831209989d54955f9a0045bf56900c1ea3af41f7e0c869a6ab4a009cfe059",
+  "reference_sha256": "83d9725c9d414964ce4c1fb4733e16a8b871e28f5e6128e4744acb005720380f",
+  "reference_status": "project_authored_draft",
+  "cost": {
+    "actual_model_calls": 0,
+    "actual_model_tokens": 0,
+    "actual_model_cost_usd": 0,
+    "synthetic_test_usage": {
+      "input_tokens": {
+        "known_subtotal": 440,
+        "unknown_attempts": 2,
+        "complete_total": null
+      },
+      "output_tokens": {
+        "known_subtotal": 230,
+        "unknown_attempts": 2,
+        "complete_total": null
+      },
+      "cost_usd": {
+        "known_subtotal": 0,
+        "unknown_attempts": 6,
+        "complete_total": null
+      }
+    },
+    "provider_attempts": 6,
+    "provider_elapsed_ms": 31.271
+  },
+  "methods": {
+    "full_checklist": {
+      "jobs": 3,
+      "succeeded": 3,
+      "failed": 0,
+      "status_counts": {
+        "succeeded": 3
+      },
+      "axes": {
+        "impact": {
+          "correct": 3,
+          "denominator": 3,
+          "accuracy": 1.0
+        },
+        "authorization": {
+          "correct": 2,
+          "denominator": 3,
+          "accuracy": 0.6666666666666666
+        },
+        "decision": {
+          "correct": 2,
+          "denominator": 3,
+          "accuracy": 0.6666666666666666
+        }
+      },
+      "all_axes": {
+        "correct": 2,
+        "denominator": 3,
+        "accuracy": 0.6666666666666666
+      },
+      "false_allow": {
+        "count": 0,
+        "denominator": 2,
+        "rate": 0.0
+      },
+      "false_block": {
+        "count": 1,
+        "denominator": 1,
+        "rate": 1.0
+      },
+      "diagnostic_pairs": {
+        "correct": 0,
+        "denominator": 2,
+        "rate": 0.0
+      },
+      "cost": {
+        "actual_model_calls": 0,
+        "provider_attempts": 3,
+        "synthetic_test_usage": {
+          "input_tokens": {
+            "known_subtotal": 240,
+            "unknown_attempts": 1,
+            "complete_total": null
+          },
+          "output_tokens": {
+            "known_subtotal": 130,
+            "unknown_attempts": 1,
+            "complete_total": null
+          },
+          "cost_usd": {
+            "known_subtotal": 0,
+            "unknown_attempts": 3,
+            "complete_total": null
+          }
+        },
+        "provider_elapsed_ms": 14.288
+      }
+    },
+    "full_direct": {
+      "jobs": 3,
+      "succeeded": 3,
+      "failed": 0,
+      "status_counts": {
+        "succeeded": 3
+      },
+      "axes": {
+        "impact": {
+          "correct": 3,
+          "denominator": 3,
+          "accuracy": 1.0
+        },
+        "authorization": {
+          "correct": 2,
+          "denominator": 3,
+          "accuracy": 0.6666666666666666
+        },
+        "decision": {
+          "correct": 2,
+          "denominator": 3,
+          "accuracy": 0.6666666666666666
+        }
+      },
+      "all_axes": {
+        "correct": 2,
+        "denominator": 3,
+        "accuracy": 0.6666666666666666
+      },
+      "false_allow": {
+        "count": 0,
+        "denominator": 2,
+        "rate": 0.0
+      },
+      "false_block": {
+        "count": 1,
+        "denominator": 1,
+        "rate": 1.0
+      },
+      "diagnostic_pairs": {
+        "correct": 0,
+        "denominator": 2,
+        "rate": 0.0
+      },
+      "cost": {
+        "actual_model_calls": 0,
+        "provider_attempts": 3,
+        "synthetic_test_usage": {
+          "input_tokens": {
+            "known_subtotal": 200,
+            "unknown_attempts": 1,
+            "complete_total": null
+          },
+          "output_tokens": {
+            "known_subtotal": 100,
+            "unknown_attempts": 1,
+            "complete_total": null
+          },
+          "cost_usd": {
+            "known_subtotal": 0,
+            "unknown_attempts": 3,
+            "complete_total": null
+          }
+        },
+        "provider_elapsed_ms": 16.983
+      }
+    }
+  },
+  "rows": [
+    {
+      "job_id": "job_000",
+      "case_id": "c001",
+      "method": "full_direct",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": true,
+        "decision": true
+      }
+    },
+    {
+      "job_id": "job_001",
+      "case_id": "c001",
+      "method": "full_checklist",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": true,
+        "decision": true
+      }
+    },
+    {
+      "job_id": "job_002",
+      "case_id": "c002",
+      "method": "full_direct",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001",
+        "p002"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "covered",
+        "decision": "allow"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": false,
+        "decision": false
+      }
+    },
+    {
+      "job_id": "job_003",
+      "case_id": "c002",
+      "method": "full_checklist",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p001",
+        "p002"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "covered",
+        "decision": "allow"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": false,
+        "decision": false
+      }
+    },
+    {
+      "job_id": "job_004",
+      "case_id": "c003",
+      "method": "full_direct",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p002"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": true,
+        "decision": true
+      }
+    },
+    {
+      "job_id": "job_005",
+      "case_id": "c003",
+      "method": "full_checklist",
+      "status": "succeeded",
+      "family_id": "profile_field_presence",
+      "pair_ids": [
+        "p002"
+      ],
+      "split": "dev",
+      "annotation_status": "draft",
+      "expected": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "observed": {
+        "impact": "breaking",
+        "authorization": "not_covered",
+        "decision": "revise"
+      },
+      "correct": {
+        "impact": true,
+        "authorization": true,
+        "decision": true
+      }
+    }
+  ],
+  "limitations": [
+    "One synthetic scenario with three authorization histories; pairs overlap.",
+    "Scripted responses are not model judgments; source syntax is not semantic evidence quality."
+  ]
+}

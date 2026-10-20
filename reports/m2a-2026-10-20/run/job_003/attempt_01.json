@@ -1,0 +1,14 @@
+{
+  "attempt": 1,
+  "stage": "review",
+  "started_at": "2026-10-20T02:19:47.501195+00:00",
+  "request_sha256": "305f848f94e9b0c1c045e0c93062eb4f53dcb40a3cf45c4ab1691e587c6d2348",
+  "execution_kind": "offline_mock",
+  "usage_source": "synthetic_script",
+  "synthetic_usage": null,
+  "response_ref": "response_01.txt",
+  "error": null,
+  "status": "succeeded",
+  "ended_at": "2026-10-20T02:19:47.518245+00:00",
+  "elapsed_ms": 5.237
+}
