@@ -2,7 +2,7 @@
 
 研究编码任务中的兼容性约束与用户授权状态维护：结合历史要求、候选补丁和影响证据，判断变更是否处于有效授权范围内，并提供可追溯依据。
 
-**当前阶段：M1、M2a 已验证；M2b 新版 `source_quote_v1` 已完成六任务真实开发运行，5/6 输出有效。** 首次旧引文位置契约运行的六个无效输出原样保留；新版唯一无效输出缺少必填字段。有效输出与项目草稿标签的符合情况仅是首例开发观察，尚无方法优劣、成本优势或泛化结论。下一小步为 M3a 离线增量状态内核。
+**当前阶段：M1、M2a 已验证；M2b 新版 `source_quote_v1` 六任务真实开发运行得到 5/6 有效输出；M3a 最小增量状态内核已离线实现并验证。** 首次旧引文位置契约的六个无效输出原样保留。M3a 使用手工结构化提案测试状态机制，尚无模型逐事件提取或增量方法成绩；没有方法优劣、成本优势或泛化结论。
 
 ## 第一版边界
 
@@ -28,6 +28,7 @@
 12. [M2b 引文契约验收](docs/m2b-quote-contract-review.md)：离线修订、来源边界、验证结果和后续条件。
 13. [M2b 新版真实验证](docs/m2b-quote-real-review.md)：六任务新运行、有效输出、失败类型与费用边界。
 14. [研究方向与接下来的两步](docs/research-direction-2026-10-20.md)：近期论文/开源项目对照、创新边界、技术栈与短期验收。
+15. [M3a 离线状态内核验收](docs/m3a-review.md)：追加转换、局部例外、撤销重授、范围匹配及回放记录。
 
 协作约定见 [AGENTS.md](AGENTS.md)。这些设计文档含参考答案，不能直接作为被测方法的输入。
 
@@ -62,4 +63,13 @@ Linux/macOS 使用 `.venv/bin/python` 替代 Windows 解释器路径；当前只
 
 输出目录须事先不存在；如需重复运行请换名称。预检核对两方法 × 三历史的全部公开输入、相同证据、请求哈希、源码/锁文件哈希与本地预算预留。精选预检见 [preflight.json](reports/m2b-2026-10-20/preflight.json)。首次真实运行已完成，但 **6/6 输出未通过引文位置校验**；单次试跑固定最多六次请求，预算上限 20 元，费用预留只是本地估算，不是提供商账单硬上限。
 
-首次 M2b 实际接通与独立评分已执行；原始引文位置失败见 [真实接通记录](docs/m2b-real-review.md)。新版 `source_quote_v1` 让模型提交唯一原文、由运行器派生位置；[新一次真实开发运行](docs/m2b-quote-real-review.md)得到 5/6 有效输出，独立保存，不改写首次负结果。随后为增量授权状态组件与首轮 30 实例开发评测。项目仅为本地仓库，未发布 GitHub；许可证及包名发布可用性待定。
+首次 M2b 实际接通与独立评分已执行；原始引文位置失败见 [真实接通记录](docs/m2b-real-review.md)。新版 `source_quote_v1` 让模型提交唯一原文、由运行器派生位置；[新一次真实开发运行](docs/m2b-quote-real-review.md)得到 5/6 有效输出，独立保存，不改写首次负结果。M3a 的离线内核已落地；模型提取集成与首轮 30 实例开发评测仍待后续决策。项目仅为本地仓库，未发布 GitHub；许可证及包名发布可用性待定。
+
+## 运行 M3a（无模型调用）
+
+```powershell
+.\.venv\Scripts\python.exe -m writscope.m3a run --bundle reports/m1-2026-10-18/inputs/verified_impact/c002 --proposals evaluation_private/case_001/m3a_manual_proposals/c002.jsonl --output reports/local/m3a-demo-c002
+.\.venv\Scripts\python.exe -m writscope.m3a verify --bundle reports/m1-2026-10-18/inputs/verified_impact/c002 --run reports/local/m3a-demo-c002
+```
+
+示例输出目录必须事先不存在。私有目录中的提案是**人工诊断输入**，仅用于验证状态内核；不会发送给两种完整上下文方法，也不能当作增量方法预测。实际三历史运行与边界见 [M3a 验收](docs/m3a-review.md)。
