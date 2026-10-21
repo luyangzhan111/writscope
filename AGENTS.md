@@ -4,7 +4,7 @@
 
 - 以 [docs/project-brief.md](docs/project-brief.md) 为初始需求依据，不依赖其他聊天。用户最新明确指令优先；变更需求时同步记录理由与受影响规格，不静默改写交接书。
 - 开工先读 [实现计划](docs/implementation-plan.md)、[数据契约](specs/data-contracts.md)、[评测协议](docs/evaluation-protocol.md) 与 [决策记录](docs/decisions.md)；首例遵守 [首例设计](specs/first-case.md)。
-- 当前用户已授权 M1、M2a、M2b 与 M3a。M2b 的旧契约六项无效输出保留于 [首次真实接通](docs/m2b-real-review.md)；新版真实运行 5/6 有效见 [新版验证](docs/m2b-quote-real-review.md)。M3a 已完成 [离线状态内核验收](docs/m3a-review.md)，人工提案仅为机制诊断，不是模型预测。额外付费运行单独授权与记账；不扩展完整产品或发布远程仓库。
+- 当前用户已授权 M1、M2a、M2b、M3a 与 M3b 的离线接线。M2b 的旧契约六项无效输出保留于 [首次真实接通](docs/m2b-real-review.md)；新版真实运行 5/6 有效见 [新版验证](docs/m2b-quote-real-review.md)。M3a [状态内核](docs/m3a-review.md)与 M3b [离线管线](docs/m3b-review.md)只作机制诊断，人工提案或脚本响应不是模型预测。额外付费运行单独授权与记账；不扩展完整产品或发布远程仓库。
 - 常规可逆工作自主完成；模型、凭据、费用及研究范围的未决事项记录在 decisions.md，不阻塞独立的文档或离线准备工作。
 
 ## 授权与证据

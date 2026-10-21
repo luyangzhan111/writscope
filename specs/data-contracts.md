@@ -1,6 +1,6 @@
 # 数据契约
 
-版本：`0.1-draft`；更新：2026-10-20。**本文件是全阶段规格；M1 实现事件、时点和输入导出，M2a 实现 A 轨公开输入、ReviewResult 与离线调用/评分记录子集。M2b 首次旧契约真实六任务均因引文位置无效；新版 `source_quote_v1` 的独立六任务真实运行得到 5/6 有效输出。M3a 实现增量状态的离线内核子集；模型提取、提供商实付账单和 B 轨仍待后续阶段。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
+版本：`0.1-draft`；更新：2026-10-21。**本文件是全阶段规格；M1 实现事件、时点和输入导出，M2a 实现 A 轨公开输入、ReviewResult 与离线调用/评分记录子集。M2b 首次旧契约真实六任务均因引文位置无效；新版 `source_quote_v1` 的独立六任务真实运行得到 5/6 有效输出。M3a 实现增量状态离线内核，M3b 实现逐事件脚本调用管线；真实模型提取、提供商实付账单和 B 轨仍待后续阶段。** 依据：[交接书 §2–5](../docs/project-brief.md)、[评测协议](../docs/evaluation-protocol.md)。
 
 ## 1. 编码、身份与可见性
 
@@ -92,6 +92,8 @@ M1 的 registry 在 `artifact_manifest.json`：`base` 是 app/client 两个工�
 
 M3a 的局部例外由授权的 `constraint_refs` 生成，宽约束保持 active；撤销后旧例外作为历史保留，但无 active 授权便不生效。完整替代需新旧显式 subject 集合相同，防止较窄范围静默删除宽范围。`candidate_sha256` 条件由实际候选哈希核对，不匹配即不覆盖，即使提案声称满足；其他尚无独立验证器的条件即使提案称已满足，也只得 ambiguous。匹配按已核验影响的 subject、版本、操作、旧/新字段、有效例外逐项判断；**程序不证明自然语言提取语义正确**。`task_context`、一事件多转换和真实提取/回查成本仍留后续 S3，详见 [M3a 验收](../docs/m3a-review.md)。
 
+**M3b 已实现的接线子集：** `ExtractionPayload={operation,source_quote,target_ids,constraint,authorization}` 是提供商唯一需要生成的字段；运行器根据当前可信事件补全 `case_id/source_event_id/source_seq/extractor_config_hash/extraction_call_id` 并交给 M3a。`ModelRequest.method=incremental_extract`、`output_contract=transition_quote_v1`，每步 `public_input` 只含当前及之前的原始事件、同一白名单公开工件和此前状态；共同基础证据哈希与完整上下文基线相同。M3b 当前 CLI 只接受 `ScriptedMock`，每事件一次调用，任一无效响应或拒绝转换即停止，无最终判断；保存每步请求、原文响应、错误和成本字段。真实提取 token/费用未知，不把模拟调用当真实模型调用，详见 [M3b 验收](../docs/m3b-review.md)。
+
 ## 6. ImpactEvidence：实际影响事实
 
 `ImpactEvidence = {evidence_id, mode, snapshot_sha256, patch_sha256, scope, assessment, impacts, observations, limitations, execution_refs}`。
@@ -148,7 +150,7 @@ unknown 时仅在无法识别待授权影响时使用 not_needed，并在 limita
 
 ## 10. 最小契约验收与当前实现
 
-M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足当时严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。`source_quote_v1` 的离线修订见 [引文契约验收](../docs/m2b-quote-contract-review.md)；新版真实六任务得到 5/6 有效输出，另一个因缺少必填字段无效，见 [新版真实验证](../docs/m2b-quote-real-review.md)。M3a 已实现独立的严格提案/状态/转换契约与离线回放、局部例外和逐影响范围匹配，见 [验收](../docs/m3a-review.md)；这些手工提案诊断不进入三方法排名。现有 M2 manifest 是完整 RunManifest 的实现子集；M3a 另存手工诊断的更新/匹配耗时与未知提取费用。提供商账单费用仍未知；完整 S3 还需真实模型提取、方法集成、任务背景和前序总成本核查。
+M1 已验证 ID/序号/截断、文件白名单、哈希绑定、三轴参考标签组合、用户来源和公开输入排除私有材料。M2a 已实现 verified_impact 固定包的 Pydantic 读取、完整内容入参、两个版本化提示词、严格 ReviewResult、脚本化 provider、逐次尝试、离线用量及独立评分报告；具体字段见 `src/writscope/contracts.py`、`runner.py` 与 `evaluation.py`。M2b 已实现 DeepSeek 单后端、六请求预检、本地费用预留、实际用量字段、失败停机及保存后独立评分；首次真实六任务收到响应和用量，但来源引文位置不满足当时严格契约，见 [真实接通记录](../docs/m2b-real-review.md)。`source_quote_v1` 的离线修订见 [引文契约验收](../docs/m2b-quote-contract-review.md)；新版真实六任务得到 5/6 有效输出，另一个因缺少必填字段无效，见 [新版真实验证](../docs/m2b-quote-real-review.md)。M3a 已实现独立的严格提案/状态/转换契约与离线回放、局部例外和逐影响范围匹配，见 [验收](../docs/m3a-review.md)；这些手工提案诊断不进入三方法排名。M3b 将脚本提供商逐事件接入该内核，保留每次请求/响应、错误及离线成本字段，仍不产生可排名的模型成绩。现有 M2 manifest 是完整 RunManifest 的实现子集；提供商账单费用仍未知；完整 S3 还需真实模型提取与正式方法集成、任务背景和前序总成本核查。
 
 M1 的实际文件格式：
 

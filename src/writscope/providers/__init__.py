@@ -1,4 +1,4 @@
-"""Provider contract. M2a only implements a network-free scripted mock."""
+"""Shared provider contract for full-context and incremental requests."""
 
 from decimal import Decimal
 from typing import Literal, Protocol
@@ -17,8 +17,8 @@ class ModelConfig(StrictModel):
 class ModelRequest(StrictModel):
     schema_version: Literal["0.1-draft"] = "0.1-draft"
     # Missing in historical M2a/M2b requests, which required model offsets.
-    output_contract: Literal["source_span_v0", "source_quote_v1"] = "source_span_v0"
-    method: Literal["full_direct", "full_checklist"]
+    output_contract: Literal["source_span_v0", "source_quote_v1", "transition_quote_v1"] = "source_span_v0"
+    method: Literal["full_direct", "full_checklist", "incremental_extract"]
     model_config_values: ModelConfig
     instructions: str
     prompt_sha256: str
