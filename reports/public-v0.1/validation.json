@@ -1,0 +1,80 @@
+{
+  "version": "first_public_release_validation_v1",
+  "checked_on_client_date": "2026-10-27",
+  "branch": "codex/first-public-release",
+  "publication": "local_candidate_only_not_uploaded",
+  "license": "MIT",
+  "new_model_calls": 0,
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.4",
+    "clean_project_environment": true,
+    "locked_offline_install": "passed_from_local_cache",
+    "lock_sha256": "d4959a6b13e98f045a7bcf8b0ad597cb96fa3e6fc6dd9910dd81b75ccffb94bc"
+  },
+  "full_suite": {
+    "tests": 369,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 351.4,
+    "target": "tests",
+    "junit": "checks/pytest.xml",
+    "log": "checks/pytest.txt"
+  },
+  "focused_regressions": {
+    "passed": 19,
+    "release_safety_tests": 13
+  },
+  "archive": {
+    "files": 359,
+    "sha256": "5536e2775cf413ed18db4a811817a0cf2f10d7448f9266c2390419483d214d15",
+    "bytes": 2058321
+  },
+  "demo": {
+    "execution_kind": "offline_simulation",
+    "new_model_calls": 0,
+    "status": "completed",
+    "scripted_attempts": 7,
+    "lookup_evidence": "offline_transport_only",
+    "model_performance_metrics": null,
+    "report": "reports/local/public-demo-23ef2ca54fd54eeb9cdbd01e5a44f1b9-report/report.md"
+  },
+  "saved_replay": {
+    "new_model_calls": 0,
+    "v8_saved_calls": 7,
+    "v8_status": "completed",
+    "v7_saved_calls": 7,
+    "v7_status": "completed_with_job_failures",
+    "nine_job_coverage": {
+      "status": "verified_all_nine_attempted",
+      "run_sha256": "9ebb9fbfa945d90001356b3ce27cd556628adc607a30939aac1c989d8efb1ffc",
+      "plan_sha256": "1fa3e1307ce099ca95b84284f2d90eebb9a3a0ed71705e4bd326a2b7c7050615",
+      "actual_model_calls": 13,
+      "cross_round_ranking": false
+    },
+    "s3_development_exit": "satisfied_author_review_only",
+    "s3_full_exit": "not_satisfied",
+    "evidence_bytes_after_replay": "unchanged"
+  },
+  "launch_path_compatibility": "read_only_in_memory_view_disclosed_no_new_authorization",
+  "credential_pattern_scan": {
+    "findings": [],
+    "historical_blobs": 369,
+    "scope": [
+      "private_key",
+      "provider_token",
+      "github_token",
+      "aws_access_key",
+      "credential_assignment"
+    ]
+  },
+  "remaining_limits": [
+    "independent_external_review_pending",
+    "S4_not_run",
+    "remote_CI_and_other_operating_systems_not_run",
+    "no_superiority_cost_or_generalization_claim",
+    "provider_historical_bills_unknown",
+    "pattern_scan_not_security_guarantee"
+  ]
+}

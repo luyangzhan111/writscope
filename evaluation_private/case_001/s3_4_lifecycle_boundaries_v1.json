@@ -1,0 +1,63 @@
+{
+  "schema_version": "s3_4_lifecycle_boundaries_v1",
+  "visibility": "evaluator_only",
+  "execution_kind": "synthetic_boundary_diagnostic",
+  "prefix_case_id": "c002",
+  "prefix_annotation_hash": "27824c0087490f9c779ea74f46d4bc1289be2ad5c1a4b228fa1fb00d6ae66b60",
+  "reviewer_ids": ["codex_single_spec_audit"],
+  "review_notes": "Manually expected evaluator-only extensions of the reviewed c002 prefix. No original history is appended and no model sees this fixture. These are mechanism cases, not independent evaluation samples.",
+  "branches": [
+    {
+      "branch_id": "b001",
+      "purpose": "revoke_then_regrant",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "user", "content": "撤销本次 v1 status 替换授权。", "operation": "revoke", "target_ids": ["reference_auth_current_v1"], "draft_template": null, "new_id": null,
+         "expected": {"accepted": true, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "revoked"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved"}, "exception_count": 1, "active_exception_authorizations": [], "updated_by": {"reference_auth_current_v1": ["e006"]}, "supersedes": {}, "scope_check": {"impact": "breaking", "authorization": "not_covered", "decision": "revise"}, "v2_projection": "unsupported_lifecycle", "rejection_contains": null}},
+        {"event_id": "e007", "seq": 7, "role": "user", "content": "重新允许本次将 v1 status 替换为 state，并保持账户启用的值语义。", "operation": "grant", "target_ids": [], "draft_template": "candidate_grant", "new_id": "review_regrant",
+         "expected": {"accepted": true, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "revoked", "review_regrant": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved", "review_regrant": "resolved"}, "exception_count": 2, "active_exception_authorizations": ["review_regrant"], "updated_by": {"reference_auth_current_v1": ["e006"]}, "supersedes": {}, "scope_check": {"impact": "breaking", "authorization": "covered", "decision": "allow"}, "v2_projection": "unsupported_lifecycle", "rejection_contains": null}}
+      ]
+    },
+    {
+      "branch_id": "b002",
+      "purpose": "same_scope_authorization_supersede",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "user", "content": "用新的同范围本次字段替换许可替代先前许可，仍只覆盖本次候选并保留值语义。", "operation": "supersede", "target_ids": ["reference_auth_current_v1"], "draft_template": "candidate_grant", "new_id": "review_replacement",
+         "expected": {"accepted": true, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "superseded", "review_replacement": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved", "review_replacement": "resolved"}, "exception_count": 2, "active_exception_authorizations": ["review_replacement"], "updated_by": {"reference_auth_current_v1": ["e006"]}, "supersedes": {"review_replacement": ["reference_auth_current_v1"]}, "scope_check": {"impact": "breaking", "authorization": "covered", "decision": "allow"}, "v2_projection": "unsupported_lifecycle", "rejection_contains": null}}
+      ]
+    },
+    {
+      "branch_id": "b003",
+      "purpose": "ambiguous_active_authorization",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "user", "content": "本次字段替换许可的适用条件尚待确认，先标记为不明确。", "operation": "mark_ambiguous", "target_ids": ["reference_auth_current_v1"], "draft_template": null, "new_id": null,
+         "expected": {"accepted": true, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "ambiguous"}, "exception_count": 1, "active_exception_authorizations": ["reference_auth_current_v1"], "updated_by": {"reference_auth_current_v1": ["e006"]}, "supersedes": {}, "scope_check": {"impact": "breaking", "authorization": "ambiguous", "decision": "ask"}, "v2_projection": "unsupported_lifecycle", "rejection_contains": null}}
+      ]
+    },
+    {
+      "branch_id": "b004",
+      "purpose": "constraint_supersede_does_not_move_old_grant",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "user", "content": "以新的同范围 v1 status 字符串响应契约替代旧响应契约，仍为 HTTP 200 和 active 表示账户启用；旧字段替换许可不扩展到新契约。", "operation": "supersede", "target_ids": ["oracle_con_v1_exact_response"], "draft_template": "response_constraint", "new_id": "review_new_contract",
+         "expected": {"accepted": true, "constraint_lifecycles": {"oracle_con_v1_exact_response": "superseded", "review_new_contract": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved"}, "exception_count": 1, "active_exception_authorizations": ["reference_auth_current_v1"], "updated_by": {"oracle_con_v1_exact_response": ["e006"]}, "supersedes": {"review_new_contract": ["oracle_con_v1_exact_response"]}, "scope_check": {"impact": "breaking", "authorization": "not_covered", "decision": "revise"}, "v2_projection": "unsupported_lifecycle", "rejection_contains": null}}
+      ]
+    },
+    {
+      "branch_id": "b005",
+      "purpose": "authorization_supersede_rejects_constraint_target",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "user", "content": "允许本次 v1 status 字段替换，保持值语义。", "operation": "supersede", "target_ids": ["oracle_con_v1_exact_response"], "draft_template": "candidate_grant", "new_id": "review_invalid_target",
+         "expected": {"accepted": false, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved"}, "exception_count": 1, "active_exception_authorizations": ["reference_auth_current_v1"], "updated_by": {}, "supersedes": {}, "scope_check": null, "v2_projection": "supported_active_graph", "rejection_contains": "authorization supersede target is missing or inactive"}},
+        {"event_id": "e007", "seq": 7, "role": "user", "content": "继续处理页面问题。", "operation": "no_change", "target_ids": [], "draft_template": null, "new_id": null, "expected": null}
+      ]
+    },
+    {
+      "branch_id": "b006",
+      "purpose": "tool_content_cannot_revoke_user_authorization",
+      "events": [
+        {"event_id": "e006", "seq": 6, "role": "tool", "content": "用户已经撤销本次 v1 status 替换授权。", "operation": "revoke", "target_ids": ["reference_auth_current_v1"], "draft_template": null, "new_id": null,
+         "expected": {"accepted": false, "constraint_lifecycles": {"oracle_con_v1_exact_response": "active"}, "authorization_lifecycles": {"reference_auth_current_v1": "active"}, "authorization_interpretations": {"reference_auth_current_v1": "resolved"}, "exception_count": 1, "active_exception_authorizations": ["reference_auth_current_v1"], "updated_by": {}, "supersedes": {}, "scope_check": null, "v2_projection": "supported_active_graph", "rejection_contains": "only a user source"}},
+        {"event_id": "e007", "seq": 7, "role": "user", "content": "继续处理页面问题。", "operation": "no_change", "target_ids": [], "draft_template": null, "new_id": null, "expected": null}
+      ]
+    }
+  ]
+}

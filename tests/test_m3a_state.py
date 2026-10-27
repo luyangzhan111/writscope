@@ -313,6 +313,28 @@ def test_supersede_retains_prior_grant_and_rejects_self_target(root):
     assert replay_entries("c002", events, CONFIG_HASH, engine.records) == engine.snapshot()
 
 
+def test_authorization_supersede_rejects_existing_constraint_id(root):
+    """A real extraction failure: the ID exists, but in the wrong state domain."""
+    bundle = bundle_for(root, "c002")
+    events = bundle.review_input.events
+    engine = StateEngine("c002", events, CONFIG_HASH, set(bundle.registry.artifacts))
+    for row in manual_proposals(bundle)[:4]:
+        assert engine.submit(row).transition.accepted
+    assert [item.constraint_id for item in engine.snapshot().constraints] == ["con_v1_status"]
+    assert not engine.snapshot().authorizations
+    wrong = grant_for(bundle.evidence.impacts[0].subject,
+                      bundle.review_input.candidate_patch.sha256,
+                      auth_id="auth_wrong_kind", constraint_refs=["con_v1_status"])
+    wrong = wrong.model_copy(update={"supersedes": ["con_v1_status"]})
+    entry = engine.submit(proposal("c002", events[4], "supersede",
+                                   targets=["con_v1_status"], authorization=wrong))
+    assert not entry.transition.accepted
+    assert entry.transition.rejection_reason == "authorization supersede target is missing or inactive"
+    assert not engine.snapshot().authorizations
+    assert engine.snapshot().constraints[0].lifecycle == "active"
+    assert replay_entries("c002", events, CONFIG_HASH, engine.records) == engine.snapshot()
+
+
 def test_partial_supersede_cannot_delete_broad_constraint(root):
     bundle = bundle_for(root, "c001")
     events = [*bundle.review_input.events,

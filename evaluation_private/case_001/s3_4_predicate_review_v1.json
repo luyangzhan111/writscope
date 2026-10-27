@@ -1,0 +1,40 @@
+{
+  "schema_version": "s3_4_predicate_review_v1",
+  "visibility": "evaluator_only",
+  "review_status": "reviewed_single_project_spec",
+  "reviewer_ids": ["codex_single_spec_audit"],
+  "source_spec_sha256": "c62e1a401e0b0c319efa173df63af55ffe3294a25967aa86ac495fdbff6229d9",
+  "source_event_id": "e001",
+  "source_quote": "GET /api/v1/profile 的旧客户端契约是 HTTP 200，响应对象只能包含 status，值为字符串 active，表示账户启用。",
+  "expected_claims": {
+    "kind": "response_shape",
+    "http_status": 200,
+    "exact_body": {"status": "active"},
+    "field_type": "string",
+    "additional_keys_allowed": false,
+    "value_meaning": "account enabled"
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "annotation_hash": "4cb498f3e6476f1d107d9fd4e552bc9c73d734cbaa90081619b0214669302d46",
+      "observed_layout": "nested_http_v1",
+      "reference_layout": "flat_canonical_v1",
+      "observed_predicate_sha256": "197bc8a6468ff8d551398b574eb4c65310d9ab446ef2fcb14cf78e474462bac5",
+      "reference_predicate_sha256": "9470afc4a8fdc4d685243cc4056dd932134e7d739ad9a6c0323526d4fbe36e33",
+      "judgement": "equivalent_on_reviewed_claims",
+      "rationale": "The nested expected object explicitly carries HTTP 200, body status=active, string type and no additional keys; qualifiers preserve exactness and account-enabled meaning. These match the independently reviewed source claims."
+    },
+    {
+      "case_id": "c002",
+      "annotation_hash": "27824c0087490f9c779ea74f46d4bc1289be2ad5c1a4b228fa1fb00d6ae66b60",
+      "observed_layout": "flat_type_alias_v1",
+      "reference_layout": "flat_canonical_v1",
+      "observed_predicate_sha256": "067653640c6d0fb5eeecbb3c726d75957df6294c56a8fab9a0bd6f7e6b5e9c88",
+      "reference_predicate_sha256": "9470afc4a8fdc4d685243cc4056dd932134e7d739ad9a6c0323526d4fbe36e33",
+      "judgement": "equivalent_on_reviewed_claims",
+      "rationale": "For this exact predicate, value_type and meaning express the reviewed status_type and value_meaning claims. HTTP status, exact keys and expected body agree. This is not a general alias rule for arbitrary predicates."
+    }
+  ],
+  "limits": ["single_project_spec_review_not_independent_gold", "only_three_explicit_predicate_layouts", "no_historical_score_change", "no_method_performance_claim"]
+}

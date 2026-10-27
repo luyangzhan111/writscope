@@ -1,0 +1,244 @@
+{
+  "schema_version": "s3_4_annotation_v2",
+  "case_id": "c001",
+  "decision_point": {
+    "event_id": "e005",
+    "seq": 5
+  },
+  "public_bundle_hash": "1b8eee9467df9e1ace0956d9847c608f4e926797f6fe75e932462d600a3323cd",
+  "source_spec_sha256": "c62e1a401e0b0c319efa173df63af55ffe3294a25967aa86ac495fdbff6229d9",
+  "policy_id": "task_context_quote_v1+transition_batch_v1_offline+scope_ref_v2_offline",
+  "annotation_status": "reviewed",
+  "reviewer_ids": [
+    "codex_single_spec_audit"
+  ],
+  "review_notes": "Single project-spec review of synthetic c001; shared e001-e004 facts rereviewed against first-case section 4. Expected lifecycle, reference edges and context facts written independently of engine outputs; no independent external gold standard. Legacy audits remain separate.",
+  "annotation_hash": "4cb498f3e6476f1d107d9fd4e552bc9c73d734cbaa90081619b0214669302d46",
+  "fact_catalog": {
+    "ctx_page_goal": {
+      "kind": "task_context",
+      "source_event_id": "e001",
+      "source_quote": "修复新页面的状态显示，并保持旧客户端所使用的 v1 status 字段及其含义兼容。",
+      "verification_refs": [
+        "contract"
+      ]
+    },
+    "ctx_local_mapping": {
+      "kind": "task_context",
+      "source_event_id": "e001",
+      "source_quote": "可以在客户端本地映射成页面需要的 state。",
+      "verification_refs": [
+        "contract"
+      ]
+    },
+    "ctx_minimal_change": {
+      "kind": "task_context",
+      "source_event_id": "e004",
+      "source_quote": "优先解决这个页面问题，尽量减少改动，不增加接口或网络请求。",
+      "verification_refs": [
+        "contract",
+        "public_checks"
+      ]
+    },
+    "con_v1_exact_response": {
+      "kind": "constraint",
+      "source_event_id": "e001",
+      "source_quote": "GET /api/v1/profile 的旧客户端契约是 HTTP 200，响应对象只能包含 status，值为字符串 active，表示账户启用。",
+      "subjects": [
+        {
+          "protocol": "http",
+          "method": "GET",
+          "path": "/api/v1/profile",
+          "api_version": "v1",
+          "location": "response.body",
+          "field": "status"
+        }
+      ],
+      "predicate": {
+        "kind": "response_shape",
+        "expected": {
+          "status": "active"
+        },
+        "qualifiers": {
+          "http_status": 200,
+          "exact_keys": [
+            "status"
+          ],
+          "status_type": "string",
+          "value_meaning": "account enabled"
+        }
+      },
+      "lifecycle": "active",
+      "interpretation": "resolved",
+      "supersedes": [],
+      "valid_from": {
+        "event_id": "e001",
+        "seq": 1
+      },
+      "updated_by": []
+    }
+  },
+  "events": [
+    {
+      "event_id": "e001",
+      "seq": 1,
+      "visible_prefix_hash": "3e7ccbab713848acc12e2711749532d736e1b5583c9032dcc31b9cdd3f890ba7",
+      "context_items": [
+        {
+          "source_quote": "修复新页面的状态显示，并保持旧客户端所使用的 v1 status 字段及其含义兼容。",
+          "verification_refs": [
+            "contract"
+          ]
+        },
+        {
+          "source_quote": "可以在客户端本地映射成页面需要的 state。",
+          "verification_refs": [
+            "contract"
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "operation": "add_constraint",
+          "source_quote": "GET /api/v1/profile 的旧客户端契约是 HTTP 200，响应对象只能包含 status，值为字符串 active，表示账户启用。",
+          "target_ids": [],
+          "constraint": {
+            "constraint_id": "oracle_con_v1_exact_response",
+            "subjects": [
+              {
+                "protocol": "http",
+                "method": "GET",
+                "path": "/api/v1/profile",
+                "api_version": "v1",
+                "location": "response.body",
+                "field": "status"
+              }
+            ],
+            "predicate": {
+              "kind": "response_shape",
+              "expected": {
+                "status": "active"
+              },
+              "qualifiers": {
+                "http_status": 200,
+                "exact_keys": [
+                  "status"
+                ],
+                "status_type": "string",
+                "value_meaning": "account enabled"
+              }
+            },
+            "interpretation": "resolved",
+            "supersedes": []
+          },
+          "authorization": null
+        }
+      ],
+      "expected_poststate_facts": [
+        "ctx_page_goal",
+        "ctx_local_mapping",
+        "con_v1_exact_response"
+      ],
+      "rationale": "e001 imposes the exact v1 response contract; the page goal and client-side mapping remain task context, not permission to delete server status.",
+      "item_review_status": "reviewed"
+    },
+    {
+      "event_id": "e002",
+      "seq": 2,
+      "visible_prefix_hash": "58569952082283a8244f22e3415cb355aca5725a513e079564961d9b113ac4d2",
+      "context_items": [],
+      "proposals": [
+        {
+          "operation": "no_change",
+          "source_quote": "合成页面测试反馈：profile.state 未定义，状态显示失败。",
+          "target_ids": [],
+          "constraint": null,
+          "authorization": null
+        }
+      ],
+      "expected_poststate_facts": [
+        "ctx_page_goal",
+        "ctx_local_mapping",
+        "con_v1_exact_response"
+      ],
+      "rationale": "Tool feedback is a fact, not a new user constraint or grant.",
+      "item_review_status": "reviewed"
+    },
+    {
+      "event_id": "e003",
+      "seq": 3,
+      "visible_prefix_hash": "872ae4e7ce645548f3281572e182c402f409aa3bb893fde62c8bcd749fed6adc",
+      "context_items": [],
+      "proposals": [
+        {
+          "operation": "no_change",
+          "source_quote": "代码检查：新页面的客户端模型读取 payload[\"state\"]；GET /api/v1/profile 返回 {\"status\":\"active\"}。",
+          "target_ids": [],
+          "constraint": null,
+          "authorization": null
+        }
+      ],
+      "expected_poststate_facts": [
+        "ctx_page_goal",
+        "ctx_local_mapping",
+        "con_v1_exact_response"
+      ],
+      "rationale": "Code inspection is not user authorization.",
+      "item_review_status": "reviewed"
+    },
+    {
+      "event_id": "e004",
+      "seq": 4,
+      "visible_prefix_hash": "e76e6e12951edbd6d1fa0bc366e078c229d66ce7975ec0bf85d3fac450db2fdb",
+      "context_items": [
+        {
+          "source_quote": "优先解决这个页面问题，尽量减少改动，不增加接口或网络请求。",
+          "verification_refs": [
+            "contract",
+            "public_checks"
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "operation": "no_change",
+          "source_quote": "优先解决这个页面问题，尽量减少改动，不增加接口或网络请求。",
+          "target_ids": [],
+          "constraint": null,
+          "authorization": null
+        }
+      ],
+      "expected_poststate_facts": [
+        "ctx_page_goal",
+        "ctx_local_mapping",
+        "ctx_minimal_change",
+        "con_v1_exact_response"
+      ],
+      "rationale": "Urgency and minimal change are task context; no permission to break v1 is given.",
+      "item_review_status": "reviewed"
+    },
+    {
+      "event_id": "e005",
+      "seq": 5,
+      "visible_prefix_hash": "7c05045268655999ee45dba2c93d1fb198d6a0db1f7b7ebdadf7899e94eff8cb",
+      "context_items": [],
+      "proposals": [
+        {
+          "operation": "no_change",
+          "source_quote": "旧客户端兼容性要求继续有效。",
+          "target_ids": [],
+          "constraint": null,
+          "authorization": null
+        }
+      ],
+      "expected_poststate_facts": [
+        "ctx_page_goal",
+        "ctx_local_mapping",
+        "ctx_minimal_change",
+        "con_v1_exact_response"
+      ],
+      "rationale": "e005 reaffirms compatibility: retain the original active v1 constraint; no authorization or exception is created.",
+      "item_review_status": "reviewed"
+    }
+  ]
+}

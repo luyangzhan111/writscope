@@ -1,0 +1,7 @@
+{
+  "kind": "evaluator_only_reference_freeze",
+  "plan_sha256": "9b0b9976c958720aeb1c668a734790d401d29b9b185e244898a05924ac093b58",
+  "reference_sha256": "f7870188d8a3a592493bb622d364c3d943affaae3b9ae16852e48443ba2ff954",
+  "reference_status": "project_authored_draft_external_review_pending",
+  "frozen_before_new_real_execution_at_utc": "2026-10-26T14:17:32.514915+00:00"
+}

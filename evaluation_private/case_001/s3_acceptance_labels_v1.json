@@ -1,0 +1,22 @@
+{
+  "kind": "reference_labels_not_predictions",
+  "review_status": "project_authored_draft_external_review_pending",
+  "labels": [
+    {
+      "case_id": "c002",
+      "expected_impact": "breaking",
+      "expected_authorization": "covered",
+      "expected_decision": "allow"
+    },
+    {
+      "case_id": "c004",
+      "expected_impact": "breaking",
+      "expected_authorization": "not_covered",
+      "expected_decision": "revise"
+    }
+  ],
+  "basis": {
+    "c002": "Existing explicit candidate replacement permission; retain original author reference.",
+    "c004": "User limits permission to earlier tool-reported digest; generated reported digest differs from the fixed candidate patch. Tool report only supplies a factual condition value."
+  }
+}

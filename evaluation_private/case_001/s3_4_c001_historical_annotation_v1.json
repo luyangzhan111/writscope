@@ -1,0 +1,19 @@
+{
+  "schema_version": "s3_4_c001_historical_annotation_v1",
+  "case_id": "c001",
+  "review_status": "single_project_spec_review",
+  "reviewer": "codex_single_spec_audit",
+  "source_spec": "specs/first-case.md",
+  "source_spec_sha256": "c62e1a401e0b0c319efa173df63af55ffe3294a25967aa86ac495fdbff6229d9",
+  "public_bundle_hash": "1b8eee9467df9e1ace0956d9847c608f4e926797f6fe75e932462d600a3323cd",
+  "expected_operations": ["add_constraint", "no_change", "no_change", "no_change", "no_change"],
+  "context_quotes": [
+    {"event_id": "e001", "quote": "修复新页面的状态显示，并保持旧客户端所使用的 v1 status 字段及其含义兼容。"},
+    {"event_id": "e001", "quote": "可以在客户端本地映射成页面需要的 state。"},
+    {"event_id": "e004", "quote": "优先解决这个页面问题，尽量减少改动，不增加接口或网络请求。"}
+  ],
+  "constraint_quote": "GET /api/v1/profile 的旧客户端契约是 HTTP 200，响应对象只能包含 status，值为字符串 active，表示账户启用。",
+  "reaffirmation_quote": "旧客户端兼容性要求继续有效。",
+  "subject": {"protocol": "http", "method": "GET", "path": "/api/v1/profile", "api_version": "v1", "location": "response.body", "field": "status"},
+  "review_note": "The v1 exact status response remains active after e005. The page and client-side mapping are task context; no user grant to replace v1 status is present. Single project-spec review, not independent gold."
+}
