@@ -1,5 +1,7 @@
 # 实现计划
 
+2026-10-28 发布补充：用户另行授权新建公开仓库 [luyangzhan111/writscope](https://github.com/luyangzhan111/writscope)，已上传首个开发版。研究及付费授权边界不变；首发代码的 Windows/Ubuntu CI 均通过（各 369 项测试及演示、回放），见[发布记录](github-first-publication-20261028.md)。下文 2026-10-27 的“仅本地整理”是原步骤时点。
+
 2026-10-27 用户新增交付任务：[首次公开版整理](first-public-release.md)。在 S4 前先整理 MIT、无密钥演示、精选证据、跨目录复验和本地发布候选。研究阶段与费用/外发权限不变；本地整理不授权 GitHub 上传。初始交接书保留原文。
 
 本次整理验证已完成：359 份原始证据归档，干净环境安装、演示、历史回放和 369 项完整测试通过，新增真实请求 0 次。远程 CI 尚未运行；本地候选分支为 `codex/first-public-release`。

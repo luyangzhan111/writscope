@@ -1,6 +1,6 @@
 # 首次公开版整理
 
-日期：2026-10-27。目标：可理解、可离线演示、可从精选证据复验的研究开发版。用户批准本次整理并选择 MIT。该任务不新增模型调用、不启动 S4、不授权远程上传。
+日期：2026-10-27。本页保留当日本地候选验收时点；后续用户于 2026-10-28 另行授权公开建仓及上传，结果见 [GitHub 发布记录](github-first-publication-20261028.md)。目标：可理解、可离线演示、可从精选证据复验的研究开发版。用户批准本次整理并选择 MIT。该任务不新增模型调用、不启动 S4、不授权远程上传。
 
 ## 本次交付
 
@@ -30,7 +30,7 @@ S3 开发出口为 `satisfied_author_review_only`。实际独立审核待外部�
 | 凭据模式扫描 | 候选文件、359 份归档内容及整理前 369 份历史 Git blob 未发现匹配；模式扫描不是无敏感信息保证 |
 | 运行材料一致性 | 当前源码、脚本、测试、提示词、规格、样例、私有评测材料、锁文件与被测候选逐字节一致 |
 
-机器验证摘要与本轮测试日志见 [validation.json](../reports/public-v0.1/validation.json)、[测试输出](../reports/public-v0.1/checks/pytest.txt)和 [JUnit](../reports/public-v0.1/checks/pytest.xml)。[源码清单](../reports/public-v0.1/source-manifest.json)记录公开候选文件的 SHA-256，自身除外。
+机器验证摘要与本轮测试日志见 [validation.json](../reports/public-v0.1/validation.json)、[测试输出](../reports/public-v0.1/checks/pytest.txt)和 [JUnit](../reports/public-v0.1/checks/pytest.xml)。[源码清单](../reports/public-v0.1/source-manifest.json)记录原始候选提交 `1a7d412` 的文件 SHA-256，自身除外；后续发布文档变更不追改该历史清单。
 
 整理时真实发现并修复了遗漏动态状态诊断、旁存运行器源码和脚本报告的归档依赖；另修复凭据顺序单元测试与已消费真实 claim 冲突，并为历史局部映射只读测试添加迁移视图。没有修改冻结运行器、历史响应、预算、参考标签或原评分。
 

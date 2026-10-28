@@ -1,5 +1,9 @@
 # WritScope 协作与研究规则
 
+## GitHub 首次公开发布（2026-10-28）
+
+用户随后明确要求在其 `luyangzhan111` 账号下新建公开仓库 `writscope`，授权覆盖本次建仓、已验收开发版及提交历史上传、CI 核验和必要发布文档同步。仓库为 https://github.com/luyangzhan111/writscope ，默认分支 `main`；该新指令覆盖此前只限本地整理的发布限制，不新增任何真实模型调用、模型材料外发或付费实验授权。初始候选提交 `1a7d412` 的原始证据及清单不改；发布进度见 [GitHub 发布记录](docs/github-first-publication-20261028.md)。
+
 ## 首次公开候选版（2026-10-27）
 
 用户已授权本地首次公开版整理并选择 MIT。`scripts/public_release.py` 提供无密钥演示、精选证据恢复与只读迁移回放；`reports/public-v0.1/` 保留原始字节及逐文件哈希。只读迁移适配仅改变 verifier 内存中的旧机器启动路径，不改变历史记录、评分或新付费权限。本次不含 GitHub 上传或新增模型请求；整理进度见 [首次公开版](docs/first-public-release.md)。历史阶段规则保留各自时点，S3 当前仅满足作者审核开发验收，独立审核与 S4 仍未完成。

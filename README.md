@@ -4,9 +4,9 @@
 
 例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响、有效用户授权和最终决定，并保留可回放的来源链。
 
-**当前阶段（2026-10-27）：S3 开发验收完成（作者审核口径），独立研究验收待外部审核；S4 正式比较尚未运行。** v8 已完成真实自主历史回查、原文返回、续答接受及有效终点；最终复验通过，旧九任务共同报告保留六完成、三失败。现有证据不支持方法优势、成本收益或泛化结论。详情见 [最终审查](docs/s3-development-final-audit-20261027.md)与[项目状态](docs/project-status.md)。
+**当前阶段（2026-10-28）：研究开发版已公开；S3 开发验收完成（作者审核口径），独立研究验收待外部审核；S4 正式比较尚未运行。** v8 已完成真实自主历史回查、原文返回、续答接受及有效终点；最终复验通过，旧九任务共同报告保留六完成、三失败。现有证据不支持方法优势、成本收益或泛化结论。详情见 [最终审查](docs/s3-development-final-audit-20261027.md)与[项目状态](docs/project-status.md)。
 
-本地首次公开候选版：源码、规格、测试与精选历史证据一起整理；许可证为 [MIT](LICENSE)。上传状态和本次实测见[首次公开版整理](docs/first-public-release.md)。接手开发请读[项目接手报告](docs/project-handoff-20261027.md)，其中工作树和本机路径描述保留编写时快照。
+开发版已上传 [GitHub](https://github.com/luyangzhan111/writscope)：源码、规格、测试与精选历史证据一并提供，许可证为 [MIT](LICENSE)。本地实测见[首次公开版整理](docs/first-public-release.md)，远程验证见[GitHub 发布记录](docs/github-first-publication-20261028.md)。接手开发请读[项目接手报告](docs/project-handoff-20261027.md)，其中工作树和本机路径描述保留编写时快照。
 
 ## 快速开始：无密钥离线演示
 
@@ -19,7 +19,7 @@ uv run --locked python -m scripts.public_release demo
 
 演示从带哈希清单的[精选证据包](reports/public-v0.1/README.md)恢复必要依赖，随后用固定脚本完成五事件、历史回查、续答与终点，输出新报告路径。输出应包含 `execution_kind=offline_simulation`、`new_model_calls=0`、`status=completed` 与 `scripted_attempts=7`。报告中的 `offline_transport_only` 表示回查接线控制；脚本结果不计模型成绩。
 
-这些命令无需 API 密钥，不发送模型请求。安装依赖可能访问软件包源；演示和回放在依赖就绪后可离线运行。重复执行会生成独立目录，不覆盖旧记录。Windows 已实际验证；Linux/macOS 的验证状态以 CI 实际运行结果为准。
+这些命令无需 API 密钥，不发送模型请求。安装依赖可能访问软件包源；演示和回放在依赖就绪后可离线运行。重复执行会生成独立目录，不覆盖旧记录。Windows 与 Ubuntu 已通过 GitHub CI 的完整测试、演示和历史回放；macOS 尚未验证。
 
 ## 重放保存的真实开发证据
 
@@ -104,7 +104,7 @@ Linux/macOS 使用 `.venv/bin/python` 替代 Windows 解释器路径；当前只
 
 输出目录须事先不存在；如需重复运行请换名称。预检核对两方法 × 三历史的全部公开输入、相同证据、请求哈希、源码/锁文件哈希与本地预算预留。精选预检见 [preflight.json](reports/m2b-2026-10-20/preflight.json)。首次真实运行已完成，但 **6/6 输出未通过引文位置校验**；单次试跑固定最多六次请求，预算上限 20 元，费用预留只是本地估算，不是提供商账单硬上限。
 
-首次 M2b 实际接通与单独评分已执行；原始引文位置失败见 [真实接通记录](docs/m2b-real-review.md)。新版 `source_quote_v1` 让模型提交唯一原文、由运行器派生位置；[新一次真实开发运行](docs/m2b-quote-real-review.md)得到 5/6 有效输出，单独保存，不改写首次负结果。后续 S3 已完成作者审核开发验收，见 [v8真实记录](docs/s3-development-v8-real-review.md)；独立审核和首轮 30 实例 S4 评测尚未完成。首次公开候选版已采用 MIT；当前未上传 GitHub，也未发布 PyPI 包。
+首次 M2b 实际接通与单独评分已执行；原始引文位置失败见 [真实接通记录](docs/m2b-real-review.md)。新版 `source_quote_v1` 让模型提交唯一原文、由运行器派生位置；[新一次真实开发运行](docs/m2b-quote-real-review.md)得到 5/6 有效输出，单独保存，不改写首次负结果。后续 S3 已完成作者审核开发验收，见 [v8真实记录](docs/s3-development-v8-real-review.md)；独立审核和首轮 30 实例 S4 评测尚未完成。GitHub 开发版已公开并采用 MIT；尚未发布 PyPI 包。
 
 ## 运行 M3a（无模型调用）
 

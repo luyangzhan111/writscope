@@ -2,7 +2,7 @@
 
 本目录包含 `evidence.zip` 和逐文件 `manifest.json`。归档保存 359 份历史文件，原始内容约 12.2 MB，压缩约 2.1 MB；包含 v8 成功、v7 终点失败、九任务共同覆盖，以及测试/冻结运行器所需的前序证据、旁存源码与脚本控制报告。全部为开发材料，包含合成案例、作者审核、模拟与真实运行，不能视为独立样本数量或统一方法比较。
 
-本次整理的实测见 [validation.json](validation.json) 与 [tests](checks/pytest.txt)；整个候选的文件校验见 [source-manifest.json](source-manifest.json)。历史归档清单与本次整理验证分别保存。
+本次整理的实测见 [validation.json](validation.json) 与 [tests](checks/pytest.txt)；原始候选提交 `1a7d412` 的文件校验见 [source-manifest.json](source-manifest.json)，后续发布说明不在该历史快照内。历史归档清单与本次整理验证分别保存。
 
 ## 恢复和使用
 

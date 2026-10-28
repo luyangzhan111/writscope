@@ -1,0 +1,53 @@
+{
+  "version": "github_first_publication_v1",
+  "client_date": "2026-10-28",
+  "repository": "https://github.com/luyangzhan111/writscope",
+  "repository_id": 1436512661,
+  "visibility": "public",
+  "default_branch": "main",
+  "initial_published_commit": "1a7d41233944a6c2774d8c5ed72151004675feb1",
+  "initial_tree": "ec9cb20a8fe81a372717d502868e707c87ab5701",
+  "workflow_run_id": 40621481583,
+  "workflow_url": "https://github.com/luyangzhan111/writscope/actions/runs/40621481583",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success",
+  "jobs": [
+    {
+      "id": 122596309521,
+      "name": "offline (ubuntu-latest)",
+      "conclusion": "success",
+      "tests_passed": 369,
+      "pytest_elapsed_seconds": 76.21,
+      "restore": "success",
+      "demo": "success",
+      "saved_replay": "success"
+    },
+    {
+      "id": 122596309811,
+      "name": "offline (windows-latest)",
+      "conclusion": "success",
+      "tests_passed": 369,
+      "pytest_elapsed_seconds": 105.73,
+      "restore": "success",
+      "demo": "success",
+      "saved_replay": "success"
+    }
+  ],
+  "post_ci_runtime_and_evidence_changes": false,
+  "followup_scope": "publication_documentation_and_this_metadata_only",
+  "followup_ci_policy": "skip_ci_for_documentation_only_not_a_new_test_result",
+  "new_model_calls": 0,
+  "historical_evidence_archive_sha256": "5536e2775cf413ed18db4a811817a0cf2f10d7448f9266c2390419483d214d15",
+  "research_status": {
+    "s3_development_exit": "satisfied_author_review_only",
+    "independent_review": "pending_external_person",
+    "s3_full_exit": "not_satisfied",
+    "S4": "not_run"
+  },
+  "authentication": "existing_local_git_credential_helper_token_not_saved_or_displayed",
+  "limitations": [
+    "macOS_not_verified",
+    "no_method_superiority_cost_or_generalization_claim",
+    "provider_historical_bills_unknown"
+  ]
+}
