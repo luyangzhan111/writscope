@@ -1,5 +1,7 @@
 # 贡献说明
 
+文档从仓库根目录 [README](README.md) 与 [文档导航](docs/README.md) 进入；新增结果记录放 `docs/experiments/`，历史过程材料放 `docs/archive/`，请同步目录索引。不要移动根目录 README 或修改冻结规格以整理排版。
+
 当前仓库是研究开发版，S3 已满足作者审核开发验收，独立研究审核与 S4 尚未完成。先读 [README](README.md)、[数据契约](specs/data-contracts.md)、[评测协议](docs/evaluation-protocol.md) 和 [协作规则](AGENTS.md)。不要把脚本输出或参考标签当作模型效果。
 
 ## 本地复现
@@ -14,7 +16,7 @@ uv --cache-dir .work/uv-cache sync --locked --python 3.12
 .\.venv\Scripts\python.exe -m writscope.m2b preflight
 ```
 
-Linux/macOS 将解释器路径换成 `.venv/bin/python`；pytest 的 `--basetemp` 每次用新的工作区内路径。M1 可用 `.venv` 解释器运行 `-m writscope.m1`。M2a 第二步评分命令见 [README](README.md)，必须在运行完成之后执行。上述 M2b 命令只做无密钥预检，不调用模型；真实接通步骤与边界见 [M2b 离线验收](docs/m2b-offline-review.md)。CI 配置是无密钥测试，远程运行状态以实际工作流为准。
+Linux/macOS 将解释器路径换成 `.venv/bin/python`；pytest 的 `--basetemp` 每次用新的工作区内路径。M1 可用 `.venv` 解释器运行 `-m writscope.m1`。M2a 第二步评分命令见 [README](README.md)，必须在运行完成之后执行。上述 M2b 命令只做无密钥预检，不调用模型；真实接通步骤与边界见 [M2b 离线验收](docs/archive/implementation/m2b-offline-review.md)。CI 配置是无密钥测试，远程运行状态以实际工作流为准。
 
 ## 添加案例或方法
 

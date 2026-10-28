@@ -1,0 +1,499 @@
+{
+  "version": "docs_hierarchy_v1",
+  "client_date": "2026-10-28",
+  "base_commit": "1992e88d5daed6460ebb6d00683cbe3845dd8022",
+  "root_readme": "README.md",
+  "docs_entry": "docs/README.md",
+  "moved_documents": [
+    {
+      "old": "docs/first-public-release.md",
+      "new": "docs/archive/releases/first-public-release.md",
+      "original_sha256": "2a19e3154f24f66134c528f66aaa0b62dc97c11dc7ec5e42c7319f6adcac1221",
+      "relocated_sha256": "a056270df0b2d70ae973fba0aa283d0db1542de8932da5c7d813e47b0a93d578"
+    },
+    {
+      "old": "docs/github-first-publication-20261028.md",
+      "new": "docs/archive/releases/github-first-publication-20261028.md",
+      "original_sha256": "06b5b70d5653b46ae160aeed2eaae18d5acdf1bda5ffb79bdd33d9231ae58d83",
+      "relocated_sha256": "5b0f371e4e66a019960bec9b480bc625194ef55c0d6c124e2681b94b6bcda944"
+    },
+    {
+      "old": "docs/m1-review.md",
+      "new": "docs/experiments/m1-review.md",
+      "original_sha256": "c0f5d2d7765a5d78a0aaa47adf09d16359ec7e91167d847fae9e75386ef9c095",
+      "relocated_sha256": "5afb0dfd7ad1de46ede1ed5c85e11c0b823bdeebc5054d417b845901329324b4"
+    },
+    {
+      "old": "docs/m2-plan.md",
+      "new": "docs/archive/planning/m2-plan.md",
+      "original_sha256": "718a9fcdd98b54b135f45bb8d885d231b55e6fd62838bda26262f1c697879afa",
+      "relocated_sha256": "07efead95400352fb029df10e1f5fac0f68215d96d9ea3a713394426e03ffc8e"
+    },
+    {
+      "old": "docs/m2a-review.md",
+      "new": "docs/experiments/m2a-review.md",
+      "original_sha256": "7163449d691f65a21f22fa3c675510627e9e16f704689178503ea30ef0866100",
+      "relocated_sha256": "98e1f7547dd6929bd8fcbe0076f0b46099884cdc7a3fab085dfffb02e70cf2c7"
+    },
+    {
+      "old": "docs/m2b-offline-review.md",
+      "new": "docs/archive/implementation/m2b-offline-review.md",
+      "original_sha256": "c170f492bd66f4ffb3baca495910bb889b00d19283b460f1d3fae2a0b9affb9d",
+      "relocated_sha256": "f26072635b33cdc16250d7962f1fd693d49ae485da384c1c7b60595f07c8432d"
+    },
+    {
+      "old": "docs/m2b-quote-contract-review.md",
+      "new": "docs/archive/implementation/m2b-quote-contract-review.md",
+      "original_sha256": "9ef6390c06892e5b2ae44a9eeaa3f78fcb5a44c5f4e4d6762758c38eec1dd7dc",
+      "relocated_sha256": "76030101013f7e87456345807fa8304198c76c9216493c6a99ab5a5cada99f26"
+    },
+    {
+      "old": "docs/m2b-quote-real-review.md",
+      "new": "docs/experiments/m2b-quote-real-review.md",
+      "original_sha256": "8a9ebc78ac2569320ea4e7861354049a60c7239c65d620107f3fc21e825782c5",
+      "relocated_sha256": "fe7c53d58e13ca49fc6bdf1c2313878e0ec4e7d83c9d33e7291a195fade64d54"
+    },
+    {
+      "old": "docs/m2b-real-review.md",
+      "new": "docs/experiments/m2b-real-review.md",
+      "original_sha256": "d69d14acd61cd785371948f4ada35c3a44129b8925ac170b016986729bcf2850",
+      "relocated_sha256": "b6ba7638b1ec13f093b20e21f4d5d82d31ce85c9ac76c853f93ee738ecb3d5ac"
+    },
+    {
+      "old": "docs/m3-future-plan.md",
+      "new": "docs/archive/planning/m3-future-plan.md",
+      "original_sha256": "012caf21c972908fc11f7935dba326c3c6f251a84784f4548b41ee639be0861c",
+      "relocated_sha256": "40ddcbf94e2db51342bcde5df954a6dcd5ee38090c77f1b54735a0d2aa59a7ab"
+    },
+    {
+      "old": "docs/m3a-review.md",
+      "new": "docs/experiments/m3a-review.md",
+      "original_sha256": "ddd9a50e4984808300033b841ce8ae731985f76f400169a6e866b94c12e2af36",
+      "relocated_sha256": "2a1cf81bd502a22ad4f050b6d011feeb2e77b06bd686a947df85479e04be53f7"
+    },
+    {
+      "old": "docs/m3b-review.md",
+      "new": "docs/experiments/m3b-review.md",
+      "original_sha256": "be26094abf295420fbbeb51ad07e2a6721a473cea0b8acedf5fc3e67d11c81a0",
+      "relocated_sha256": "c9097c52749656b87326cf3caeda950dd7d4daa350cd2956cb2df54a14737641"
+    },
+    {
+      "old": "docs/m3c-real-pilot.md",
+      "new": "docs/experiments/m3c-real-pilot.md",
+      "original_sha256": "f5aeab5f60e8836618c92dab6dbbafb1477b26a91fff21cd83efd7f0bd074913",
+      "relocated_sha256": "f5aeab5f60e8836618c92dab6dbbafb1477b26a91fff21cd83efd7f0bd074913"
+    },
+    {
+      "old": "docs/m3d-offline-diagnosis.md",
+      "new": "docs/experiments/m3d-offline-diagnosis.md",
+      "original_sha256": "3755437fe6a76746c98a520a13e12ed301a83bcf47ac9e35df847ec8d0d39d9e",
+      "relocated_sha256": "40d291b896b3eeccfac4453cf7de525eb076c0c7295c777c1b0c9b60c8df8b45"
+    },
+    {
+      "old": "docs/m3d-real-gate.md",
+      "new": "docs/archive/preflight/m3d-real-gate.md",
+      "original_sha256": "e4288742320cb51f6bd3fb5f8a315368fce36e889e773ff822aa679ffc1b9283",
+      "relocated_sha256": "5953829132f84f46182e20b4da3dc289f32353fce17d1ac2e12a6874c28f5a92"
+    },
+    {
+      "old": "docs/m3d-real-review.md",
+      "new": "docs/experiments/m3d-real-review.md",
+      "original_sha256": "ec06250d51638813310ba6d021443c6e95e0a12cc8a48a92e08654ce857ac58f",
+      "relocated_sha256": "81c6e66ba336a423c77905f0c254da1a702237eccdbd911358bdc057176123c4"
+    },
+    {
+      "old": "docs/m3e-real-gate.md",
+      "new": "docs/archive/preflight/m3e-real-gate.md",
+      "original_sha256": "fd5bfd99ee9c036ee96dd214389d0980ac6146afa1a1d9a8815dbc7b0ff797c9",
+      "relocated_sha256": "b25efeba7a06321e7dd30865fc2bc41087f2a46f5a40d2070d2e20dc2797e1bf"
+    },
+    {
+      "old": "docs/m3e-real-review.md",
+      "new": "docs/experiments/m3e-real-review.md",
+      "original_sha256": "4f3ee213c255ca658cae5fb6b9e0185398120d4b710de3c6bce12d30daf2f8c7",
+      "relocated_sha256": "8c33597c0eb72f332cd0c7931981a95596f4262f34522fea32cee7bc0bb2232a"
+    },
+    {
+      "old": "docs/m3f-offline-scope-review.md",
+      "new": "docs/experiments/m3f-offline-scope-review.md",
+      "original_sha256": "4432cdaafbabdc188b71a920374fe4b978980a262357e9036a68f6e10a11d872",
+      "relocated_sha256": "24be77506e3f4d4fffad09dec48f9dba18e01369f565c573b921f8d88f298ccd"
+    },
+    {
+      "old": "docs/m3g-offline-integration.md",
+      "new": "docs/experiments/m3g-offline-integration.md",
+      "original_sha256": "21285466ce0a117db317ecf2ab9f63605487c6a4aecba77024eff33b2b6063eb",
+      "relocated_sha256": "4ff0a48bdeda69d14a1656aff3a5889d5803ef25b5e889e6b690652cd3ab7a20"
+    },
+    {
+      "old": "docs/m3h-real-path-prep.md",
+      "new": "docs/archive/implementation/m3h-real-path-prep.md",
+      "original_sha256": "ec62a30520c188ed1cef8ec27ed229a75c04749680f9b392e8dd37c48964d540",
+      "relocated_sha256": "6694d954666e0438adcc960c190727a85e5ffdb9e17ff4c9a453d4a9630dc350"
+    },
+    {
+      "old": "docs/m3i-task-context.md",
+      "new": "docs/archive/implementation/m3i-task-context.md",
+      "original_sha256": "3604b9a1e2d389715ecbbf6a97d61bc63573b5d0b52bd7b6325f3eaa508008db",
+      "relocated_sha256": "1bf0d8c07131dda0b7d3124c79c2b57d87d6ced1348a49d289c2f19f0280a6a2"
+    },
+    {
+      "old": "docs/m3j-transition-batch.md",
+      "new": "docs/archive/implementation/m3j-transition-batch.md",
+      "original_sha256": "c50d4aa04a3d0fee30d95f4dad9f51716c0a577cb37e698cb4480b82f63a3c88",
+      "relocated_sha256": "44b84073edb9bd6964a0835fa90bba55012fee7f7c2ef60f8e32916741963646"
+    },
+    {
+      "old": "docs/m3k-history-lookup.md",
+      "new": "docs/archive/implementation/m3k-history-lookup.md",
+      "original_sha256": "eab7a3fdd8a0969f49539f8ab1139b90739e000015dad99c25544bd4492d4bdc",
+      "relocated_sha256": "30b33593bfed09800a4daf4497cb398e8829bd774e8cf75474db0ce147c402b1"
+    },
+    {
+      "old": "docs/m3l-offline-trace.md",
+      "new": "docs/archive/implementation/m3l-offline-trace.md",
+      "original_sha256": "5a3953b97bf133dccfdf86ba6407a9e1ace09056837f90090b9a170481302218",
+      "relocated_sha256": "ecd2dd44dfc3bea649553269ef24139a55808f9280a384f9985666dcc501ea60"
+    },
+    {
+      "old": "docs/m3m-final-review-offline.md",
+      "new": "docs/archive/implementation/m3m-final-review-offline.md",
+      "original_sha256": "7ebd47857e53aa58a28e27b9f316d1d1b99f9f9e050facbf32548f0bd5236502",
+      "relocated_sha256": "ed122c580f6f4d985822070f801ac7dd03d47b49bbe8b875e55052956e0af44d"
+    },
+    {
+      "old": "docs/m3n-budget-envelope.md",
+      "new": "docs/archive/implementation/m3n-budget-envelope.md",
+      "original_sha256": "dd2ecd833d33be7b660d30c1136cb19fa3751a3e0c7bed4fefb4b770afa3311b",
+      "relocated_sha256": "503b315c06709d4c92ebd700c6bd6e458ed1b0a18df64ec9580a06e988d5a2a9"
+    },
+    {
+      "old": "docs/m3o-interaction-contract.md",
+      "new": "docs/archive/implementation/m3o-interaction-contract.md",
+      "original_sha256": "629469dd30d8ed998dbf95de8b3dfe6c9ca5df53d0d1eb5db50fa4a3bc06833a",
+      "relocated_sha256": "a5cef70a4aea3721d9be42bbaf58ddd4820bb453f7e78e1ba2cad9eaded1c3b0"
+    },
+    {
+      "old": "docs/m3p-scripted-runner.md",
+      "new": "docs/archive/implementation/m3p-scripted-runner.md",
+      "original_sha256": "4ad31134f36973f368222e7a56a0d4d48726f6e76fef6ef39c0326665a4314a4",
+      "relocated_sha256": "ca7ab2077441bc86886ae9cc6656a29a99533d8d7d83f960974fe571ba8810bb"
+    },
+    {
+      "old": "docs/m3q-fault-evidence-audit.md",
+      "new": "docs/experiments/m3q-fault-evidence-audit.md",
+      "original_sha256": "9730dabc5d1c5ef90b2010ab8451335cc6968c89c17ee5795818be49b2f2504e",
+      "relocated_sha256": "7b3688981ea9cb7ba2fadf617533a362c45d111fb4fa81beebf55628ef77a926"
+    },
+    {
+      "old": "docs/m3r-real-preflight.md",
+      "new": "docs/archive/preflight/m3r-real-preflight.md",
+      "original_sha256": "745f1a3e9f8ed6fda8c4e315f3fd09f2903f69dc7b2a8ae6d4a980131d3cd2ec",
+      "relocated_sha256": "6f0ece00a388b5b085665c655ff7d749ab03f791608823e20fca0cb99e88b503"
+    },
+    {
+      "old": "docs/m3s-real-review.md",
+      "new": "docs/experiments/m3s-real-review.md",
+      "original_sha256": "985ac41d676627458d84e948ee654616534b211601faef679b7d48d5114a05c8",
+      "relocated_sha256": "3ea3b18cf6e69a164882687d2574a4f72255b9f37927f301a4209d8e022de8c7"
+    },
+    {
+      "old": "docs/m3s-real-runner-offline-gate.md",
+      "new": "docs/archive/preflight/m3s-real-runner-offline-gate.md",
+      "original_sha256": "723a31ef2721491c2e0ec6ce43d56e3dc08bf99e50a9aa13e2330a0cea30b320",
+      "relocated_sha256": "8c333c71e082c208b2f0e1958b95489102484e6c9c9c954ffb258eaac0e86ac4"
+    },
+    {
+      "old": "docs/m3t-closeout-review.md",
+      "new": "docs/experiments/m3t-closeout-review.md",
+      "original_sha256": "6e59d12f2787ea1f7b8d68c73061cff8f5c705c05a0e3cb39416d4bfee393e20",
+      "relocated_sha256": "1e2a41d254d3dd70239eeafddd34b2b396199d075def5681c053044ead8af73c"
+    },
+    {
+      "old": "docs/preparation-review.md",
+      "new": "docs/archive/planning/preparation-review.md",
+      "original_sha256": "253c8c1b164747781871516a44de04869fadf3528b56dc1eb995eae1441d0f6d",
+      "relocated_sha256": "33b4f3156f7f3cc3c1e14bd52330901b36e8b495a29b17115ea025ee0127cc06"
+    },
+    {
+      "old": "docs/project-handoff-20261027.md",
+      "new": "docs/archive/handoffs/project-handoff-20261027.md",
+      "original_sha256": "9ac44556d30b1ab7e8eca84383e11d5a409261d8f3ed1f06941f76847b32c568",
+      "relocated_sha256": "4b1e8f8bd61a98bc23970b09e3bd27dbf14098c86ecdef90d1be3987d101bfe7"
+    },
+    {
+      "old": "docs/research-direction-2026-10-20.md",
+      "new": "docs/archive/planning/research-direction-2026-10-20.md",
+      "original_sha256": "13a0beaf36188bc548e475230d9bf49f98b0c571eaab04af7ec29829c0528e58",
+      "relocated_sha256": "99160be1d0fa07009e1029145434a2c9027bc08e98b8e71904868556e727b6b6"
+    },
+    {
+      "old": "docs/s3-4-c001-c002-state-compilation.md",
+      "new": "docs/experiments/s3-4-c001-c002-state-compilation.md",
+      "original_sha256": "7f5e9d4296399b89e4ebb2c6db7af6fa014ad0ba14502a66c0850e17d06a4489",
+      "relocated_sha256": "22461b3ee458015c0fbbe2694fe9a58a8b57ac516db21d65bc05338473b81729"
+    },
+    {
+      "old": "docs/s3-4-c001-historical-audit.md",
+      "new": "docs/experiments/s3-4-c001-historical-audit.md",
+      "original_sha256": "d5dfeb06e6321baadd4ca3bffc4ebcba070527a236aeea5768f62d9039319c1f",
+      "relocated_sha256": "863ea56045065d641f22d8cff1da3022f6ee46fb99de2abc5a1e255315dd66e6"
+    },
+    {
+      "old": "docs/s3-4-c002-historical-audit.md",
+      "new": "docs/experiments/s3-4-c002-historical-audit.md",
+      "original_sha256": "203b4ed899adc2dcf133a6e85b1dc2fbf108c2f4347f3c3b8834a05cf9593094",
+      "relocated_sha256": "062279aa9b1142fc0efad21abc7664ce41602948f6dd48a883f8278c6a325b9f"
+    },
+    {
+      "old": "docs/s3-4-c003-isolated-review.md",
+      "new": "docs/experiments/s3-4-c003-isolated-review.md",
+      "original_sha256": "61b9303855618bb2d825108a170e5c329936d49e7cc1b5d76ed58ec07af87fa3",
+      "relocated_sha256": "b4f70181a7a5eb758fea99383556409ed5324568dd7333a33bfd408737b6e40d"
+    },
+    {
+      "old": "docs/s3-4-isolated-diagnostic-design.md",
+      "new": "docs/archive/planning/s3-4-isolated-diagnostic-design.md",
+      "original_sha256": "e9ace57feb7741ccefbcb1f574f21d0a6f08652d92d4b70bf93bd003e06c8753",
+      "relocated_sha256": "33b447dfda6737e40df14dc0bf586471df834b0aaf1a5d75f8c58287ed536fdc"
+    },
+    {
+      "old": "docs/s3-4-lifecycle-alignment-review.md",
+      "new": "docs/experiments/s3-4-lifecycle-alignment-review.md",
+      "original_sha256": "15f7d2cb68987e76799b626c11a201746c2287a2b53107426e60de08e0dfea8e",
+      "relocated_sha256": "cd7d507389bda79b92473a1b4bf3e58fa63f9466cfdce62c0b4c485b8fffb609"
+    },
+    {
+      "old": "docs/s3-4-offline-acceptance-matrix.md",
+      "new": "docs/experiments/s3-4-offline-acceptance-matrix.md",
+      "original_sha256": "4996d76e8507fa2e2bf10c4c049b6b7d8956b3dee69c7505c6041275c43ae658",
+      "relocated_sha256": "2ed6dded0156409e1642fd3d7aff1e7e95c66cdad73788c0327e43eaaaca1114"
+    },
+    {
+      "old": "docs/s3-4-semantic-lifecycle-review.md",
+      "new": "docs/experiments/s3-4-semantic-lifecycle-review.md",
+      "original_sha256": "a3fd5fb0f3f812dc916b8981eb6dea9b045f357d0ea44a97cebcb87f3bcf0bef",
+      "relocated_sha256": "34d4131d951a3dd734019065617eb8e8b8b1702b97e4974b6d31b0ce0b9d6e72"
+    },
+    {
+      "old": "docs/s3-common-round-freeze.md",
+      "new": "docs/archive/preflight/s3-common-round-freeze.md",
+      "original_sha256": "701a5d4bdef861977ac185fb8691f517cb03c0d5fef92cdc3e3983df89c5599c",
+      "relocated_sha256": "fe30c34beeeb55ecd220001e6c6695d02ea27abceb28fde5ad52655f5eda0a94"
+    },
+    {
+      "old": "docs/s3-common-round-real-review.md",
+      "new": "docs/experiments/s3-common-round-real-review.md",
+      "original_sha256": "419d8b7b89d53b8b2733b6cec5391ac136abb9b1917a3ea747300b6d0afe6fc3",
+      "relocated_sha256": "2fa5803c6010c14f53360942a42b641b2caef9e53b48e10cf12ace68155b2565"
+    },
+    {
+      "old": "docs/s3-coverage-followup-execution-gate.md",
+      "new": "docs/archive/preflight/s3-coverage-followup-execution-gate.md",
+      "original_sha256": "3a423f0e6618cec3335bee4e6f7fcaacc3d817df9a14bfe93f74b03012fa770a",
+      "relocated_sha256": "ca8f2f8b5eb6b782e21138f4c510c65cf572cf65aa4a3117da9fb94868853e65"
+    },
+    {
+      "old": "docs/s3-coverage-followup-freeze.md",
+      "new": "docs/archive/preflight/s3-coverage-followup-freeze.md",
+      "original_sha256": "80b9257dd5c542c237af37b6e559773b7d940ccb2e6748f4e87cc1fa090caa73",
+      "relocated_sha256": "decd0eacf87176de5d0cc80f521c4965624fd2aa78e80f85477b3b6666d059b2"
+    },
+    {
+      "old": "docs/s3-coverage-followup-real-review.md",
+      "new": "docs/experiments/s3-coverage-followup-real-review.md",
+      "original_sha256": "c555b39458eeab513ef55255b8377458966473d7ad7266ff586f19ca447b1f55",
+      "relocated_sha256": "b42d0f400f927a8be5e23cfc7e3a55dabe466de9e72190dc30ac68540efe7a9f"
+    },
+    {
+      "old": "docs/s3-development-final-audit-20261027.md",
+      "new": "docs/experiments/s3-development-final-audit-20261027.md",
+      "original_sha256": "e44a400c81f545194a28932e98c981ef1090bf6446dbcbbaefad89bbe16a1f7d",
+      "relocated_sha256": "a62b23953916c02a709b3db554efd7cbc1e71596e830cc7b8e768aedc5622f2e"
+    },
+    {
+      "old": "docs/s3-development-v4-preflight.md",
+      "new": "docs/archive/preflight/s3-development-v4-preflight.md",
+      "original_sha256": "e91ae174e1c83edb3e9de76390cb03bb3fa210a92867b17130373266e194f493",
+      "relocated_sha256": "51be200c8c4f3910fa2f897a5dbe817d8ccd0ede9b436797be54ecbb29272968"
+    },
+    {
+      "old": "docs/s3-development-v4-real-review.md",
+      "new": "docs/experiments/s3-development-v4-real-review.md",
+      "original_sha256": "0494126e4a1e3101fb323959daed606d74cb9b151a30310faafbb9036efd5c59",
+      "relocated_sha256": "e9a2b5f7bc11b9d3f86e2a5490db56f89e84b479df9a23d6f6d48e2b28684c65"
+    },
+    {
+      "old": "docs/s3-development-v5-preflight.md",
+      "new": "docs/archive/preflight/s3-development-v5-preflight.md",
+      "original_sha256": "e09bf18caca85285c889d4000f656abb10f96578a9014e09c60c9e8485d8d00d",
+      "relocated_sha256": "50bc187c3494205a3aa25bb88a7e20820ca3d590a7b70ad39750661c4c842394"
+    },
+    {
+      "old": "docs/s3-development-v5-real-review.md",
+      "new": "docs/experiments/s3-development-v5-real-review.md",
+      "original_sha256": "30c6aebd8c0c852f72f206e5dccab8a3f29a1fd4d911195f68400a26fe268f76",
+      "relocated_sha256": "6b46cd546d7d0c770909f5132b938dcbb88ba250a496a34bd827fb8eeaa5c6ad"
+    },
+    {
+      "old": "docs/s3-development-v6-offline-diagnosis.md",
+      "new": "docs/experiments/s3-development-v6-offline-diagnosis.md",
+      "original_sha256": "1a3df0b01682d43d3d67e0385c88db0d63e35b4bb72b004aacc1411f3d67c405",
+      "relocated_sha256": "1a3df0b01682d43d3d67e0385c88db0d63e35b4bb72b004aacc1411f3d67c405"
+    },
+    {
+      "old": "docs/s3-development-v6-preflight.md",
+      "new": "docs/archive/preflight/s3-development-v6-preflight.md",
+      "original_sha256": "62da7d735f0fe11140850eb9160e147a25f3e0e90444d28f795435192a9b447b",
+      "relocated_sha256": "dd09bb7ec5b7bdbffe531b3153cb7a531e6fa050d945895e91f7d6490b483e7e"
+    },
+    {
+      "old": "docs/s3-development-v6-real-review.md",
+      "new": "docs/experiments/s3-development-v6-real-review.md",
+      "original_sha256": "142e4b2c79a3ba22b02e9e691004798079b131a10d59084003023ceaf4d9f315",
+      "relocated_sha256": "aeb882190f04b42a3999489f749bceba8afec392cef8f02d0ac7b5cc62d3d236"
+    },
+    {
+      "old": "docs/s3-development-v6-scope-audit.md",
+      "new": "docs/experiments/s3-development-v6-scope-audit.md",
+      "original_sha256": "7462e1fa65fe44bbd8695f92b5868847873b18b7c0424a5b54f9127d18edcd85",
+      "relocated_sha256": "227476b5c7d9e2c7a2f98009907d37e1389679391da9c17edd206658e0dcb086"
+    },
+    {
+      "old": "docs/s3-development-v7-offline-followup.md",
+      "new": "docs/archive/implementation/s3-development-v7-offline-followup.md",
+      "original_sha256": "d497c093fdc1ac2709aaf52d4a19c4a06a82c1fe99abb2796203972e04bea367",
+      "relocated_sha256": "82d1570d4b4d808d6c551a7f7f988881eb57cfaa17a3ca810de1cdbc3b5fad82"
+    },
+    {
+      "old": "docs/s3-development-v7-offline-review.md",
+      "new": "docs/archive/implementation/s3-development-v7-offline-review.md",
+      "original_sha256": "e41b84924a733022ba0d22cd105fb649faa213b5a7f73ff62c7a94b7c1aa13ce",
+      "relocated_sha256": "db3d4682a688180a9884fba2d4cce5e4f51a0af2244a5e58e90864ab3494710d"
+    },
+    {
+      "old": "docs/s3-development-v7-real-review.md",
+      "new": "docs/experiments/s3-development-v7-real-review.md",
+      "original_sha256": "c33b83bfe0d44b1fb6da719ebfa95da7686995b4777184c5b02836d1d2fd12c1",
+      "relocated_sha256": "1fe1c6c8721677a25a4c528a225f2c032ce96706fa2b83d572cc70383b37b25b"
+    },
+    {
+      "old": "docs/s3-development-v8-offline-review.md",
+      "new": "docs/archive/implementation/s3-development-v8-offline-review.md",
+      "original_sha256": "21e21119450034af706f5740028c9d86434227170441f31d3f0507e40bb070bb",
+      "relocated_sha256": "69919f36d7eb9704fd4272ae7f85c7fb22b8d53ca099d5a3f074f8e0b9683bee"
+    },
+    {
+      "old": "docs/s3-development-v8-real-review.md",
+      "new": "docs/experiments/s3-development-v8-real-review.md",
+      "original_sha256": "2a826d91c822a6be598f39d5c4efd2114796a5c26008f538dd320c17f533a4b2",
+      "relocated_sha256": "87e114dce19e3a9218b0254a3e1d210749a3d181d9e12fce55f64aa8c705f049"
+    },
+    {
+      "old": "docs/s3-exit-preparation.md",
+      "new": "docs/archive/planning/s3-exit-preparation.md",
+      "original_sha256": "8dd3ffc7d726d6cab713ff8801a9ee9408b208fdde7ab097a9827bb370d9b1d3",
+      "relocated_sha256": "e85cbdc3bda6fb77759e5ac81b6f18b819d5aa6fd03a9295e7f0d77928628f7a"
+    },
+    {
+      "old": "docs/s3-incremental-followup-real-review.md",
+      "new": "docs/experiments/s3-incremental-followup-real-review.md",
+      "original_sha256": "5fdebb3bb8f82fdd108a531108b9f41a3fc9f48771ef3a56fad8b1e81720d2fc",
+      "relocated_sha256": "c4db838b973dafa0af33ed1b54b248aeabad1f2fbbae54fd5e6dd392aae6a560"
+    },
+    {
+      "old": "docs/s3-incremental-followup-v3-review.md",
+      "new": "docs/archive/implementation/s3-incremental-followup-v3-review.md",
+      "original_sha256": "755bac4626b28592602e11bb514e678fe761cd87c32ae8cd0f025b1284f30322",
+      "relocated_sha256": "634b2be3958117c44e90221b7e6e1b9f42262b7ba7d00fbf9676910f301bef50"
+    },
+    {
+      "old": "docs/s3-local-mapping-offline-review.md",
+      "new": "docs/experiments/s3-local-mapping-offline-review.md",
+      "original_sha256": "aea4641a7d6a5445e938c62a01e50e808aa30f2bb2a4a75ac4c0e1844f2287ac",
+      "relocated_sha256": "b53b99735f1dcbeb75aa1e74b874ce8e0e80be3e5145877f08e36121303327f8"
+    },
+    {
+      "old": "docs/s3-local-mapping-v6-offline-diagnosis.md",
+      "new": "docs/experiments/s3-local-mapping-v6-offline-diagnosis.md",
+      "original_sha256": "50a508bf09f7f01950d7a6b87a941a3e187dfc6569093f9938670c506bbd495a",
+      "relocated_sha256": "a1010de40f40a62ff084e2d9f9e409a85b2ab659e07e7218b219e5ce9f3d8c1c"
+    },
+    {
+      "old": "docs/s3-lookup-condition-offline-diagnosis.md",
+      "new": "docs/experiments/s3-lookup-condition-offline-diagnosis.md",
+      "original_sha256": "67c97925064a34d93b99f91585f0b5d844bc62c3ebbc3293cf4120eba3c43644",
+      "relocated_sha256": "f5fd27c2c666b3463d51e5453eb9fe3e4ddc8b19d6707583cda499ed133d7e23"
+    },
+    {
+      "old": "docs/s3-proposal-shape-offline-review.md",
+      "new": "docs/experiments/s3-proposal-shape-offline-review.md",
+      "original_sha256": "b4a0d87332a1f8590c2fafbe21a0103e58626d758bb01166c4bd6662bb23151d",
+      "relocated_sha256": "c3d9ede080f98c5f826675b1d39b8b3c872bb7de6ff6c87493de60238c5c701e"
+    },
+    {
+      "old": "docs/s3-small-real-acceptance-freeze.md",
+      "new": "docs/archive/preflight/s3-small-real-acceptance-freeze.md",
+      "original_sha256": "2ec4571d8fcb013dc6b48c4922944deb5f2adf1502a2fa42fcf8bc80c7c84263",
+      "relocated_sha256": "4f25d7d7c698019c7a774cf32657faf6ac4f996edbdc4de1cb88e4303360e4bd"
+    },
+    {
+      "old": "docs/s3-small-real-acceptance-review.md",
+      "new": "docs/experiments/s3-small-real-acceptance-review.md",
+      "original_sha256": "68d62773d864eef2d38446495170e3ec42987207087ec21c57c96d1eb4de118d",
+      "relocated_sha256": "c994d0986e3dbc11a772c5d707beb346e44d7cd9d482ce7f94d377b79ce73482"
+    },
+    {
+      "old": "docs/s3-v2-offline-round-review.md",
+      "new": "docs/archive/implementation/s3-v2-offline-round-review.md",
+      "original_sha256": "ccd16401d1749cd71c86d992f984c4a660b44515693c69f7aca20e6bb1263c9f",
+      "relocated_sha256": "765bcd1648059ad9d891509939faa6d5e5edb99a4bfe4799f37a4c8f3c02fbbf"
+    },
+    {
+      "old": "docs/s3-v2-real-entry-offline-gate.md",
+      "new": "docs/archive/preflight/s3-v2-real-entry-offline-gate.md",
+      "original_sha256": "f369b30bbaf8ec5c8f79df8f879260fae55dc9e8e4b2c73cf8f23fadd8605830",
+      "relocated_sha256": "ba484fd62a9306a9a7620b4e000d00819b0191dbc7925e0985107e62ab7cb4fd"
+    },
+    {
+      "old": "docs/s3-v2-real-round-review.md",
+      "new": "docs/archive/implementation/s3-v2-real-round-review.md",
+      "original_sha256": "aa9d71d976869fe046c2394ea90fb3f1c6b7e8434959f823561479059bd940e2",
+      "relocated_sha256": "4ba1bbf8ca98a3db759820574060401d96b76da16d6b27e9b3397076b937c5ac"
+    }
+  ],
+  "compatibility_entries": {
+    "docs/s3-development-v8-offline-review.md": "docs/archive/implementation/s3-development-v8-offline-review.md",
+    "docs/m1-review.md": "docs/experiments/m1-review.md",
+    "docs/m3a-review.md": "docs/experiments/m3a-review.md",
+    "docs/m3e-real-review.md": "docs/experiments/m3e-real-review.md",
+    "docs/s3-development-v7-offline-review.md": "docs/archive/implementation/s3-development-v7-offline-review.md"
+  },
+  "frozen_files_unchanged": {
+    "docs/project-brief.md": "3be224c2d2a85751d3f1a17e24070c909ecaf6d14d5804b65088ae2c9c9637ac",
+    "specs/first-case.md": "c62e1a401e0b0c319efa173df63af55ffe3294a25967aa86ac495fdbff6229d9",
+    "specs/s3-acceptance-v4.md": "a4600afd7bdf90a7bf9dffd5ced94fa3e8df1e2d8e5677c3be67c917b4ebcfb6",
+    "specs/s3-acceptance-v5.md": "2628e03b6f7e079da0a78790765c594620caeff5a183f00f038929292a0fc94c",
+    "specs/s3-acceptance-v7.md": "c31642d379f0fd93c4d6c7b83c97a999d846044e3f5cbef75d269b078b1d69fa",
+    "specs/s3-acceptance-v8.md": "1785fe304d1776c7c75bd1a793f1ce9de7ec7e652caf2db407d4ebb244c904d8",
+    "specs/s3-incremental-v3.md": "ce45ed684562bd34ed7f7c082817c7e6b7cf3a7b9a863b31f340afb03f45e73a"
+  },
+  "historical_body_changes": "markdown_link_destinations_only",
+  "new_model_calls": 0,
+  "verification": {
+    "local_markdown_links_checked": 1126,
+    "missing_links": 0,
+    "historical_bodies_verified": 76,
+    "frozen_hashes_verified": 7,
+    "saved_preflights_verified": [
+      "s3_acceptance_v4",
+      "s3_acceptance_v5",
+      "s3_acceptance_v6",
+      "s3_acceptance_v7",
+      "s3_acceptance_v8"
+    ],
+    "runtime_prompts_tests_inputs_lock_and_original_artifacts": "unchanged",
+    "full_pytest": "not_rerun_documentation_only",
+    "new_model_calls": 0
+  }
+}
