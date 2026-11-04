@@ -4,9 +4,9 @@
 
 例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响 `impact`、有效用户授权 `authorization` 和最终决定 `decision`，保留来源、作用范围、撤销及替代关系。
 
-**当前阶段（2026-11-04）：S4-A 离线工程候选已完成单例契约收敛与联合验收，正在整理公开材料；S4 正式比较未运行。** 当前维护入口覆盖完整上下文直接复核、完整上下文清单复核（核心强基线）与增量复核。现有证据不支持方法优势、成本收益或泛化结论。
+**当前阶段（2026-11-04）：S4-A 离线工程更新已公开，Windows／Ubuntu 24.04 CI 通过；S4 正式比较未运行。** 当前维护入口覆盖完整上下文直接复核、完整上下文清单复核（核心强基线）与增量复核。现有证据不支持方法优势、成本收益或泛化结论。
 
-项目采用 [MIT](LICENSE)，已公开于 [GitHub](https://github.com/luyangzhan111/writscope)。本次 S4 整理尚未更新 GitHub，也未运行新的远程 CI。当前文档从 [S4 导航](docs/s4/README.md)开始；[旧文档导航](docs/README.md)保留其哈希绑定原文。
+项目采用 [MIT](LICENSE)，已公开于 [GitHub](https://github.com/luyangzhan111/writscope)。本次更新与实际受测提交见 [双平台发布记录](docs/s4/github-publication-20261104.md)。当前文档从 [S4 导航](docs/s4/README.md)开始；[旧文档导航](docs/README.md)保留其哈希绑定原文。
 
 ## 当前证据与边界
 
@@ -38,7 +38,7 @@ uv run --locked python -m scripts.s4_public_release demo --root .work/s4-public-
 
 本次公开候选使用明确的检查集：旧版已跟踪的 48 个测试文件（47 个测试模块及 conftest）、当前契约的 51 项定向测试以及新增发布/扫描安全测试。它不是全仓库所有历史 S4 测试的重跑；各部分的实际结果及运行根在[发布说明](docs/s4/public-release.md)中单列。
 
-旧首发代码的 Windows/Ubuntu 369 项 CI 是历史记录，不代表当前 S4 候选的新远程验证；本次远程 CI 尚未运行。当前版本的 30×3×R=3 全批、真实模型完整增量链和正式比较仍待后续冻结与授权。
+旧首发的 369 项 CI 与本地准备的 482 项分别保留原时点；本次 [新远程 CI](https://github.com/luyangzhan111/writscope/actions/runs/41792070076) 在 Windows 和 Ubuntu 24.04 均成功。Ubuntu 日志记录 494 项通过；Windows 检查集、回放与演示步骤成功。Linux 使用单独绑定、仅固定响应的发布适配层，未开放真实发送。当前版本的 30×3×R=3 全批、真实模型完整增量链和正式比较仍待后续冻结与授权。
 
 ## 保留的 S3 首发入口
 

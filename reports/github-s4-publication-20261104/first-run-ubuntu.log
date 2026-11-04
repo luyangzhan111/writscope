@@ -1,0 +1,142 @@
+﻿2026-11-04T06:47:12.3413870Z Current runner version: '2.338.2'
+2026-11-04T06:47:12.3440001Z ##[group]Runner Image Provisioner
+2026-11-04T06:47:12.3440944Z Hosted Compute Agent
+2026-11-04T06:47:12.3441585Z Version: 20261021.618
+2026-11-04T06:47:12.3442373Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-04T06:47:12.3443167Z Build Date: 2026-10-21T00:45:21Z
+2026-11-04T06:47:12.3443903Z Worker ID: {7b4285f2-eecc-4eb0-b948-ebda28b2c88e}
+2026-11-04T06:47:12.3444757Z Region: westus
+2026-11-04T06:47:12.3445353Z Cloud: Azure
+2026-11-04T06:47:12.3446326Z ##[endgroup]
+2026-11-04T06:47:12.3447907Z ##[group]Operating System
+2026-11-04T06:47:12.3448586Z Ubuntu
+2026-11-04T06:47:12.3449250Z 26.04.1
+2026-11-04T06:47:12.3449809Z LTS
+2026-11-04T06:47:12.3450427Z ##[endgroup]
+2026-11-04T06:47:12.3451037Z ##[group]Runner Image
+2026-11-04T06:47:12.3451684Z Image: ubuntu-26.04
+2026-11-04T06:47:12.3452443Z Version: 20261025.179.1
+2026-11-04T06:47:12.3453886Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261025.179/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-04T06:47:12.3456113Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261025.179
+2026-11-04T06:47:12.3457231Z ##[endgroup]
+2026-11-04T06:47:12.3458924Z ##[group]GITHUB_TOKEN Permissions
+2026-11-04T06:47:12.3460900Z Contents: read
+2026-11-04T06:47:12.3461678Z Metadata: read
+2026-11-04T06:47:12.3462282Z ##[endgroup]
+2026-11-04T06:47:12.3464502Z Secret source: Actions
+2026-11-04T06:47:12.3465778Z Cache mode: write
+2026-11-04T06:47:12.3466583Z Prepare workflow directory
+2026-11-04T06:47:12.3950141Z Prepare all required actions
+2026-11-04T06:47:12.3999104Z Getting action download info
+2026-11-04T06:47:12.7518462Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-04T06:47:12.8665306Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-04T06:47:13.0379450Z Complete job name: offline (ubuntu-latest)
+2026-11-04T06:47:13.1294617Z ##[group]Run actions/checkout@v4
+2026-11-04T06:47:13.1295742Z with:
+2026-11-04T06:47:13.1296232Z   repository: luyangzhan111/writscope
+2026-11-04T06:47:13.1300662Z   token: ***
+2026-11-04T06:47:13.1301117Z   ssh-strict: true
+2026-11-04T06:47:13.1301577Z   ssh-user: git
+2026-11-04T06:47:13.1302059Z   persist-credentials: true
+2026-11-04T06:47:13.1302636Z   clean: true
+2026-11-04T06:47:13.1303117Z   sparse-checkout-cone-mode: true
+2026-11-04T06:47:13.1303670Z   fetch-depth: 1
+2026-11-04T06:47:13.1304137Z   fetch-tags: false
+2026-11-04T06:47:13.1304609Z   show-progress: true
+2026-11-04T06:47:13.1305084Z   lfs: false
+2026-11-04T06:47:13.1305650Z   submodules: false
+2026-11-04T06:47:13.1306128Z   set-safe-directory: true
+2026-11-04T06:47:13.1306662Z   allow-unsafe-pr-checkout: false
+2026-11-04T06:47:13.1307474Z env:
+2026-11-04T06:47:13.1307908Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:47:13.1308377Z ##[endgroup]
+2026-11-04T06:47:13.4359758Z Syncing repository: luyangzhan111/writscope
+2026-11-04T06:47:13.4363403Z ##[group]Getting Git version info
+2026-11-04T06:47:13.4364999Z Working directory is '/home/runner/work/writscope/writscope'
+2026-11-04T06:47:13.4367446Z [command]/usr/bin/git version
+2026-11-04T06:47:13.4379273Z git version 2.56.0
+2026-11-04T06:47:13.4406472Z ##[endgroup]
+2026-11-04T06:47:13.4428130Z Temporarily overriding HOME='/home/runner/work/_temp/1729fa28-7d79-4f28-bc93-b1de336423c0' before making global git config changes
+2026-11-04T06:47:13.4432628Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T06:47:13.4436660Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/writscope/writscope
+2026-11-04T06:47:13.4503605Z Deleting the contents of '/home/runner/work/writscope/writscope'
+2026-11-04T06:47:13.4509773Z ##[group]Initializing the repository
+2026-11-04T06:47:13.4516669Z [command]/usr/bin/git init /home/runner/work/writscope/writscope
+2026-11-04T06:47:13.4650818Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-04T06:47:13.4653772Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-04T06:47:13.4656460Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-04T06:47:13.4659328Z hint: call:
+2026-11-04T06:47:13.4660350Z hint:
+2026-11-04T06:47:13.4662057Z hint: 	git config --global init.defaultBranch <name>
+2026-11-04T06:47:13.4663384Z hint:
+2026-11-04T06:47:13.4664745Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-04T06:47:13.4667127Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-04T06:47:13.4668883Z hint:
+2026-11-04T06:47:13.4669869Z hint: 	git branch -m <name>
+2026-11-04T06:47:13.4671013Z hint:
+2026-11-04T06:47:13.4672541Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-04T06:47:13.4675257Z Initialized empty Git repository in /home/runner/work/writscope/writscope/.git/
+2026-11-04T06:47:13.4699642Z [command]/usr/bin/git remote add origin https://github.com/luyangzhan111/writscope
+2026-11-04T06:47:13.4778755Z ##[endgroup]
+2026-11-04T06:47:13.4779835Z ##[group]Disabling automatic garbage collection
+2026-11-04T06:47:13.4780856Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-04T06:47:13.4828930Z ##[endgroup]
+2026-11-04T06:47:13.4830830Z ##[group]Setting up auth
+2026-11-04T06:47:13.4837975Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T06:47:13.4877462Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T06:47:13.5397534Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T06:47:13.5440278Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T06:47:13.5729705Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T06:47:13.5771082Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T06:47:13.6062242Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-04T06:47:13.6108347Z ##[endgroup]
+2026-11-04T06:47:13.6109702Z ##[group]Fetching the repository
+2026-11-04T06:47:13.6118936Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7f32e6544e6c7ca0cff3c8490dfceaf7ba36e8d0:refs/remotes/origin/main
+2026-11-04T06:47:15.0669299Z From https://github.com/luyangzhan111/writscope
+2026-11-04T06:47:15.0673458Z  * [new ref]         7f32e6544e6c7ca0cff3c8490dfceaf7ba36e8d0 -> origin/main
+2026-11-04T06:47:15.0679598Z ##[endgroup]
+2026-11-04T06:47:15.0681269Z ##[group]Determining the checkout info
+2026-11-04T06:47:15.0683370Z ##[endgroup]
+2026-11-04T06:47:15.0685035Z [command]/usr/bin/git sparse-checkout disable
+2026-11-04T06:47:15.0740498Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-04T06:47:15.0779426Z ##[group]Checking out the ref
+2026-11-04T06:47:15.0782615Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-04T06:47:15.2414708Z Switched to a new branch 'main'
+2026-11-04T06:47:15.2419346Z branch 'main' set up to track 'origin/main'.
+2026-11-04T06:47:15.2489610Z ##[endgroup]
+2026-11-04T06:47:15.2493219Z [command]/usr/bin/git log -1 --format=%H
+2026-11-04T06:47:15.2523594Z 7f32e6544e6c7ca0cff3c8490dfceaf7ba36e8d0
+2026-11-04T06:47:15.2960891Z ##[group]Run actions/setup-python@v5
+2026-11-04T06:47:15.2962265Z with:
+2026-11-04T06:47:15.2963269Z   python-version: 3.12.4
+2026-11-04T06:47:15.2964432Z   check-latest: false
+2026-11-04T06:47:15.2978424Z   token: ***
+2026-11-04T06:47:15.2979510Z   update-environment: true
+2026-11-04T06:47:15.2981044Z   allow-prereleases: false
+2026-11-04T06:47:15.2982227Z   freethreaded: false
+2026-11-04T06:47:15.2983275Z env:
+2026-11-04T06:47:15.2984211Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:47:15.2985250Z ##[endgroup]
+2026-11-04T06:47:15.4476972Z ##[group]Installed versions
+2026-11-04T06:47:15.4494191Z Version 3.12.4 was not found in the local cache
+2026-11-04T06:47:15.4716313Z (node:2389) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-04T06:47:15.4721979Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-04T06:47:17.3838235Z ##[error]The version '3.12.4' with architecture 'x64' was not found for Ubuntu 26.04.
+The list of all available versions can be found here: https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+2026-11-04T06:47:17.4207360Z Post job cleanup.
+2026-11-04T06:47:17.5149382Z [command]/usr/bin/git version
+2026-11-04T06:47:17.5198191Z git version 2.56.0
+2026-11-04T06:47:17.5239001Z Temporarily overriding HOME='/home/runner/work/_temp/ea4dc8d8-6c64-4040-a63d-d7099a7a80fd' before making global git config changes
+2026-11-04T06:47:17.5240496Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T06:47:17.5243978Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/writscope/writscope
+2026-11-04T06:47:17.5290554Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T06:47:17.5332151Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T06:47:17.5738463Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T06:47:17.5788446Z http.https://github.com/.extraheader
+2026-11-04T06:47:17.5810493Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-04T06:47:17.5878061Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T06:47:17.6269509Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T06:47:17.6315746Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T06:47:17.6832089Z Cleaning up orphan processes
+2026-11-04T06:47:17.7277321Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

@@ -1,0 +1,387 @@
+﻿2026-11-04T07:24:43.0903513Z Current runner version: '2.338.2'
+2026-11-04T07:24:43.0933401Z ##[group]Runner Image Provisioner
+2026-11-04T07:24:43.0934372Z Hosted Compute Agent
+2026-11-04T07:24:43.0934920Z Version: 20261021.618
+2026-11-04T07:24:43.0935606Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-04T07:24:43.0936343Z Build Date: 2026-10-21T00:45:21Z
+2026-11-04T07:24:43.0937030Z Worker ID: {221cb4da-2550-4529-8af1-d06d6e2b2df9}
+2026-11-04T07:24:43.0937746Z Region: northcentralus
+2026-11-04T07:24:43.0938367Z Cloud: Azure
+2026-11-04T07:24:43.0938898Z ##[endgroup]
+2026-11-04T07:24:43.0940405Z ##[group]Operating System
+2026-11-04T07:24:43.0941658Z Microsoft Windows Server 2025
+2026-11-04T07:24:43.0942355Z 10.0.26100
+2026-11-04T07:24:43.0942851Z Datacenter
+2026-11-04T07:24:43.0943331Z ##[endgroup]
+2026-11-04T07:24:43.0943817Z ##[group]Runner Image
+2026-11-04T07:24:43.0944363Z Image: windows-2025-vs2026
+2026-11-04T07:24:43.0944921Z Version: 20261030.294.1
+2026-11-04T07:24:43.0946367Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261030.294/images/windows/Windows2025-VS2026-Readme.md
+2026-11-04T07:24:43.0947956Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261030.294
+2026-11-04T07:24:43.0949207Z ##[endgroup]
+2026-11-04T07:24:43.0950376Z ##[group]GITHUB_TOKEN Permissions
+2026-11-04T07:24:43.0952323Z Contents: read
+2026-11-04T07:24:43.0953015Z Metadata: read
+2026-11-04T07:24:43.0953543Z ##[endgroup]
+2026-11-04T07:24:43.0955762Z Secret source: Actions
+2026-11-04T07:24:43.0956668Z Cache mode: write
+2026-11-04T07:24:43.0957376Z Prepare workflow directory
+2026-11-04T07:24:43.1489260Z Prepare all required actions
+2026-11-04T07:24:43.1539544Z Getting action download info
+2026-11-04T07:24:43.3397066Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-04T07:24:43.5428490Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-04T07:24:43.8416815Z Complete job name: offline (windows-latest)
+2026-11-04T07:24:44.0210836Z ##[group]Run actions/checkout@v4
+2026-11-04T07:24:44.0212079Z with:
+2026-11-04T07:24:44.0212598Z   repository: luyangzhan111/writscope
+2026-11-04T07:24:44.0217720Z   token: ***
+2026-11-04T07:24:44.0218239Z   ssh-strict: true
+2026-11-04T07:24:44.0218736Z   ssh-user: git
+2026-11-04T07:24:44.0219245Z   persist-credentials: true
+2026-11-04T07:24:44.0219704Z   clean: true
+2026-11-04T07:24:44.0220106Z   sparse-checkout-cone-mode: true
+2026-11-04T07:24:44.0220596Z   fetch-depth: 1
+2026-11-04T07:24:44.0221000Z   fetch-tags: false
+2026-11-04T07:24:44.0221416Z   show-progress: true
+2026-11-04T07:24:44.0221832Z   lfs: false
+2026-11-04T07:24:44.0222209Z   submodules: false
+2026-11-04T07:24:44.0222634Z   set-safe-directory: true
+2026-11-04T07:24:44.0223111Z   allow-unsafe-pr-checkout: false
+2026-11-04T07:24:44.0223849Z env:
+2026-11-04T07:24:44.0224223Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:24:44.0224632Z ##[endgroup]
+2026-11-04T07:24:44.1803876Z Syncing repository: luyangzhan111/writscope
+2026-11-04T07:24:44.1806643Z ##[group]Getting Git version info
+2026-11-04T07:24:44.1807593Z Working directory is 'D:\a\writscope\writscope'
+2026-11-04T07:24:44.2865027Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-04T07:24:44.6396010Z git version 2.56.0.windows.4
+2026-11-04T07:24:44.6442261Z ##[endgroup]
+2026-11-04T07:24:44.6463404Z Temporarily overriding HOME='D:\a\_temp\737576fc-baa9-4439-94d6-fe3ca4316546' before making global git config changes
+2026-11-04T07:24:44.6465056Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T07:24:44.6474492Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\writscope\writscope
+2026-11-04T07:24:44.7094154Z Deleting the contents of 'D:\a\writscope\writscope'
+2026-11-04T07:24:44.7100620Z ##[group]Initializing the repository
+2026-11-04T07:24:44.7109996Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\writscope\writscope
+2026-11-04T07:24:44.8105649Z Initialized empty Git repository in D:/a/writscope/writscope/.git/
+2026-11-04T07:24:44.8158054Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/luyangzhan111/writscope
+2026-11-04T07:24:44.8834035Z ##[endgroup]
+2026-11-04T07:24:44.8834923Z ##[group]Disabling automatic garbage collection
+2026-11-04T07:24:44.8843465Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-04T07:24:44.9241628Z ##[endgroup]
+2026-11-04T07:24:44.9242441Z ##[group]Setting up auth
+2026-11-04T07:24:44.9254306Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T07:24:44.9667534Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-04T07:24:46.4821803Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T07:24:46.5227573Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-04T07:24:47.1248698Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T07:24:47.1647268Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-04T07:24:47.7818175Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-04T07:24:47.8206357Z ##[endgroup]
+2026-11-04T07:24:47.8206932Z ##[group]Fetching the repository
+2026-11-04T07:24:47.8221859Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +07f5108e354727b8c6f766337b67c7c6eb4ec328:refs/remotes/origin/main
+2026-11-04T07:24:49.8922157Z From https://github.com/luyangzhan111/writscope
+2026-11-04T07:24:49.8923385Z  * [new ref]         07f5108e354727b8c6f766337b67c7c6eb4ec328 -> origin/main
+2026-11-04T07:24:49.8962763Z ##[endgroup]
+2026-11-04T07:24:49.8963152Z ##[group]Determining the checkout info
+2026-11-04T07:24:49.8965859Z ##[endgroup]
+2026-11-04T07:24:49.8981405Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-04T07:24:49.9401320Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-04T07:24:49.9770910Z ##[group]Checking out the ref
+2026-11-04T07:24:49.9779571Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-04T07:24:50.3246397Z Switched to a new branch 'main'
+2026-11-04T07:24:50.3262040Z branch 'main' set up to track 'origin/main'.
+2026-11-04T07:24:50.3359409Z ##[endgroup]
+2026-11-04T07:24:50.3754241Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-04T07:24:50.4088820Z 07f5108e354727b8c6f766337b67c7c6eb4ec328
+2026-11-04T07:24:50.4539413Z ##[group]Run actions/setup-python@v5
+2026-11-04T07:24:50.4539757Z with:
+2026-11-04T07:24:50.4539955Z   python-version: 3.12.4
+2026-11-04T07:24:50.4540184Z   check-latest: false
+2026-11-04T07:24:50.4543071Z   token: ***
+2026-11-04T07:24:50.4543279Z   update-environment: true
+2026-11-04T07:24:50.4543510Z   allow-prereleases: false
+2026-11-04T07:24:50.4543723Z   freethreaded: false
+2026-11-04T07:24:50.4543911Z env:
+2026-11-04T07:24:50.4544068Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:24:50.4544253Z ##[endgroup]
+2026-11-04T07:24:50.6143076Z ##[group]Installed versions
+2026-11-04T07:24:50.6158956Z Version 3.12.4 was not found in the local cache
+2026-11-04T07:24:50.6376884Z (node:7420) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-04T07:24:50.6378993Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-04T07:24:51.3623792Z Version 3.12.4 is available for downloading
+2026-11-04T07:24:51.3625027Z Download from "https://github.com/actions/python-versions/releases/download/3.12.4-9947065640/python-3.12.4-win32-x64.zip"
+2026-11-04T07:24:51.7308541Z Extract downloaded archive
+2026-11-04T07:24:51.8487783Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\python-3.12.4-win32-x64.zip', 'D:\a\_temp\4597530c-11f5-4a7e-8a93-232d77f1d7e6', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\python-3.12.4-win32-x64.zip' -DestinationPath 'D:\a\_temp\4597530c-11f5-4a7e-8a93-232d77f1d7e6' -Force } else { throw $_ } } ;"
+2026-11-04T07:24:52.3438237Z Execute installation script
+2026-11-04T07:24:55.2164507Z Check if Python hostedtoolcache folder exist...
+2026-11-04T07:24:55.2166657Z 
+2026-11-04T07:24:55.2260619Z Check if current Python version is installed...
+2026-11-04T07:24:55.2262195Z 
+2026-11-04T07:24:55.2432919Z Python3.12 (x64) was found in C:\hostedtoolcache\windows\Python...
+2026-11-04T07:24:55.2433490Z 
+2026-11-04T07:24:55.2763926Z Deleting C:\hostedtoolcache\windows\Python\3.12.10\x64...
+2026-11-04T07:24:55.2766210Z 
+2026-11-04T07:25:01.3973093Z VERBOSE: Performing the operation "Remove File" on target "C:\hostedtoolcache\windows\Python\3.12.10\x64.complete".
+2026-11-04T07:25:01.3974472Z 
+2026-11-04T07:25:01.3985001Z Remove registry entries for Python 3.12(x64)...
+2026-11-04T07:25:01.3987025Z 
+2026-11-04T07:25:01.7700990Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7702090Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\06D3A4FE35A979641AD83
+2026-11-04T07:25:01.7703051Z D53F358456E".
+2026-11-04T07:25:01.7703239Z 
+2026-11-04T07:25:01.7726838Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7728147Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\3661A0DCD2CDDB1498FA1
+2026-11-04T07:25:01.7729273Z E80E9488122".
+2026-11-04T07:25:01.7729610Z 
+2026-11-04T07:25:01.7751499Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7753146Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\3865845730FE6E14FB121
+2026-11-04T07:25:01.7754578Z D94614945C8".
+2026-11-04T07:25:01.7754702Z 
+2026-11-04T07:25:01.7791736Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7793569Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\795B21EDFB4DB1B4FBF55
+2026-11-04T07:25:01.7794144Z CEC14FADBCF".
+2026-11-04T07:25:01.7794257Z 
+2026-11-04T07:25:01.7820553Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7821322Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\8843FD815422B2340A32A
+2026-11-04T07:25:01.7821908Z 30AC5A2008C".
+2026-11-04T07:25:01.7822019Z 
+2026-11-04T07:25:01.7844529Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7845710Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\D3908510908FB5544992D
+2026-11-04T07:25:01.7846668Z 6614A5B1D81".
+2026-11-04T07:25:01.7847108Z 
+2026-11-04T07:25:01.7867263Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7867971Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\FA171F1012F1E534EB4EC
+2026-11-04T07:25:01.7869299Z F4C63C098C6".
+2026-11-04T07:25:01.7869519Z 
+2026-11-04T07:25:01.7890085Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.7891362Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\FE9C90D9C75AA2247BA9C
+2026-11-04T07:25:01.7892427Z C29029756A3".
+2026-11-04T07:25:01.7892606Z 
+2026-11-04T07:25:01.8045724Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.8046918Z HKEY_CLASSES_ROOT\Installer\Products\06D3A4FE35A979641AD83D53F358456E".
+2026-11-04T07:25:01.8048013Z 
+2026-11-04T07:25:01.8339675Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.8340554Z HKEY_CLASSES_ROOT\Installer\Products\3661A0DCD2CDDB1498FA1E80E9488122".
+2026-11-04T07:25:01.8341125Z 
+2026-11-04T07:25:01.8374138Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.8374649Z HKEY_CLASSES_ROOT\Installer\Products\3865845730FE6E14FB121D94614945C8".
+2026-11-04T07:25:01.8376122Z 
+2026-11-04T07:25:01.8708141Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.8709381Z HKEY_CLASSES_ROOT\Installer\Products\795B21EDFB4DB1B4FBF55CEC14FADBCF".
+2026-11-04T07:25:01.8709927Z 
+2026-11-04T07:25:01.8789206Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.8791020Z HKEY_CLASSES_ROOT\Installer\Products\8843FD815422B2340A32A30AC5A2008C".
+2026-11-04T07:25:01.8791345Z 
+2026-11-04T07:25:01.9175559Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9176856Z HKEY_CLASSES_ROOT\Installer\Products\D3908510908FB5544992D6614A5B1D81".
+2026-11-04T07:25:01.9177739Z 
+2026-11-04T07:25:01.9369249Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9369824Z HKEY_CLASSES_ROOT\Installer\Products\FA171F1012F1E534EB4ECF4C63C098C6".
+2026-11-04T07:25:01.9370383Z 
+2026-11-04T07:25:01.9756433Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9758072Z HKEY_CLASSES_ROOT\Installer\Products\FE9C90D9C75AA2247BA9CC29029756A3".
+2026-11-04T07:25:01.9759948Z 
+2026-11-04T07:25:01.9881814Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9882584Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{0158093D-F809-455B-9429-6D16A4B5D118}".
+2026-11-04T07:25:01.9883592Z 
+2026-11-04T07:25:01.9899434Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9900062Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{01F171AF-1F21-435E-BEE4-FCC4360C896C}".
+2026-11-04T07:25:01.9901392Z 
+2026-11-04T07:25:01.9961793Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:01.9962442Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{18DF3488-2245-432B-A023-3AA05C2A00C8}".
+2026-11-04T07:25:01.9963625Z 
+2026-11-04T07:25:02.0145861Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:02.0148649Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{75485683-EF03-41E6-BF21-D1491694548C}".
+2026-11-04T07:25:02.0149549Z 
+2026-11-04T07:25:02.0225832Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:02.0228048Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{9D09C9EF-A57C-422A-B79A-CC922079653A}".
+2026-11-04T07:25:02.0228870Z 
+2026-11-04T07:25:02.0335259Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:02.0336308Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{CD0A1663-DC2D-41BD-89AF-E1089E841822}".
+2026-11-04T07:25:02.0337113Z 
+2026-11-04T07:25:02.0380959Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:02.0382256Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{DE12B597-D4BF-4B1B-BF5F-C5CE41AFBDFC}".
+2026-11-04T07:25:02.0383357Z 
+2026-11-04T07:25:02.0430606Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+2026-11-04T07:25:02.0431746Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{EF4A3D60-9A53-4697-A18D-D3353F8554E6}".
+2026-11-04T07:25:02.0432424Z 
+2026-11-04T07:25:02.0893461Z Create Python 3.12.4 folder in C:\hostedtoolcache\windows\Python
+2026-11-04T07:25:02.0893924Z 
+2026-11-04T07:25:02.0936407Z Copy Python binaries to C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:02.0937897Z 
+2026-11-04T07:25:02.1049305Z Install Python 3.12.4 in C:\hostedtoolcache\windows\Python...
+2026-11-04T07:25:02.1049831Z 
+2026-11-04T07:25:35.5620907Z Create python3 symlink
+2026-11-04T07:25:35.5621493Z 
+2026-11-04T07:25:35.5954776Z 
+2026-11-04T07:25:35.5956272Z 
+2026-11-04T07:25:35.5963182Z Directory: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:35.5963632Z 
+2026-11-04T07:25:35.5963638Z 
+2026-11-04T07:25:35.5977584Z Mode                 LastWriteTime         Length Name
+2026-11-04T07:25:35.5982404Z ----                 -------------         ------ ----
+2026-11-04T07:25:35.5994483Z -a---l         11/4/2026   7:25 AM              0 python3.exe
+2026-11-04T07:25:35.6001663Z Install and upgrade Pip
+2026-11-04T07:25:35.6003815Z 
+2026-11-04T07:25:38.1096014Z Looking in links: c:\Users\RUNNER~1\AppData\Local\Temp\tmpb6lbevmq
+2026-11-04T07:25:38.1107372Z Requirement already satisfied: pip in c:\hostedtoolcache\windows\python\3.12.4\x64\lib\site-packages (24.0)
+2026-11-04T07:25:39.5939512Z Collecting pip
+2026-11-04T07:25:39.8457641Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-04T07:25:39.9055765Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-04T07:25:40.1312955Z 
+2026-11-04T07:25:40.1314345Z ---------------------------------------- 2.0/2.0 MB
+2026-11-04T07:25:40.1315364Z 9.6 MB/s eta 0:00:00
+2026-11-04T07:25:40.1317010Z 
+2026-11-04T07:25:40.1812378Z Installing collected packages: pip
+2026-11-04T07:25:40.1814433Z Attempting uninstall: pip
+2026-11-04T07:25:40.1855165Z Found existing installation: pip 24.0
+2026-11-04T07:25:40.2885588Z Uninstalling pip-24.0:
+2026-11-04T07:25:40.3129729Z Successfully uninstalled pip-24.0
+2026-11-04T07:25:42.9757450Z Successfully installed pip-26.3
+2026-11-04T07:25:43.8834640Z Create complete file
+2026-11-04T07:25:43.8835991Z 
+2026-11-04T07:25:43.8851192Z 
+2026-11-04T07:25:43.8851624Z 
+2026-11-04T07:25:43.9380081Z Successfully set up CPython (3.12.4)
+2026-11-04T07:25:43.9381547Z ##[endgroup]
+2026-11-04T07:25:43.9679962Z ##[group]Run python -m pip install uv
+2026-11-04T07:25:43.9680350Z [36;1mpython -m pip install uv[0m
+2026-11-04T07:25:43.9830309Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:25:43.9830754Z env:
+2026-11-04T07:25:43.9830971Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:25:43.9831638Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:43.9832236Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:25:43.9833051Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:43.9833588Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:43.9834116Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:43.9834527Z ##[endgroup]
+2026-11-04T07:25:46.4056279Z Collecting uv
+2026-11-04T07:25:46.6162092Z   Downloading uv-0.13.7-py3-none-win_amd64.whl.metadata (11 kB)
+2026-11-04T07:25:46.6712169Z Downloading uv-0.13.7-py3-none-win_amd64.whl (15.3 MB)
+2026-11-04T07:25:46.9409054Z    ---------------------------------------- 15.3/15.3 MB 96.6 MB/s  0:00:00
+2026-11-04T07:25:47.0260746Z Installing collected packages: uv
+2026-11-04T07:25:47.4984045Z Successfully installed uv-0.13.7
+2026-11-04T07:25:47.6679187Z ##[group]Run uv sync --locked --python 3.12.4
+2026-11-04T07:25:47.6679584Z [36;1muv sync --locked --python 3.12.4[0m
+2026-11-04T07:25:47.6749265Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:25:47.6749624Z env:
+2026-11-04T07:25:47.6749818Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:25:47.6750121Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:47.6750576Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:25:47.6751032Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:47.6751455Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:47.6751868Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:47.6752182Z ##[endgroup]
+2026-11-04T07:25:48.0758190Z Using CPython 3.12.4 interpreter at: C:\hostedtoolcache\windows\Python\3.12.4\x64\python3.exe
+2026-11-04T07:25:48.0760146Z Creating virtual environment at: .venv
+2026-11-04T07:25:48.0830134Z Resolved 22 packages in 1ms
+2026-11-04T07:25:48.1040234Z    Building writscope @ file:///D:/a/writscope/writscope
+2026-11-04T07:25:48.1983502Z Downloading pygments (1.2MiB)
+2026-11-04T07:25:48.2194906Z Downloading pydantic-core (2.1MiB)
+2026-11-04T07:25:48.5114213Z  Downloaded pydantic-core
+2026-11-04T07:25:49.1529076Z  Downloaded pygments
+2026-11-04T07:25:49.7255437Z       Built writscope @ file:///D:/a/writscope/writscope
+2026-11-04T07:25:49.7379786Z Prepared 22 packages in 1.65s
+2026-11-04T07:25:49.7460432Z warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+2026-11-04T07:25:49.7493323Z          If the cache and target directories are on different filesystems, hardlinking may not be supported.
+2026-11-04T07:25:49.7528324Z          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+2026-11-04T07:25:50.2590031Z Installed 22 packages in 520ms
+2026-11-04T07:25:50.2590778Z  + annotated-doc==0.0.5
+2026-11-04T07:25:50.2592509Z  + annotated-types==0.8.0
+2026-11-04T07:25:50.2592918Z  + anyio==4.15.1
+2026-11-04T07:25:50.2594499Z  + certifi==2026.7.22
+2026-11-04T07:25:50.2597339Z  + colorama==0.4.6
+2026-11-04T07:25:50.2598584Z  + fastapi==0.143.3
+2026-11-04T07:25:50.2600052Z  + h11==0.16.0
+2026-11-04T07:25:50.2602345Z  + httpcore==1.0.9
+2026-11-04T07:25:50.2602906Z  + httpx==0.28.1
+2026-11-04T07:25:50.2604151Z  + idna==3.20
+2026-11-04T07:25:50.2607198Z  + iniconfig==2.3.1
+2026-11-04T07:25:50.2609318Z  + opentelemetry-api==1.45.1
+2026-11-04T07:25:50.2611710Z  + packaging==26.3
+2026-11-04T07:25:50.2613467Z  + pluggy==1.7.0
+2026-11-04T07:25:50.2614973Z  + pydantic==2.14.1
+2026-11-04T07:25:50.2617313Z  + pydantic-core==2.50.1
+2026-11-04T07:25:50.2618926Z  + pygments==2.21.0
+2026-11-04T07:25:50.2620767Z  + pytest==9.1.1
+2026-11-04T07:25:50.2622515Z  + starlette==1.8.0
+2026-11-04T07:25:50.2624790Z  + typing-extensions==4.16.0
+2026-11-04T07:25:50.2626850Z  + typing-inspection==0.4.4
+2026-11-04T07:25:50.2629288Z  + writscope==0.1.0 (from file:///D:/a/writscope/writscope)
+2026-11-04T07:25:50.4561108Z ##[group]Run uv run --locked python -m scripts.s4_public_release audit
+2026-11-04T07:25:50.4561694Z [36;1muv run --locked python -m scripts.s4_public_release audit[0m
+2026-11-04T07:25:50.4631486Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:25:50.4631825Z env:
+2026-11-04T07:25:50.4631989Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:25:50.4632281Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:50.4632737Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:25:50.4633186Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:50.4633585Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:50.4633978Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:25:50.4634292Z ##[endgroup]
+2026-11-04T07:26:46.3555082Z {"version": "s4_bounded_release_scan_v1", "files_requested": 656, "files_scanned": 656, "unique_contents_scanned": 17223, "duplicate_content_references": 43296, "unique_bytes_scanned": 327435336, "expanded_bytes_read": 428782443, "archive_members_scanned": 3691, "json_base64_values_scanned": 1591, "json_contents_scanned": 6163, "jsonl_contents_scanned": 10, "jsonl_lines_scanned": 50, "structured_parse_failures": 0, "raw_only_contents_scanned": 10930, "sqlite_cells_scanned": 67357, "findings": [], "pattern_categories": ["private_key", "provider_token", "github_token", "aws_access_key", "credential_assignment"], "new_model_calls": 0, "credential_stores_accessed": false, "limitation": "bounded_pattern_scan_not_a_security_or_absence_guarantee; unsupported_or_limit_failures_are_findings", "structured_format_scope": "ZIP_magic_or_extension; SQLite_magic; plausible_JSON_start_or_explicit_JSON_extension; JSONL_extension_or_multiline_plausible_JSON_object_or_array_content; unrecognized_formats_raw_patterns_only_and_counted", "deduplication": "content_sha256_after_each_path_safety_check; findings_reference_first_scanned_content_path", "history_objects_scanned": {"commit": 1, "tree": 90, "blob": 608}, "scan_policy": {"max_depth": 12, "max_total_expanded": 1073741824}, "github_updated": false}
+2026-11-04T07:26:46.4808911Z ##[group]Run uv run --locked python -m scripts.s4_public_release restore --destination .work/public-s4-check
+2026-11-04T07:26:46.4809747Z [36;1muv run --locked python -m scripts.s4_public_release restore --destination .work/public-s4-check[0m
+2026-11-04T07:26:46.4879076Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:26:46.4879430Z env:
+2026-11-04T07:26:46.4879609Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:26:46.4898965Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:46.4899493Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:26:46.4899969Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:46.4900383Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:46.4900811Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:46.4901134Z ##[endgroup]
+2026-11-04T07:26:50.5669512Z {"restored_files": 1389, "frozen_bytes_preserved": 1046, "destination": "D:\\a\\writscope\\writscope\\.work\\public-s4-check", "runtime_overlay_files": 4, "new_model_calls": 0}
+2026-11-04T07:26:50.7195476Z ##[group]Run uv run --locked python -m scripts.s4_public_release test --root .work/public-s4-check --report .work/public-tests.xml
+2026-11-04T07:26:50.7197166Z [36;1muv run --locked python -m scripts.s4_public_release test --root .work/public-s4-check --report .work/public-tests.xml[0m
+2026-11-04T07:26:50.7294911Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:26:50.7295256Z env:
+2026-11-04T07:26:50.7295427Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:26:50.7295720Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:50.7296166Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:26:50.7296629Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:50.7297039Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:50.7297442Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:26:50.7297773Z ##[endgroup]
+2026-11-04T07:29:15.0674600Z ##[group]Run uv run --locked python -m scripts.s4_public_release verify --root .work/public-s4-check --report .work/public-replay.json
+2026-11-04T07:29:15.0675686Z [36;1muv run --locked python -m scripts.s4_public_release verify --root .work/public-s4-check --report .work/public-replay.json[0m
+2026-11-04T07:29:15.0747904Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:29:15.0748267Z env:
+2026-11-04T07:29:15.0748447Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:29:15.0748754Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:15.0749295Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:29:15.0750008Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:15.0750492Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:15.0750994Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:15.0751436Z ##[endgroup]
+2026-11-04T07:29:22.6936750Z ##[group]Run uv run --locked python -m scripts.s4_public_release demo --root .work/public-s4-check --report .work/public-demo.json
+2026-11-04T07:29:22.6937776Z [36;1muv run --locked python -m scripts.s4_public_release demo --root .work/public-s4-check --report .work/public-demo.json[0m
+2026-11-04T07:29:22.7007112Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-04T07:29:22.7007516Z env:
+2026-11-04T07:29:22.7007751Z   DEEPSEEK_API_KEY: 
+2026-11-04T07:29:22.7008108Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:22.7008614Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.4\x64/lib/pkgconfig
+2026-11-04T07:29:22.7009116Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:22.7009545Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:22.7009983Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.4\x64
+2026-11-04T07:29:22.7010638Z ##[endgroup]
+2026-11-04T07:29:31.4093172Z Post job cleanup.
+2026-11-04T07:29:31.5521477Z (node:5580) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-04T07:29:31.5522713Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-04T07:29:31.5855803Z Post job cleanup.
+2026-11-04T07:29:31.7977318Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-04T07:29:31.8325412Z git version 2.56.0.windows.4
+2026-11-04T07:29:31.8397633Z Temporarily overriding HOME='D:\a\_temp\35aeab4c-5213-4ecd-bd8e-924b090865dd' before making global git config changes
+2026-11-04T07:29:31.8398938Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T07:29:31.8409369Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\writscope\writscope
+2026-11-04T07:29:31.8797166Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T07:29:31.9157701Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-04T07:29:32.4536859Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T07:29:32.4872652Z http.https://github.com/.extraheader
+2026-11-04T07:29:32.4916949Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-04T07:29:32.5298543Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-04T07:29:33.0860379Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T07:29:33.1242635Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-04T07:29:33.6964552Z Cleaning up orphan processes
+2026-11-04T07:29:33.7234548Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

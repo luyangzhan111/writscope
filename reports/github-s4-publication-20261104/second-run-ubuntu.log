@@ -1,0 +1,407 @@
+﻿2026-11-04T06:58:57.6133819Z Current runner version: '2.338.2'
+2026-11-04T06:58:57.6155759Z ##[group]Runner Image Provisioner
+2026-11-04T06:58:57.6156479Z Hosted Compute Agent
+2026-11-04T06:58:57.6157110Z Version: 20261021.618
+2026-11-04T06:58:57.6157669Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-04T06:58:57.6158283Z Build Date: 2026-10-21T00:45:21Z
+2026-11-04T06:58:57.6158908Z Worker ID: {7314f227-fa88-44ca-add5-2a37fc4af9fa}
+2026-11-04T06:58:57.6159505Z Region: westus3
+2026-11-04T06:58:57.6160071Z Cloud: Azure
+2026-11-04T06:58:57.6160548Z ##[endgroup]
+2026-11-04T06:58:57.6161655Z ##[group]Operating System
+2026-11-04T06:58:57.6162236Z Ubuntu
+2026-11-04T06:58:57.6162719Z 24.04.5
+2026-11-04T06:58:57.6163194Z LTS
+2026-11-04T06:58:57.6163739Z ##[endgroup]
+2026-11-04T06:58:57.6164216Z ##[group]Runner Image
+2026-11-04T06:58:57.6164757Z Image: ubuntu-24.04
+2026-11-04T06:58:57.6165436Z Version: 20261025.353.1
+2026-11-04T06:58:57.6166596Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-04T06:58:57.6167879Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-11-04T06:58:57.6169029Z ##[endgroup]
+2026-11-04T06:58:57.6170030Z ##[group]GITHUB_TOKEN Permissions
+2026-11-04T06:58:57.6171758Z Contents: read
+2026-11-04T06:58:57.6172270Z Metadata: read
+2026-11-04T06:58:57.6172734Z ##[endgroup]
+2026-11-04T06:58:57.6174541Z Secret source: Actions
+2026-11-04T06:58:57.6175655Z Cache mode: write
+2026-11-04T06:58:57.6176359Z Prepare workflow directory
+2026-11-04T06:58:57.6500243Z Prepare all required actions
+2026-11-04T06:58:57.6540921Z Getting action download info
+2026-11-04T06:58:57.9278138Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-04T06:58:58.1174950Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-04T06:58:58.3529575Z Complete job name: offline (ubuntu-24.04)
+2026-11-04T06:58:58.4213671Z ##[group]Run actions/checkout@v4
+2026-11-04T06:58:58.4214373Z with:
+2026-11-04T06:58:58.4214750Z   repository: luyangzhan111/writscope
+2026-11-04T06:58:58.4218124Z   token: ***
+2026-11-04T06:58:58.4218488Z   ssh-strict: true
+2026-11-04T06:58:58.4218849Z   ssh-user: git
+2026-11-04T06:58:58.4219217Z   persist-credentials: true
+2026-11-04T06:58:58.4219630Z   clean: true
+2026-11-04T06:58:58.4219995Z   sparse-checkout-cone-mode: true
+2026-11-04T06:58:58.4220410Z   fetch-depth: 1
+2026-11-04T06:58:58.4220760Z   fetch-tags: false
+2026-11-04T06:58:58.4221122Z   show-progress: true
+2026-11-04T06:58:58.4221484Z   lfs: false
+2026-11-04T06:58:58.4221825Z   submodules: false
+2026-11-04T06:58:58.4222201Z   set-safe-directory: true
+2026-11-04T06:58:58.4222609Z   allow-unsafe-pr-checkout: false
+2026-11-04T06:58:58.4223182Z env:
+2026-11-04T06:58:58.4223518Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:58:58.4223884Z ##[endgroup]
+2026-11-04T06:58:58.6315956Z Syncing repository: luyangzhan111/writscope
+2026-11-04T06:58:58.6317852Z ##[group]Getting Git version info
+2026-11-04T06:58:58.6318709Z Working directory is '/home/runner/work/writscope/writscope'
+2026-11-04T06:58:58.6319872Z [command]/usr/bin/git version
+2026-11-04T06:58:58.6386900Z git version 2.56.0
+2026-11-04T06:58:58.6403403Z ##[endgroup]
+2026-11-04T06:58:58.6415961Z Temporarily overriding HOME='/home/runner/work/_temp/51729f5f-22b5-4994-81fd-938b1a6878ea' before making global git config changes
+2026-11-04T06:58:58.6417813Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T06:58:58.6420196Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/writscope/writscope
+2026-11-04T06:58:58.6630450Z Deleting the contents of '/home/runner/work/writscope/writscope'
+2026-11-04T06:58:58.6636685Z ##[group]Initializing the repository
+2026-11-04T06:58:58.6638783Z [command]/usr/bin/git init /home/runner/work/writscope/writscope
+2026-11-04T06:58:58.6718758Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-04T06:58:58.6720395Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-04T06:58:58.6721480Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-04T06:58:58.6722350Z hint: call:
+2026-11-04T06:58:58.6722955Z hint:
+2026-11-04T06:58:58.6723817Z hint: 	git config --global init.defaultBranch <name>
+2026-11-04T06:58:58.6724830Z hint:
+2026-11-04T06:58:58.6725875Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-04T06:58:58.6727229Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-04T06:58:58.6728401Z hint:
+2026-11-04T06:58:58.6729202Z hint: 	git branch -m <name>
+2026-11-04T06:58:58.6730032Z hint:
+2026-11-04T06:58:58.6731040Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-04T06:58:58.6732644Z Initialized empty Git repository in /home/runner/work/writscope/writscope/.git/
+2026-11-04T06:58:58.6739134Z [command]/usr/bin/git remote add origin https://github.com/luyangzhan111/writscope
+2026-11-04T06:58:58.6789753Z ##[endgroup]
+2026-11-04T06:58:58.6790612Z ##[group]Disabling automatic garbage collection
+2026-11-04T06:58:58.6791290Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-04T06:58:58.6855694Z ##[endgroup]
+2026-11-04T06:58:58.6856681Z ##[group]Setting up auth
+2026-11-04T06:58:58.6865835Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T06:58:58.6883365Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T06:58:58.7396761Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T06:58:58.7434949Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T06:58:58.7638522Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T06:58:58.7678344Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T06:58:58.7887072Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-04T06:58:58.7930017Z ##[endgroup]
+2026-11-04T06:58:58.7931018Z ##[group]Fetching the repository
+2026-11-04T06:58:58.7940899Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +24134eb9d4f2e1fea5c18016a48fc8d6a194fdf0:refs/remotes/origin/main
+2026-11-04T06:59:01.0045655Z From https://github.com/luyangzhan111/writscope
+2026-11-04T06:59:01.0047334Z  * [new ref]         24134eb9d4f2e1fea5c18016a48fc8d6a194fdf0 -> origin/main
+2026-11-04T06:59:01.0057131Z ##[endgroup]
+2026-11-04T06:59:01.0058031Z ##[group]Determining the checkout info
+2026-11-04T06:59:01.0058887Z ##[endgroup]
+2026-11-04T06:59:01.0059730Z [command]/usr/bin/git sparse-checkout disable
+2026-11-04T06:59:01.0860318Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-04T06:59:01.0899203Z ##[group]Checking out the ref
+2026-11-04T06:59:01.0902486Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-04T06:59:01.2301608Z Switched to a new branch 'main'
+2026-11-04T06:59:01.2303537Z branch 'main' set up to track 'origin/main'.
+2026-11-04T06:59:01.2319536Z ##[endgroup]
+2026-11-04T06:59:01.2366354Z [command]/usr/bin/git log -1 --format=%H
+2026-11-04T06:59:01.2396396Z 24134eb9d4f2e1fea5c18016a48fc8d6a194fdf0
+2026-11-04T06:59:01.2718514Z ##[group]Run actions/setup-python@v5
+2026-11-04T06:59:01.2719584Z with:
+2026-11-04T06:59:01.2720357Z   python-version: 3.12.4
+2026-11-04T06:59:01.2721253Z   check-latest: false
+2026-11-04T06:59:01.2729590Z   token: ***
+2026-11-04T06:59:01.2730401Z   update-environment: true
+2026-11-04T06:59:01.2731480Z   allow-prereleases: false
+2026-11-04T06:59:01.2732357Z   freethreaded: false
+2026-11-04T06:59:01.2733146Z env:
+2026-11-04T06:59:01.2733856Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:01.2734637Z ##[endgroup]
+2026-11-04T06:59:01.3884432Z ##[group]Installed versions
+2026-11-04T06:59:01.3890626Z Version 3.12.4 was not found in the local cache
+2026-11-04T06:59:01.4343527Z (node:2104) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-04T06:59:01.4344529Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-04T06:59:02.5076842Z Version 3.12.4 is available for downloading
+2026-11-04T06:59:02.5077641Z Download from "https://github.com/actions/python-versions/releases/download/3.12.4-9947065640/python-3.12.4-linux-24.04-x64.tar.gz"
+2026-11-04T06:59:03.1936345Z Extract downloaded archive
+2026-11-04T06:59:03.2056453Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/06be41d8-0fa9-470f-9004-b9c3da4219cc -f /home/runner/work/_temp/9e29db00-7954-4da8-8e19-78aaae44262d
+2026-11-04T06:59:04.9490700Z Execute installation script
+2026-11-04T06:59:04.9600832Z Check if Python hostedtoolcache folder exist...
+2026-11-04T06:59:04.9601757Z Create Python 3.12.4 folder
+2026-11-04T06:59:04.9615145Z Copy Python binaries to hostedtoolcache folder
+2026-11-04T06:59:05.3345163Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+2026-11-04T06:59:05.3381396Z Upgrading pip...
+2026-11-04T06:59:07.8690286Z Looking in links: /tmp/tmp98vlbwtp
+2026-11-04T06:59:07.8697765Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/site-packages (24.0)
+2026-11-04T06:59:09.4891521Z Collecting pip
+2026-11-04T06:59:09.5169061Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+2026-11-04T06:59:09.5232562Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+2026-11-04T06:59:09.5878964Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 40.4 MB/s eta 0:00:00
+2026-11-04T06:59:09.5879498Z 
+2026-11-04T06:59:09.5991089Z Installing collected packages: pip
+2026-11-04T06:59:09.5991979Z Attempting uninstall: pip
+2026-11-04T06:59:09.6010402Z Found existing installation: pip 24.0
+2026-11-04T06:59:09.6310347Z Uninstalling pip-24.0:
+2026-11-04T06:59:09.6361615Z Successfully uninstalled pip-24.0
+2026-11-04T06:59:10.5092267Z Successfully installed pip-26.3
+2026-11-04T06:59:10.5682875Z Create complete file
+2026-11-04T06:59:10.5717913Z Successfully set up CPython (3.12.4)
+2026-11-04T06:59:10.5718993Z ##[endgroup]
+2026-11-04T06:59:10.5898866Z ##[group]Run python -m pip install uv
+2026-11-04T06:59:10.5899217Z [36;1mpython -m pip install uv[0m
+2026-11-04T06:59:10.5921860Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:59:10.5922086Z env:
+2026-11-04T06:59:10.5922255Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:10.5922518Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:10.5922878Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+2026-11-04T06:59:10.5923273Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:10.5923568Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:10.5923860Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:10.5924152Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+2026-11-04T06:59:10.5924412Z ##[endgroup]
+2026-11-04T06:59:11.6970777Z Collecting uv
+2026-11-04T06:59:11.7540882Z   Downloading uv-0.13.7-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+2026-11-04T06:59:11.7681133Z Downloading uv-0.13.7-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.2 MB)
+2026-11-04T06:59:12.2359042Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.2/17.2 MB 38.5 MB/s  0:00:00
+2026-11-04T06:59:12.2828735Z Installing collected packages: uv
+2026-11-04T06:59:12.4532634Z Successfully installed uv-0.13.7
+2026-11-04T06:59:12.5108063Z ##[group]Run uv sync --locked --python 3.12.4
+2026-11-04T06:59:12.5108588Z [36;1muv sync --locked --python 3.12.4[0m
+2026-11-04T06:59:12.5127198Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:59:12.5127436Z env:
+2026-11-04T06:59:12.5127599Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:12.5127835Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.5128167Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+2026-11-04T06:59:12.5128497Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.5128786Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.5129073Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.5129361Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+2026-11-04T06:59:12.5129616Z ##[endgroup]
+2026-11-04T06:59:12.5612576Z Using CPython 3.12.4 interpreter at: /opt/hostedtoolcache/Python/3.12.4/x64/bin/python3.12
+2026-11-04T06:59:12.5613146Z Creating virtual environment at: .venv
+2026-11-04T06:59:12.5627072Z Resolved 22 packages in 0.66ms
+2026-11-04T06:59:12.5648679Z    Building writscope @ file:///home/runner/work/writscope/writscope
+2026-11-04T06:59:12.6254386Z Downloading pydantic-core (2.1MiB)
+2026-11-04T06:59:12.6255163Z Downloading pygments (1.2MiB)
+2026-11-04T06:59:12.6785811Z  Downloaded pygments
+2026-11-04T06:59:12.6796104Z  Downloaded pydantic-core
+2026-11-04T06:59:12.9659898Z       Built writscope @ file:///home/runner/work/writscope/writscope
+2026-11-04T06:59:12.9671729Z Prepared 21 packages in 404ms
+2026-11-04T06:59:12.9813814Z Installed 21 packages in 14ms
+2026-11-04T06:59:12.9814499Z  + annotated-doc==0.0.5
+2026-11-04T06:59:12.9814955Z  + annotated-types==0.8.0
+2026-11-04T06:59:12.9815570Z  + anyio==4.15.1
+2026-11-04T06:59:12.9815997Z  + certifi==2026.7.22
+2026-11-04T06:59:12.9816460Z  + fastapi==0.143.3
+2026-11-04T06:59:12.9816857Z  + h11==0.16.0
+2026-11-04T06:59:12.9817293Z  + httpcore==1.0.9
+2026-11-04T06:59:12.9817739Z  + httpx==0.28.1
+2026-11-04T06:59:12.9818199Z  + idna==3.20
+2026-11-04T06:59:12.9818591Z  + iniconfig==2.3.1
+2026-11-04T06:59:12.9819037Z  + opentelemetry-api==1.45.1
+2026-11-04T06:59:12.9819493Z  + packaging==26.3
+2026-11-04T06:59:12.9819890Z  + pluggy==1.7.0
+2026-11-04T06:59:12.9820273Z  + pydantic==2.14.1
+2026-11-04T06:59:12.9820673Z  + pydantic-core==2.50.1
+2026-11-04T06:59:12.9821091Z  + pygments==2.21.0
+2026-11-04T06:59:12.9821496Z  + pytest==9.1.1
+2026-11-04T06:59:12.9821891Z  + starlette==1.8.0
+2026-11-04T06:59:12.9822300Z  + typing-extensions==4.16.0
+2026-11-04T06:59:12.9822784Z  + typing-inspection==0.4.4
+2026-11-04T06:59:12.9823368Z  + writscope==0.1.0 (from file:///home/runner/work/writscope/writscope)
+2026-11-04T06:59:12.9942558Z ##[group]Run uv run --locked python -m scripts.s4_public_release audit
+2026-11-04T06:59:12.9942980Z [36;1muv run --locked python -m scripts.s4_public_release audit[0m
+2026-11-04T06:59:12.9961418Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:59:12.9961622Z env:
+2026-11-04T06:59:12.9961794Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:12.9962028Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.9962382Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+2026-11-04T06:59:12.9962714Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.9963010Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.9963295Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:12.9963582Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+2026-11-04T06:59:12.9963838Z ##[endgroup]
+2026-11-04T06:59:48.0993414Z {"version": "s4_bounded_release_scan_v1", "files_requested": 653, "files_scanned": 653, "unique_contents_scanned": 17219, "duplicate_content_references": 43297, "unique_bytes_scanned": 327391686, "expanded_bytes_read": 428782443, "archive_members_scanned": 3691, "json_base64_values_scanned": 1591, "json_contents_scanned": 6163, "jsonl_contents_scanned": 10, "jsonl_lines_scanned": 50, "structured_parse_failures": 0, "raw_only_contents_scanned": 10926, "sqlite_cells_scanned": 67357, "findings": [], "pattern_categories": ["private_key", "provider_token", "github_token", "aws_access_key", "credential_assignment"], "new_model_calls": 0, "credential_stores_accessed": false, "limitation": "bounded_pattern_scan_not_a_security_or_absence_guarantee; unsupported_or_limit_failures_are_findings", "structured_format_scope": "ZIP_magic_or_extension; SQLite_magic; plausible_JSON_start_or_explicit_JSON_extension; JSONL_extension_or_multiline_plausible_JSON_object_or_array_content; unrecognized_formats_raw_patterns_only_and_counted", "deduplication": "content_sha256_after_each_path_safety_check; findings_reference_first_scanned_content_path", "history_objects_scanned": {"commit": 1, "tree": 90, "blob": 605}, "scan_policy": {"max_depth": 12, "max_total_expanded": 1073741824}, "github_updated": false}
+2026-11-04T06:59:48.1207171Z ##[group]Run uv run --locked python -m scripts.s4_public_release restore --destination .work/public-s4-check
+2026-11-04T06:59:48.1207787Z [36;1muv run --locked python -m scripts.s4_public_release restore --destination .work/public-s4-check[0m
+2026-11-04T06:59:48.1226352Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:59:48.1226557Z env:
+2026-11-04T06:59:48.1226721Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:48.1226959Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:48.1227295Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+2026-11-04T06:59:48.1227634Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:48.1227925Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:48.1228211Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:48.1228497Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+2026-11-04T06:59:48.1228747Z ##[endgroup]
+2026-11-04T06:59:49.1844890Z {"restored_files": 1389, "frozen_bytes_preserved": 1046, "destination": "/home/runner/work/writscope/writscope/.work/public-s4-check", "new_model_calls": 0}
+2026-11-04T06:59:49.1982117Z ##[group]Run uv run --locked python -m scripts.s4_public_release test --root .work/public-s4-check --report .work/public-tests.xml
+2026-11-04T06:59:49.1982791Z [36;1muv run --locked python -m scripts.s4_public_release test --root .work/public-s4-check --report .work/public-tests.xml[0m
+2026-11-04T06:59:49.2001016Z shell: /usr/bin/bash -e {0}
+2026-11-04T06:59:49.2001219Z env:
+2026-11-04T06:59:49.2001381Z   DEEPSEEK_API_KEY: 
+2026-11-04T06:59:49.2001616Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:49.2001958Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib/pkgconfig
+2026-11-04T06:59:49.2002285Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:49.2002575Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:49.2002859Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.4/x64
+2026-11-04T06:59:49.2003149Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.4/x64/lib
+2026-11-04T06:59:49.2003439Z ##[endgroup]
+2026-11-04T06:59:55.3336723Z ........................................................................ [ 14%]
+2026-11-04T07:00:03.4920381Z ........................................................................ [ 29%]
+2026-11-04T07:00:12.8321768Z ........................................................................ [ 44%]
+2026-11-04T07:00:52.6641035Z ........................................................................ [ 59%]
+2026-11-04T07:01:04.5764877Z ........................................................................ [ 74%]
+2026-11-04T07:01:12.5002868Z ...................................................FFFFF................ [ 89%]
+2026-11-04T07:01:12.5717342Z ..................................................                       [100%]
+2026-11-04T07:01:12.5718026Z =================================== FAILURES ===================================
+2026-11-04T07:01:12.5718656Z _ test_joint_pipeline_three_methods_independent_replay_and_actual_response_hashes _
+2026-11-04T07:01:12.5719157Z 
+2026-11-04T07:01:12.5720463Z normal = (PosixPath('/home/runner/work/writscope/writscope/.work/public-s4-check/.work/public-pytest-f84a591079174fca87728ec36b...ified_prefix_only', 'mode': 'fixed', 'provenance': 'fixed_test', ...}, 'reference_read': False, 'accuracy': None, ...})
+2026-11-04T07:01:12.5722410Z plan = {'version': 's4_contract_convergence_offline_v2', 'status': 'offline_engineering_candidate_not_paid_freeze', 'execution_kind': 'fixed_compact_contract_diagnostic', 'endpoint': 'https://api.deepseek.com/chat/completions', ...}
+2026-11-04T07:01:12.5723358Z 
+2026-11-04T07:01:12.5723708Z     def test_joint_pipeline_three_methods_independent_replay_and_actual_response_hashes(normal,plan):
+2026-11-04T07:01:12.5724279Z         folder,result,report=normal
+2026-11-04T07:01:12.5724684Z >       assert [r['status'] for r in result['rows']]==['completed']*3
+2026-11-04T07:01:12.5725447Z E       AssertionError: assert ['not_run', '...n', 'not_run'] == ['completed',..., 'completed']
+2026-11-04T07:01:12.5725941Z E         
+2026-11-04T07:01:12.5726205Z E         At index 0 diff: 'not_run' != 'completed'
+2026-11-04T07:01:12.5726540Z E         Use -v to get more diff
+2026-11-04T07:01:12.5726733Z 
+2026-11-04T07:01:12.5726903Z tests/test_s4_contract_convergence.py:233: AssertionError
+2026-11-04T07:01:12.5727456Z _ test_durable_error_partition_and_complete_denominators[bad-anchor-statuses0-6-True] _
+2026-11-04T07:01:12.5727875Z 
+2026-11-04T07:01:12.5728528Z tmp_path = PosixPath('/home/runner/work/writscope/writscope/.work/public-s4-check/.work/public-pytest-f84a591079174fca87728ec36b2aeebd/test_durable_error_partition_a0')
+2026-11-04T07:01:12.5730116Z plan = {'version': 's4_contract_convergence_offline_v2', 'status': 'offline_engineering_candidate_not_paid_freeze', 'execution_kind': 'fixed_compact_contract_diagnostic', 'endpoint': 'https://api.deepseek.com/chat/completions', ...}
+2026-11-04T07:01:12.5731247Z name = 'bad-anchor', statuses = ['completed', 'completed', 'failed']
+2026-11-04T07:01:12.5732036Z attempts = 6, settled = True
+2026-11-04T07:01:12.5732225Z 
+2026-11-04T07:01:12.5732416Z     @pytest.mark.parametrize('name,statuses,attempts,settled',[
+2026-11-04T07:01:12.5732871Z         ('bad-anchor',['completed','completed','failed'],6,True),
+2026-11-04T07:01:12.5733302Z         ('old-no-change',['completed','completed','failed'],8,True),
+2026-11-04T07:01:12.5733742Z         ('source-fault',['failed','not_run','not_run'],2,False),
+2026-11-04T07:01:12.5734199Z         ('summary-conflict',['completed','completed','failed'],11,True)])
+2026-11-04T07:01:12.5734874Z     def test_durable_error_partition_and_complete_denominators(tmp_path,plan,name,statuses,attempts,settled):
+2026-11-04T07:01:12.5735611Z         with offline_guard():
+2026-11-04T07:01:12.5736017Z             result=runtime.run(plan,tmp_path/name,fixed_responses=h.scenario(name))
+2026-11-04T07:01:12.5736486Z             report=runtime.evaluate(tmp_path/name)
+2026-11-04T07:01:12.5736860Z >       assert [r['status'] for r in result['rows']]==statuses
+2026-11-04T07:01:12.5737387Z E       AssertionError: assert ['not_run', '...n', 'not_run'] == ['completed',...ed', 'failed']
+2026-11-04T07:01:12.5737852Z E         
+2026-11-04T07:01:12.5759087Z E         At index 0 diff: 'not_run' != 'completed'
+2026-11-04T07:01:12.5759522Z E         Use -v to get more diff
+2026-11-04T07:01:12.5759711Z 
+2026-11-04T07:01:12.5759892Z tests/test_s4_contract_convergence.py:258: AssertionError
+2026-11-04T07:01:12.5760475Z _ test_durable_error_partition_and_complete_denominators[old-no-change-statuses1-8-True] _
+2026-11-04T07:01:12.5760888Z 
+2026-11-04T07:01:12.5761536Z tmp_path = PosixPath('/home/runner/work/writscope/writscope/.work/public-s4-check/.work/public-pytest-f84a591079174fca87728ec36b2aeebd/test_durable_error_partition_a1')
+2026-11-04T07:01:12.5763241Z plan = {'version': 's4_contract_convergence_offline_v2', 'status': 'offline_engineering_candidate_not_paid_freeze', 'execution_kind': 'fixed_compact_contract_diagnostic', 'endpoint': 'https://api.deepseek.com/chat/completions', ...}
+2026-11-04T07:01:12.5764612Z name = 'old-no-change', statuses = ['completed', 'completed', 'failed']
+2026-11-04T07:01:12.5765201Z attempts = 8, settled = True
+2026-11-04T07:01:12.5765373Z 
+2026-11-04T07:01:12.5765576Z     @pytest.mark.parametrize('name,statuses,attempts,settled',[
+2026-11-04T07:01:12.5766028Z         ('bad-anchor',['completed','completed','failed'],6,True),
+2026-11-04T07:01:12.5766462Z         ('old-no-change',['completed','completed','failed'],8,True),
+2026-11-04T07:01:12.5766897Z         ('source-fault',['failed','not_run','not_run'],2,False),
+2026-11-04T07:01:12.5767352Z         ('summary-conflict',['completed','completed','failed'],11,True)])
+2026-11-04T07:01:12.5768026Z     def test_durable_error_partition_and_complete_denominators(tmp_path,plan,name,statuses,attempts,settled):
+2026-11-04T07:01:12.5768598Z         with offline_guard():
+2026-11-04T07:01:12.5768997Z             result=runtime.run(plan,tmp_path/name,fixed_responses=h.scenario(name))
+2026-11-04T07:01:12.5769463Z             report=runtime.evaluate(tmp_path/name)
+2026-11-04T07:01:12.5769852Z >       assert [r['status'] for r in result['rows']]==statuses
+2026-11-04T07:01:12.5770370Z E       AssertionError: assert ['not_run', '...n', 'not_run'] == ['completed',...ed', 'failed']
+2026-11-04T07:01:12.5770819Z E         
+2026-11-04T07:01:12.5771058Z E         At index 0 diff: 'not_run' != 'completed'
+2026-11-04T07:01:12.5771387Z E         Use -v to get more diff
+2026-11-04T07:01:12.5771571Z 
+2026-11-04T07:01:12.5771744Z tests/test_s4_contract_convergence.py:258: AssertionError
+2026-11-04T07:01:12.5772290Z _ test_durable_error_partition_and_complete_denominators[source-fault-statuses2-2-False] _
+2026-11-04T07:01:12.5772679Z 
+2026-11-04T07:01:12.5773318Z tmp_path = PosixPath('/home/runner/work/writscope/writscope/.work/public-s4-check/.work/public-pytest-f84a591079174fca87728ec36b2aeebd/test_durable_error_partition_a2')
+2026-11-04T07:01:12.5775119Z plan = {'version': 's4_contract_convergence_offline_v2', 'status': 'offline_engineering_candidate_not_paid_freeze', 'execution_kind': 'fixed_compact_contract_diagnostic', 'endpoint': 'https://api.deepseek.com/chat/completions', ...}
+2026-11-04T07:01:12.5776253Z name = 'source-fault', statuses = ['failed', 'not_run', 'not_run'], attempts = 2
+2026-11-04T07:01:12.5776678Z settled = False
+2026-11-04T07:01:12.5776818Z 
+2026-11-04T07:01:12.5777013Z     @pytest.mark.parametrize('name,statuses,attempts,settled',[
+2026-11-04T07:01:12.5777454Z         ('bad-anchor',['completed','completed','failed'],6,True),
+2026-11-04T07:01:12.5777877Z         ('old-no-change',['completed','completed','failed'],8,True),
+2026-11-04T07:01:12.5778294Z         ('source-fault',['failed','not_run','not_run'],2,False),
+2026-11-04T07:01:12.5778741Z         ('summary-conflict',['completed','completed','failed'],11,True)])
+2026-11-04T07:01:12.5779402Z     def test_durable_error_partition_and_complete_denominators(tmp_path,plan,name,statuses,attempts,settled):
+2026-11-04T07:01:12.5780056Z         with offline_guard():
+2026-11-04T07:01:12.5780485Z             result=runtime.run(plan,tmp_path/name,fixed_responses=h.scenario(name))
+2026-11-04T07:01:12.5780938Z             report=runtime.evaluate(tmp_path/name)
+2026-11-04T07:01:12.5781314Z >       assert [r['status'] for r in result['rows']]==statuses
+2026-11-04T07:01:12.5781821Z E       AssertionError: assert ['not_run', '...n', 'not_run'] == ['failed', 'n...n', 'not_run']
+2026-11-04T07:01:12.5782260Z E         
+2026-11-04T07:01:12.5782487Z E         At index 0 diff: 'not_run' != 'failed'
+2026-11-04T07:01:12.5782805Z E         Use -v to get more diff
+2026-11-04T07:01:12.5782990Z 
+2026-11-04T07:01:12.5783159Z tests/test_s4_contract_convergence.py:258: AssertionError
+2026-11-04T07:01:12.5783728Z _ test_durable_error_partition_and_complete_denominators[summary-conflict-statuses3-11-True] _
+2026-11-04T07:01:12.5784139Z 
+2026-11-04T07:01:12.5784762Z tmp_path = PosixPath('/home/runner/work/writscope/writscope/.work/public-s4-check/.work/public-pytest-f84a591079174fca87728ec36b2aeebd/test_durable_error_partition_a3')
+2026-11-04T07:01:12.5786565Z plan = {'version': 's4_contract_convergence_offline_v2', 'status': 'offline_engineering_candidate_not_paid_freeze', 'execution_kind': 'fixed_compact_contract_diagnostic', 'endpoint': 'https://api.deepseek.com/chat/completions', ...}
+2026-11-04T07:01:12.5787675Z name = 'summary-conflict', statuses = ['completed', 'completed', 'failed']
+2026-11-04T07:01:12.5788092Z attempts = 11, settled = True
+2026-11-04T07:01:12.5788272Z 
+2026-11-04T07:01:12.5788463Z     @pytest.mark.parametrize('name,statuses,attempts,settled',[
+2026-11-04T07:01:12.5788918Z         ('bad-anchor',['completed','completed','failed'],6,True),
+2026-11-04T07:01:12.5789348Z         ('old-no-change',['completed','completed','failed'],8,True),
+2026-11-04T07:01:12.5789776Z         ('source-fault',['failed','not_run','not_run'],2,False),
+2026-11-04T07:01:12.5790232Z         ('summary-conflict',['completed','completed','failed'],11,True)])
+2026-11-04T07:01:12.5790910Z     def test_durable_error_partition_and_complete_denominators(tmp_path,plan,name,statuses,attempts,settled):
+2026-11-04T07:01:12.5791471Z         with offline_guard():
+2026-11-04T07:01:12.5791863Z             result=runtime.run(plan,tmp_path/name,fixed_responses=h.scenario(name))
+2026-11-04T07:01:12.5792329Z             report=runtime.evaluate(tmp_path/name)
+2026-11-04T07:01:12.5792697Z >       assert [r['status'] for r in result['rows']]==statuses
+2026-11-04T07:01:12.5793194Z E       AssertionError: assert ['not_run', '...n', 'not_run'] == ['completed',...ed', 'failed']
+2026-11-04T07:01:12.5793646Z E         
+2026-11-04T07:01:12.5793883Z E         At index 0 diff: 'not_run' != 'completed'
+2026-11-04T07:01:12.5794204Z E         Use -v to get more diff
+2026-11-04T07:01:12.5794387Z 
+2026-11-04T07:01:12.5794550Z tests/test_s4_contract_convergence.py:258: AssertionError
+2026-11-04T07:01:12.5795107Z =============================== warnings summary ===============================
+2026-11-04T07:01:12.5795851Z tests/test_s4_public_release.py::test_all_archive_validation_precedes_creation[duplicate]
+2026-11-04T07:01:12.5796985Z   /opt/hostedtoolcache/Python/3.12.4/x64/lib/python3.12/zipfile/__init__.py:1607: UserWarning: Duplicate name: 'blobs/0682c5f2076f099c34cfdd15a9e063849ed437a49677e6fcc5b4198c76575be5'
+2026-11-04T07:01:12.5797872Z     return self._open_to_write(zinfo, force_zip64=force_zip64)
+2026-11-04T07:01:12.5798138Z 
+2026-11-04T07:01:12.5798372Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-11-04T07:01:12.5798893Z =========================== short test summary info ============================
+2026-11-04T07:01:12.5799598Z FAILED tests/test_s4_contract_convergence.py::test_joint_pipeline_three_methods_independent_replay_and_actual_response_hashes
+2026-11-04T07:01:12.5800546Z FAILED tests/test_s4_contract_convergence.py::test_durable_error_partition_and_complete_denominators[bad-anchor-statuses0-6-True]
+2026-11-04T07:01:12.5801529Z FAILED tests/test_s4_contract_convergence.py::test_durable_error_partition_and_complete_denominators[old-no-change-statuses1-8-True]
+2026-11-04T07:01:12.6189368Z FAILED tests/test_s4_contract_convergence.py::test_durable_error_partition_and_complete_denominators[source-fault-statuses2-2-False]
+2026-11-04T07:01:12.6190576Z FAILED tests/test_s4_contract_convergence.py::test_durable_error_partition_and_complete_denominators[summary-conflict-statuses3-11-True]
+2026-11-04T07:01:12.6191355Z 5 failed, 477 passed, 1 warning in 81.91s (0:01:21)
+2026-11-04T07:01:12.7179119Z Traceback (most recent call last):
+2026-11-04T07:01:12.7185477Z   File "<frozen runpy>", line 198, in _run_module_as_main
+2026-11-04T07:01:12.7185860Z   File "<frozen runpy>", line 88, in _run_code
+2026-11-04T07:01:12.7186301Z   File "/home/runner/work/writscope/writscope/scripts/s4_public_release.py", line 293, in <module>
+2026-11-04T07:01:12.7186710Z     if __name__=='__main__':main()
+2026-11-04T07:01:12.7186914Z                             ^^^^^^
+2026-11-04T07:01:12.7187309Z   File "/home/runner/work/writscope/writscope/scripts/s4_public_release.py", line 290, in main
+2026-11-04T07:01:12.7188064Z     else:_isolated(args.root,args.command,args.report)
+2026-11-04T07:01:12.7188326Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T07:01:12.7188736Z   File "/home/runner/work/writscope/writscope/scripts/s4_public_release.py", line 178, in _isolated
+2026-11-04T07:01:12.7189234Z     if done.returncode:raise RuntimeError('isolated_check_failed:'+str(done.returncode))
+2026-11-04T07:01:12.7189632Z                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-04T07:01:12.7189892Z RuntimeError: isolated_check_failed:1
+2026-11-04T07:01:12.7266002Z ##[error]Process completed with exit code 1.
+2026-11-04T07:01:12.7388035Z Post job cleanup.
+2026-11-04T07:01:12.8119891Z [command]/usr/bin/git version
+2026-11-04T07:01:12.8158403Z git version 2.56.0
+2026-11-04T07:01:12.8188727Z Temporarily overriding HOME='/home/runner/work/_temp/995474b4-7b9f-4267-b98b-2f3294ed3f72' before making global git config changes
+2026-11-04T07:01:12.8189727Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-04T07:01:12.8192643Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/writscope/writscope
+2026-11-04T07:01:12.8229774Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-04T07:01:12.8263497Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-04T07:01:12.8524709Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-04T07:01:12.8549613Z http.https://github.com/.extraheader
+2026-11-04T07:01:12.8571946Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-04T07:01:12.8627102Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-04T07:01:12.8880190Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-04T07:01:12.8924365Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-04T07:01:12.9287958Z Cleaning up orphan processes
+2026-11-04T07:01:12.9594052Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

@@ -1,0 +1,37 @@
+{
+  "version": "s4_github_publication_progress_v1",
+  "status": "awaiting_platform_overlay_joint_CI",
+  "repository": "https://github.com/luyangzhan111/writscope",
+  "branch": "main",
+  "initial_exact_inventory_commit": "7f32e6544e6c7ca0cff3c8490dfceaf7ba36e8d0",
+  "initial_inventory_files": 653,
+  "ubuntu_pin_commit": "24134eb9d4f2e1fea5c18016a48fc8d6a194fdf0",
+  "current_commit": "07f5108e354727b8c6f766337b67c7c6eb4ec328",
+  "current_inventory_files": 656,
+  "runs": [
+    {
+      "id": 41787829890,
+      "status": "failure",
+      "cause": "ubuntu_latest_26_04_has_no_frozen_Python_3_12_4; Windows_cancelled"
+    },
+    {
+      "id": 41789091103,
+      "status": "failure",
+      "windows": "success",
+      "ubuntu": "477_passed_5_failed_Windows_only_guard"
+    },
+    {
+      "id": 41792070076,
+      "status": "in_progress"
+    }
+  ],
+  "archive_sha256": "73e5fc04bce7ea07f1cb89d7ebe22e4b3002150fb4dd4513999ad34488b9361c",
+  "original_records_scores_and_1046_manifest": "unchanged",
+  "runtime_overlay": "s4_public_fixed_platform_overlay_v1",
+  "real_model_sending": false,
+  "model_key_reads": 0,
+  "new_model_calls": 0,
+  "new_model_fees": 0,
+  "source_worktree_branch_preserved": "codex/first-public-release",
+  "isolated_publishing_clone": ".work/github-s4-publication-20261104"
+}

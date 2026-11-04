@@ -1,0 +1,19 @@
+{
+  "version": "s4_github_receipts_manifest_v1",
+  "tested_code_commit": "07f5108e354727b8c6f766337b67c7c6eb4ec328",
+  "files": {
+    "reports/github-s4-publication-20261104/final-run-jobs.json": "4307b33ef67c5233a7af27f4b7402f61e852e3a474c7dca8c4aa674a944d226d",
+    "reports/github-s4-publication-20261104/final-run-windows.log": "c7be8da477db18fc26257bfd9a2100ee5f4dd0edbd8bb9633cfb6592f20289d5",
+    "reports/github-s4-publication-20261104/final-run.json": "7a39fe8fa9bf9b0fa18eea5d1a8c14f936caf83e4b9e6fd6887557766d5a707e",
+    "reports/github-s4-publication-20261104/first-run-jobs.json": "e2dcdf336279a5d336f4ce671220d73661d04002f4f110e589d1aac46d90a63f",
+    "reports/github-s4-publication-20261104/first-run-ubuntu.log": "a67af6f49168e986436a6d1ed3f9a14ffc51c32fdf7b00cfb095b72453482040",
+    "reports/github-s4-publication-20261104/platform-overlay-demo-windows.json": "ab2a3c9c4b317496c02e52f3bfa77dcffbbd1f2c5b36befe20c2d533aad02b2a",
+    "reports/github-s4-publication-20261104/platform-overlay-scan.json": "6a37ee83953d265b0617191e94f808d1cdbaa290a88619171af291d5d748c4b4",
+    "reports/github-s4-publication-20261104/platform-overlay-unit.xml": "96ca6bd7a35d8ff1b1678a2b74ec5712b2584205b29c4717d41292aa2f9318fd",
+    "reports/github-s4-publication-20261104/progress-v1.json": "4226a9f88a800f0232095c09ebe9d772d159112bf10b43d46a4d2d3ed62c3587",
+    "reports/github-s4-publication-20261104/publication.json": "3a3780b48343cba66cbfb55bbda14670e7b01cf341be14f63dfb946cc89628a1",
+    "reports/github-s4-publication-20261104/second-run-jobs.json": "e3f5bdb03858b9ca332e5c2f677bf689cae92501239ab84983ae69e8fcd3b456",
+    "reports/github-s4-publication-20261104/second-run-ubuntu.log": "ebfda140d58ca054490096168a87f8b85eab0f230200214b4d4990c2a63531d5",
+    "reports/github-s4-publication-20261104/third-run-ubuntu.log": "d3c03ef223aa1821e952743f076cc21babc6328e1f6bff6527625370d03a5c60"
+  }
+}

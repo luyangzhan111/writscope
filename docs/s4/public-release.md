@@ -1,6 +1,6 @@
 # S4 离线工程公开候选说明
 
-2026-11-04。此次整理对应根目录 README 的第 3 项发布准备。源码封包和原工程候选独立版本化；**本轮实测结果集中保存在 [validation.json](../../reports/public-s4-v0.2/validation.json)**，不追写历史验收数或为更新统计而改动封包源码。没有更新 GitHub，也没有启动新的模型请求或费用。此页不构成真实执行批准。
+2026-11-04。此页保留第 3 项本地发布准备口径，原实测记录保存在 [validation.json](../../reports/public-s4-v0.2/validation.json)。后续用户单独授权的 GitHub 上传、已通过的 Windows／Ubuntu 24.04 CI、失败记录及 Linux 固定适配见 [实际发布记录](github-publication-20261104.md)。源码封包和原工程候选独立版本化，不追写历史验收数；没有新增模型请求或模型费用，此页不构成真实执行批准。
 
 ## 发布内容
 
@@ -50,7 +50,7 @@ CI 明确选择旧版已跟踪的 **48 个测试文件（47 个测试模块及 c
 | 当前契约在独立公开恢复根运行 | validation.json 的 tests；不拿原本地 51 项代替 |
 | 新发布/扫描安全测试 | validation.json 的 tests；以实际 JUnit 计数为准 |
 | 独立根回放、无密钥演示及恢复后保留检查 | validation.json 的 replay/demo/preservation |
-| 新远程 Windows/Ubuntu CI | 未运行，本轮未更新 GitHub |
+| 新远程 Windows/Ubuntu CI | 本地准备时未运行；后续已通过，见[实际发布记录](github-publication-20261104.md)，原 validation.json 不追写 |
 
 这些记录在本轮实际检查后单独写入。源码封包保留准备时点，与后来生成的验收收据分开绑定；报告保留失败、环境问题、未覆盖项与真实运行根，不将计划写成通过。新报告作为额外发布文件列入 inventory addendum，不回填原冻结清单。
 

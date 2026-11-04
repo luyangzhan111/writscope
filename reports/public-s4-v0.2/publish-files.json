@@ -9,7 +9,7 @@
     "CHANGELOG.md": "79705332851ed77bb1a400b555fbe3eec98893688b4f52b72c06e4f13ca4ee04",
     "CONTRIBUTING.md": "5ce3634b0248674bd53fbda771eb709bb0dfe6b59d58f81dfc752e0021379d81",
     "LICENSE": "a88d29db2ad01b0b72da48e61f5c0f51a44db3b37638d02dc15bd729a50d77ce",
-    "README.md": "1dd435df59e2c7d8589f0a8437b27423f025dd44341ff814929be165420d6e10",
+    "README.md": "7f673ea0dc98cf6ca5ae96cf1105fef184074671b061f2ffc3267783a15f5972",
     "docs/README.md": "4919162e04527a1be0676d7ded54765fb4f654fe6f36b68e5d4dd21c922e1be2",
     "docs/archive/README.md": "cab86e2e1cb398dbdbe1adaefb5dad8e6372b924c99cae94a78dd419531ad875",
     "docs/archive/handoffs/README.md": "43e2e77ffe8264df3232df55fbb37f1903319bcf038b4e90a752b7daa8bf2f00",
@@ -102,7 +102,7 @@
     "docs/m3a-review.md": "20be4a9374262402b191ff13bdc748d6361a4ded6d32733f60830ed853d21d9b",
     "docs/m3e-real-review.md": "f5f9c4b4498b47743557de9b7366a537648ce1a13ec662172eae16ca539347ea",
     "docs/project-brief.md": "3be224c2d2a85751d3f1a17e24070c909ecaf6d14d5804b65088ae2c9c9637ac",
-    "docs/project-status.md": "b67717848a8ae86d1bb9ec8fcab83d682cf9d620308392a4c3e9acbb19435b56",
+    "docs/project-status.md": "1266f0cfdbbdd4a534d4577da74dd6980802ab863ae811ddf8aafb118edc3015",
     "docs/s3-development-v7-offline-review.md": "170ef1a463be2b7b5c4aa75fcc947245a3d31caf595d77b5b80a37897b2140ba",
     "docs/s3-development-v8-offline-review.md": "b61c887475fd00e4685335f89d17b669ad58b28f0a5c6596d09df71194486cd5",
     "docs/s4-contract-convergence-offline-20261104.md": "327dd79de99a162632274d834e81d34dd2b181248bb37bb2c3e2993a194d980e",
@@ -139,8 +139,9 @@
     "docs/s4-review-process.md": "9a91bb8583f76295162d85ef39a66891f553d28309a80c7bf8ce46dc3ec11315",
     "docs/s4-shared-mock-ledger-20261029.md": "c8e2bd12bb2ff9dce5abfa8782325b842fd7ea99d25a452821b1a0a63fcf8ea4",
     "docs/s4-synthetic-cost-gate-20261030.md": "51530c99efc37ec7188cb439d7a16de27a1da20c163390fce8c7bc5f4a036082",
-    "docs/s4/README.md": "fadb1978c51e243a10ea474d39b27c6b441f95208bfdc864d307dc28d5481013",
-    "docs/s4/public-release.md": "bd3e292ce84798b9fb1df6de945c3368ce401af5cd3758dc2cca1cd10ad4aa76",
+    "docs/s4/README.md": "d7f48e2128eebf47e826814ed22b62399252e89027bb25e8d1112bf5a258bef4",
+    "docs/s4/github-publication-20261104.md": "2d6a29843073a9c3c7b9ddc4e5576b3c6289c3df6adf4ec9e3f6e11ea23f2c46",
+    "docs/s4/public-release.md": "bfc329572f74308ae85ea41dc409ab5c6a5d850ebc8e0cf7116b846de904a7f4",
     "docs/usage.md": "407074c830361148dd431d393a32f307ba53de4bc490fb587ba9b3a332ca4bd1",
     "evaluation_private/case_001/compatible.patch": "175d8cc02ff93ec029100ff3d8ebcb727f3660db539beb7e139ae2c4c52c23d9",
     "evaluation_private/case_001/hidden_tests/test_contract.py": "2ec964e6e5da59423bf051d109c233d47739194240ece6878b5189e2e0229672",
@@ -221,6 +222,20 @@
     "prompts/s4_meaning_event_v1/incremental_final.md": "91c00c36b969883e3bf0e982b357531b632fb188bc47d0b99b12f5e744932feb",
     "pyproject.toml": "e32c5012511e3c8d61e71defa772a14744f9934fb34abba38feff6fea89c845a",
     "reports/github-publication-20261028/verification.json": "e9d8e60ed1243c5b3f219d8f34476e6e3ff44c2e3e2b1cab8596fdb7168c3136",
+    "reports/github-s4-publication-20261104/final-run-jobs.json": "4307b33ef67c5233a7af27f4b7402f61e852e3a474c7dca8c4aa674a944d226d",
+    "reports/github-s4-publication-20261104/final-run-windows.log": "c7be8da477db18fc26257bfd9a2100ee5f4dd0edbd8bb9633cfb6592f20289d5",
+    "reports/github-s4-publication-20261104/final-run.json": "7a39fe8fa9bf9b0fa18eea5d1a8c14f936caf83e4b9e6fd6887557766d5a707e",
+    "reports/github-s4-publication-20261104/first-run-jobs.json": "e2dcdf336279a5d336f4ce671220d73661d04002f4f110e589d1aac46d90a63f",
+    "reports/github-s4-publication-20261104/first-run-ubuntu.log": "a67af6f49168e986436a6d1ed3f9a14ffc51c32fdf7b00cfb095b72453482040",
+    "reports/github-s4-publication-20261104/platform-overlay-demo-windows.json": "ab2a3c9c4b317496c02e52f3bfa77dcffbbd1f2c5b36befe20c2d533aad02b2a",
+    "reports/github-s4-publication-20261104/platform-overlay-scan.json": "6a37ee83953d265b0617191e94f808d1cdbaa290a88619171af291d5d748c4b4",
+    "reports/github-s4-publication-20261104/platform-overlay-unit.xml": "96ca6bd7a35d8ff1b1678a2b74ec5712b2584205b29c4717d41292aa2f9318fd",
+    "reports/github-s4-publication-20261104/progress-v1.json": "4226a9f88a800f0232095c09ebe9d772d159112bf10b43d46a4d2d3ed62c3587",
+    "reports/github-s4-publication-20261104/publication.json": "3a3780b48343cba66cbfb55bbda14670e7b01cf341be14f63dfb946cc89628a1",
+    "reports/github-s4-publication-20261104/receipts-manifest.json": "2ea1d55938dda4aa849aa54b995e5b4e158b0b52e5026d6b17c05afe150f7578",
+    "reports/github-s4-publication-20261104/second-run-jobs.json": "e3f5bdb03858b9ca332e5c2f677bf689cae92501239ab84983ae69e8fcd3b456",
+    "reports/github-s4-publication-20261104/second-run-ubuntu.log": "ebfda140d58ca054490096168a87f8b85eab0f230200214b4d4990c2a63531d5",
+    "reports/github-s4-publication-20261104/third-run-ubuntu.log": "d3c03ef223aa1821e952743f076cc21babc6328e1f6bff6527625370d03a5c60",
     "reports/local/s3-common-pending-report-20261025-final-v2/report.md": "356c461ccbed09e682f5586a50a64395b21b38b0878098e21a07d14defb7154f",
     "reports/local/s3-common-real-report-20261026/report.md": "f82cdb4e609f5ade0da7e42a35ab28544d06d65ec034284193d660411bd2fd52",
     "reports/local/s3-common-simulation-20261025-final-v2-report/report.md": "0eb59dd284bcbec91a6000f7e71c648a467a300d815951b2e0fc3510c6783b0d",
@@ -660,8 +675,8 @@
   "required_metadata_files": [
     "reports/public-s4-v0.2/publish-files.json"
   ],
-  "git_add_or_commit_performed": false,
-  "github_updated": false,
+  "git_add_or_commit_performed": true,
+  "github_updated": true,
   "runtime_overlay": {
     "version": "s4_public_fixed_platform_overlay_v1",
     "files": {
@@ -672,5 +687,8 @@
     },
     "real_transport_allowed": false,
     "purpose": "Linux_fixed_worker_portability_only_not_new_paid_experiment_or_model_contract"
-  }
+  },
+  "tested_code_commit": "07f5108e354727b8c6f766337b67c7c6eb4ec328",
+  "workflow_run_id": 41792070076,
+  "publication_state": "cross_platform_CI_passed_status_receipts_followup"
 }
