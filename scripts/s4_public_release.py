@@ -21,6 +21,9 @@ FROZEN=Path('reports/s4-contract-convergence-v2/manifest.json')
 CANDIDATE='0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7'
 NEW_FILES=('scripts/s4_public_release.py','scripts/s4_release_scan.py','tests/test_s4_public_release.py',
     'tests/test_s4_release_scan.py','docs/s4/README.md','docs/s4/public-release.md')
+RUNTIME_OVERLAY_FILES=('scripts/s4_public_release.py','scripts/s4_public_linux_fixed.py',
+    'tests/test_s4_public_linux_fixed.py','specs/s4-public-linux-fixed-v1.md')
+RUNTIME_OVERLAY_VERSION='s4_public_fixed_platform_overlay_v1'
 
 
 def digest(data):return sha256(data).hexdigest()
@@ -156,14 +159,37 @@ def restore(destination,root=ROOT):
     if ('.git' in destination.parts or any(p.is_symlink() or p.is_junction() for p in (destination,*destination.parents)) or destination.exists()):
         raise ValueError('new_unlinked_destination_required')
     manifest,blobs=checked(root)  # preflight all bytes and paths before writing
+    publication=Path(root)/BUNDLE/'publish-files.json'
+    overlay=read(publication).get('runtime_overlay') if publication.is_file() else None
+    extra={}
+    if overlay is not None:
+        if (set(overlay)!={'version','files','real_transport_allowed','purpose'} or
+                overlay['version']!=RUNTIME_OVERLAY_VERSION or overlay['real_transport_allowed'] is not False or
+                set(overlay['files'])!=set(RUNTIME_OVERLAY_FILES)):
+            raise ValueError('invalid_fixed_platform_overlay')
+        for name,sha in overlay['files'].items():
+            if name in manifest['frozen_files']:raise ValueError('overlay_cannot_replace_frozen_originals')
+            data=safe(root,name).read_bytes()
+            if digest(data)!=sha:raise ValueError('fixed_platform_overlay_hash_mismatch')
+            safe(destination,name);extra[name]=data
     for name in manifest['files']:safe(destination,name)
     destination.mkdir(parents=True)
     for name,row in manifest['files'].items():
         target=safe(destination,name);target.parent.mkdir(parents=True,exist_ok=True)
         with target.open('xb') as stream:stream.write(blobs[row['sha256']])
+    for name,data in extra.items():
+        target=safe(destination,name)
+        if target.exists() and digest(target.read_bytes())!=manifest['files'][name]['sha256']:
+            raise ValueError('unexpected_pre_overlay_bytes')
+        target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
+    if overlay is not None:
+        tests=list(manifest['ci_test_files'])
+        if 'tests/test_s4_public_linux_fixed.py' not in tests:tests.append('tests/test_s4_public_linux_fixed.py')
+        write(destination/'s4-publication-inventory.json',{'ci_test_files':tests,'runtime_overlay':overlay,
+            'source_archive_sha256':manifest['archive_sha256']})
     # The archive itself is a publication artifact, not needed for the methods.
     return {'restored_files':len(manifest['files']),'frozen_bytes_preserved':len(manifest['frozen_files']),
-        'destination':str(destination.resolve()),'new_model_calls':0}
+        'destination':str(destination.resolve()),'runtime_overlay_files':len(extra),'new_model_calls':0}
 
 
 def _isolated(root,command,report=None):
@@ -204,6 +230,19 @@ def audit(root=ROOT):
 
 
 def child(command,report=None):
+    sys.path[:0]=[str(ROOT),str(ROOT/'src')]
+    descriptor=read(ROOT/'s4-publication-inventory.json');overlay=descriptor.get('runtime_overlay')
+    if overlay is None:return _child_impl(command,report)
+    if (overlay.get('version')!=RUNTIME_OVERLAY_VERSION or overlay.get('real_transport_allowed') is not False or
+            set(overlay.get('files',{}))!=set(RUNTIME_OVERLAY_FILES)):
+        raise ValueError('unbound_fixed_platform_runtime')
+    for name,sha in overlay['files'].items():
+        if digest(safe(ROOT,name).read_bytes())!=sha:raise ValueError('runtime_overlay_source_changed')
+    from scripts.s4_public_linux_fixed import compatibility
+    with compatibility():return _child_impl(command,report)
+
+
+def _child_impl(command,report=None):
     # -I does not trust inherited PYTHONPATH or caller module caches.
     sys.path[:0]=[str(ROOT),str(ROOT/'src')]
     import writscope
@@ -282,7 +321,8 @@ def main():
     if args.command=='build':print(json.dumps(build()))
     elif args.command=='restore':
         value=restore(args.destination);manifest=read(ROOT/BUNDLE/'manifest.json')
-        write(args.destination/'s4-publication-inventory.json',{'ci_test_files':manifest['ci_test_files']})
+        if not (args.destination/'s4-publication-inventory.json').exists():
+            write(args.destination/'s4-publication-inventory.json',{'ci_test_files':manifest['ci_test_files']})
         print(json.dumps(value))
     elif args.command=='audit':
         value=audit();print(json.dumps(value,ensure_ascii=False))

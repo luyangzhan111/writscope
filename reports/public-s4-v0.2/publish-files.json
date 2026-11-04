@@ -477,7 +477,8 @@
     "scripts/s4_prompt_audit.py": "4440e016d670572793f22be28abbe8b16beb68270c517449d907a37aaccfc502",
     "scripts/s4_prompt_candidate.py": "482f65df6460a6e98cf7135cd92597dd9dc8299739232444466ed5fad048b8d9",
     "scripts/s4_provider_transport_simulation.py": "cbedfffcde4ba881546e51fd54dece2b758118f3775bd1f2eb7aaa28412c3f04",
-    "scripts/s4_public_release.py": "59450b032e0afbc89973183c4b6a1376ea9aa31afca1ebd62cbec09f6f8f09aa",
+    "scripts/s4_public_linux_fixed.py": "1f5324d01af896f8ce3dfeaae615e40e1a067e5e3ac091f0c4a045a24cd9e56b",
+    "scripts/s4_public_release.py": "cd02b17a4b21ad745c1a5ccf54adaf4ad2fa06f1e12a0ef963662ac1bae22b6d",
     "scripts/s4_r1_decision_package.py": "d9e44ef64f18344f97cbba2d21473ced2ac6c0099d6604efd91ea363ee913b4b",
     "scripts/s4_r3.py": "8b59cc23fc87ed792582a2aa8a816f11fb00107e422a1dd8509511f48c5fb717",
     "scripts/s4_r3_authority.py": "75442ba8bbc90500d81f3ca5ab160fe351e45c08559f1dba927d3596133fd87c",
@@ -574,6 +575,7 @@
     "specs/s4-owner-pilot-v3.md": "833dcf16cd6d736ec8cd0a4e7512a79760a83bba0267ac1cc289bad9c2853b5d",
     "specs/s4-owner-pilot-v4.md": "ab3f684bd9b56cebc38f26933e41a05a6ff1a8d2204f117befff33fcf32f9b20",
     "specs/s4-owner-pilot-v5.md": "1f62dc20c5f8ce98e8818a76173dd2d253ee0cd2fb500e78833eb151b6f49609",
+    "specs/s4-public-linux-fixed-v1.md": "c9d1251617dbd484b7d2661a841b004c7d3b5be1560068937b3d9279d7b522ae",
     "specs/s4-r3-offline-entry-v2.md": "b5003e77fbae8052c2bcbbd6d046ff1d2598ba22255ccfebb4070310e379f457",
     "specs/s4-r4-evaluation-v1.md": "41b6c3afd088025d94d3a14a2016a2526dd71705f2169cbf9ca341bb9405700f",
     "specs/s4-r5-acceptance-v1.md": "68ad778cc280eaf69adf13995f2f9bdf7b35c7674b41a401955af6a6ce50a306",
@@ -650,6 +652,7 @@
     "tests/test_s3_lookup_condition_contract_v4.py": "ceb10bfb8aafb6cf0d03b3bf8d70549d29f66453976ed7776c44068c1211bad8",
     "tests/test_s3_small_real_acceptance.py": "aaca08ebb4eef6be8216b67628001c720ec0e57a06e7ff06281c710f5d221a0c",
     "tests/test_s4_contract_convergence.py": "991f33a18b76322c27b65968178feca46534a035e37848ecca48ee1840462e2b",
+    "tests/test_s4_public_linux_fixed.py": "986572efc36c503fbc9c3e7cea942a799503ff9b0988ad391404f0dd5dd0bf7d",
     "tests/test_s4_public_release.py": "0ab2f628e5fcda8d09efa6aabe7097e7eadb65144ba1edded56b61c843413fa3",
     "tests/test_s4_release_scan.py": "d0ca672a6507c6c3f1ebc2bfe52b799f892e17edc187d0a86875ff939c5c7d23",
     "uv.lock": "d4959a6b13e98f045a7bcf8b0ad597cb96fa3e6fc6dd9910dd81b75ccffb94bc"
@@ -658,5 +661,16 @@
     "reports/public-s4-v0.2/publish-files.json"
   ],
   "git_add_or_commit_performed": false,
-  "github_updated": false
+  "github_updated": false,
+  "runtime_overlay": {
+    "version": "s4_public_fixed_platform_overlay_v1",
+    "files": {
+      "scripts/s4_public_release.py": "cd02b17a4b21ad745c1a5ccf54adaf4ad2fa06f1e12a0ef963662ac1bae22b6d",
+      "scripts/s4_public_linux_fixed.py": "1f5324d01af896f8ce3dfeaae615e40e1a067e5e3ac091f0c4a045a24cd9e56b",
+      "tests/test_s4_public_linux_fixed.py": "986572efc36c503fbc9c3e7cea942a799503ff9b0988ad391404f0dd5dd0bf7d",
+      "specs/s4-public-linux-fixed-v1.md": "c9d1251617dbd484b7d2661a841b004c7d3b5be1560068937b3d9279d7b522ae"
+    },
+    "real_transport_allowed": false,
+    "purpose": "Linux_fixed_worker_portability_only_not_new_paid_experiment_or_model_contract"
+  }
 }
