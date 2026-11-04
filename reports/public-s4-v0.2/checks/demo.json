@@ -1,0 +1,16 @@
+{
+  "version": "s4_public_offline_check_v1",
+  "operation": "demo",
+  "results": {
+    "statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "fixed_attempts": 8,
+    "replay": "verified_settled",
+    "model_metrics": null
+  },
+  "new_model_calls": 0,
+  "real_transport_allowed": false
+}

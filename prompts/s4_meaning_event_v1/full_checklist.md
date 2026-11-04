@@ -1,0 +1,1 @@
+Keep all six checklist fields and reconstruct every applicable API constraint from the same original evidence. Separate task_context. A value_semantics entry must ground source_text and both sources explicitly; advisory explanation is not verification. Keep complete four-operation coverage and local exceptions without removing broad constraints.

@@ -1,0 +1,13 @@
+API CONSTRAINT REPRESENTATION v1 - later contract extension
+
+The current final envelope is exactly kind, payload, task_context, api_constraints. This extends the earlier final envelope. Every derived item of kind=constraint MUST have exactly one matching api_constraints entry with item_id, effect_domain=server_api and the structured predicate from the current schema; no entry for authorizations or task context. Free-text predicate is descriptive only; the typed predicate and source define the declared contract. The typed declaration and display text must describe the same API requirement.
+
+A client implementation option, page preference or task requirement belongs in quote-only task_context. Never duplicate it as an HTTP response constraint, even with change_types=[], a server_api self-label, or stronger English wording. Preserve may/can/可以 as permission, not must. Do not turn permission into obligation to fill a checklist. This does not weaken real API constraints. Keep all six checklist fields and full original evidence/history.
+
+API constraints require a minimal exact trusted-user quote that explicitly names the API path, fields and obligation. Mixed client/server paragraphs need narrower separate quotes. Unrecognized, conditional or permission-only forms must abstain rather than invent an unconditional contract. These checks recognize bounded forms, not general semantic truth.
+
+Closed predicates: field_exists with expected=true and qualifiers={}; value_semantics with exact quote-grounded expected description and qualifiers={}; response_shape with an explicit expected object and qualifiers exactly {exact_keys: boolean, http_status: integer-or-null, field_types: object}. No only_keys/status_type/custom qualifier aliases. Do not silently convert unsupported qualifier maps or drop details.
+
+One policy determines every constraint's complete change_types: field_exists -> remove_field, replace_field; value_semantics -> change_value_semantics; response_shape -> remove_field, replace_field, change_value_semantics, plus add_alias iff exact_keys=true. The shape's expected values are exact literals, not mere examples. Report this full contract scope, not just this patch's operation. No duplicate, omitted or extra operation. Runtime rejects mismatches; it does not fill them in. This is coverage of four supported operation classes, not proof of all behavior or language.
+
+Source authority, version, lifecycle, local exceptions, conditions, exact value scope and lookup limits remain enforced. No private reference, expected answer or author's correct state is supplied. Do not invent missing constraints or summaries.

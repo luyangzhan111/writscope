@@ -1,0 +1,122 @@
+{
+  "version": "s4_publication_validation_v1",
+  "status": "passed_local_publication_preparation",
+  "engineering_candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+  "source_archive_sha256": "73e5fc04bce7ea07f1cb89d7ebe22e4b3002150fb4dd4513999ad34488b9361c",
+  "publication_manifest_sha256": "c55f9963ee86b20e63b74575e21584be7fda6941abcc52290c82d6051c1d1fd0",
+  "archive": {
+    "bytes": 48006924,
+    "unique_objects": 1174,
+    "restored_files": 1389
+  },
+  "tests": {
+    "passed": 482,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "groups": {
+      "legacy": 369,
+      "contract": 51,
+      "publication": 27,
+      "scan": 35
+    },
+    "elapsed_seconds": "635.711",
+    "scope": "explicit_public_candidate_suite_not_full_repository",
+    "report": "checks/tests.xml",
+    "report_sha256": "59a7511c40d5359d0b67fe43e335874f63fba5cdfe94d8a794080098611ae13c"
+  },
+  "scan": {
+    "report": "checks/final-scan.json",
+    "files_scanned": 652,
+    "findings": [],
+    "history_objects_scanned": {
+      "commit": 13,
+      "tree": 182,
+      "blob": 708
+    },
+    "structured_parse_failures": 0,
+    "sqlite_cells_scanned": 67357,
+    "json_base64_values_scanned": 1591,
+    "expanded_bytes_read": 428782443,
+    "raw_only_contents_scanned": 10923,
+    "policy": {
+      "max_depth": 12,
+      "max_total_expanded": 1073741824
+    },
+    "limitation": "bounded_pattern_scan_not_a_security_or_absence_guarantee; unsupported_or_limit_failures_are_findings",
+    "source_scan_report": "checks/scan.json"
+  },
+  "recovered_root": "D:\\AI-Project\\writscope\\.work\\public-s4-candidate-final-v1\\.work\\restored",
+  "explicit_source_export_files": 645,
+  "environment": "Python_3.12.4_original_uv_lock_packages_reused_project_venv_no_new_dependency_install",
+  "replay": {
+    "version": "s4_public_offline_check_v1",
+    "operation": "verify",
+    "results": {
+      "normal": "verified_settled",
+      "no-lookup": "verified_settled",
+      "bad-anchor": "verified_settled",
+      "old-no-change": "verified_settled",
+      "source-fault": "verified_prefix_only",
+      "summary-conflict": "verified_settled",
+      "truncated": "verified_settled",
+      "timeout": "verified_settled",
+      "interrupted": "verified_prefix_only",
+      "historical-v2": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "historical-v5": [
+        "failed",
+        "failed",
+        "failed"
+      ]
+    },
+    "new_model_calls": 0,
+    "real_transport_allowed": false
+  },
+  "demo": {
+    "version": "s4_public_offline_check_v1",
+    "operation": "demo",
+    "results": {
+      "statuses": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "fixed_attempts": 8,
+      "replay": "verified_settled",
+      "model_metrics": null
+    },
+    "new_model_calls": 0,
+    "real_transport_allowed": false
+  },
+  "preservation": {
+    "original_files_unchanged": 1046,
+    "restored_files_unchanged_after_tests": 1389,
+    "project_status_historical_body_exact": true,
+    "frozen_docs_navigation_and_old_release_tool_unchanged": true
+  },
+  "remote_CI": "configured_windows_ubuntu_not_run_this_round",
+  "github_updated": false,
+  "git_add_commit_push_performed": false,
+  "assistant_new_model_requests": 0,
+  "assistant_key_reads": 0,
+  "assistant_new_experiment_fees": 0,
+  "project_material_transmissions": 0,
+  "reference_status": "provisional",
+  "user_case_by_case_review": "not_received",
+  "independent_review": "not_performed_skipped_by_user",
+  "current_contract_full270": "not_run",
+  "formal_comparison": "not_run",
+  "model_improvement": "not_verified",
+  "publication_receipts": "supplemental_files_outside_frozen_source_archive_bound_in_publication_inventory",
+  "development_failures": [
+    "TOML_false_JSON_sniff_fixed_before_final_package",
+    "preacceptance_packages_retained_in_ignored_work_directory"
+  ],
+  "metadata_check_correction": "compared_original_historical_body_without_duplicating_the_unchanged_page_title",
+  "publication_files_including_inventory": 653,
+  "post_test_publication_delta": "generated_README_and_validation_receipts_only_runtime_source_config_and_test_bytes_unchanged"
+}

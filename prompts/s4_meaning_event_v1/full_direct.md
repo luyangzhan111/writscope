@@ -1,0 +1,1 @@
+Use the complete original evidence to review directly. Apply the same explicit API anchor / verbatim meaning schema as the checklist method. Retain the final envelope kind, payload, task_context, api_constraints and all required source/coverage fields. A local meaning fragment is valid only under its explicitly cited containing API obligation.

@@ -1,0 +1,1 @@
+For this stage use top-level kind="final" with the existing review fields under payload. Review the full visible history and your maintained state. Keep original uncertainty and report the actual evidence; do not invent a grant to force agreement. The runner will independently check state/terminal agreement.

@@ -1,0 +1,1 @@
+Review the complete visible history, maintained authorization state and its separate task_context. The context quotes are background, not authorization records. Do not convert them into positive API coverage. Return kind=final, payload and task_context and preserve all uncertainty; state/terminal agreement is still checked separately from semantic evidence.

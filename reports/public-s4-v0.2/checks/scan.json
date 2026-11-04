@@ -1,0 +1,40 @@
+{
+  "version": "s4_bounded_release_scan_v1",
+  "files_requested": 645,
+  "files_scanned": 645,
+  "unique_contents_scanned": 17210,
+  "duplicate_content_references": 43298,
+  "unique_bytes_scanned": 327313328,
+  "expanded_bytes_read": 428782443,
+  "archive_members_scanned": 3691,
+  "json_base64_values_scanned": 1591,
+  "json_contents_scanned": 6157,
+  "jsonl_contents_scanned": 10,
+  "jsonl_lines_scanned": 50,
+  "structured_parse_failures": 0,
+  "raw_only_contents_scanned": 10923,
+  "sqlite_cells_scanned": 67357,
+  "findings": [],
+  "pattern_categories": [
+    "private_key",
+    "provider_token",
+    "github_token",
+    "aws_access_key",
+    "credential_assignment"
+  ],
+  "new_model_calls": 0,
+  "credential_stores_accessed": false,
+  "limitation": "bounded_pattern_scan_not_a_security_or_absence_guarantee; unsupported_or_limit_failures_are_findings",
+  "structured_format_scope": "ZIP_magic_or_extension; SQLite_magic; plausible_JSON_start_or_explicit_JSON_extension; JSONL_extension_or_multiline_plausible_JSON_object_or_array_content; unrecognized_formats_raw_patterns_only_and_counted",
+  "deduplication": "content_sha256_after_each_path_safety_check; findings_reference_first_scanned_content_path",
+  "history_objects_scanned": {
+    "commit": 13,
+    "tree": 182,
+    "blob": 708
+  },
+  "scan_policy": {
+    "max_depth": 12,
+    "max_total_expanded": 1073741824
+  },
+  "github_updated": false
+}

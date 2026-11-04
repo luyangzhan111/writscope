@@ -1,0 +1,1 @@
+Return kind=final, the existing review payload, and a task_context list. Keep client-local options in task_context. Any positive server authorization and any derived authorization must have a specific server/API permission quote; context is never a substitute for it. Direct review remains a full-history baseline.

@@ -1,0 +1,1 @@
+For this stage use top-level kind="final" with the existing review fields under payload. The wrapper has only kind and payload. Apply the common provenance and local/server scope rules to every per-impact judgment.

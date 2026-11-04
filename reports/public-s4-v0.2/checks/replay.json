@@ -1,0 +1,27 @@
+{
+  "version": "s4_public_offline_check_v1",
+  "operation": "verify",
+  "results": {
+    "normal": "verified_settled",
+    "no-lookup": "verified_settled",
+    "bad-anchor": "verified_settled",
+    "old-no-change": "verified_settled",
+    "source-fault": "verified_prefix_only",
+    "summary-conflict": "verified_settled",
+    "truncated": "verified_settled",
+    "timeout": "verified_settled",
+    "interrupted": "verified_prefix_only",
+    "historical-v2": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "historical-v5": [
+      "failed",
+      "failed",
+      "failed"
+    ]
+  },
+  "new_model_calls": 0,
+  "real_transport_allowed": false
+}

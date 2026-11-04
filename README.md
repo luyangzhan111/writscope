@@ -2,61 +2,71 @@
 
 研究编码任务中的兼容性约束与用户授权状态维护：结合历史要求、候选补丁和影响证据，判断变更是否处于有效授权范围内，并提供可追溯依据。
 
-例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响、有效用户授权和最终决定，并保留可回放的来源链。
+例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响 `impact`、有效用户授权 `authorization` 和最终决定 `decision`，保留来源、作用范围、撤销及替代关系。
 
-**当前阶段（2026-10-28）：研究开发版已公开；S3 开发验收完成（作者审核口径），独立研究验收待外部审核；S4 正式比较尚未运行。** v8 已完成真实自主历史回查、原文返回、续答接受及有效终点；最终复验通过，旧九任务共同报告保留六完成、三失败。现有证据不支持方法优势、成本收益或泛化结论。详情见 [最终审查](docs/experiments/s3-development-final-audit-20261027.md)与[项目状态](docs/project-status.md)。
+**当前阶段（2026-11-04）：S4-A 离线工程候选已完成单例契约收敛与联合验收，正在整理公开材料；S4 正式比较未运行。** 当前维护入口覆盖完整上下文直接复核、完整上下文清单复核（核心强基线）与增量复核。现有证据不支持方法优势、成本收益或泛化结论。
 
-开发版已上传 [GitHub](https://github.com/luyangzhan111/writscope)：源码、规格、测试与精选历史证据一并提供，许可证为 [MIT](LICENSE)。本地实测见[首次公开版整理](docs/archive/releases/first-public-release.md)，远程验证见[GitHub 发布记录](docs/archive/releases/github-first-publication-20261028.md)。开发文档从[文档导航](docs/README.md)开始；旧交接报告保留在历史归档中。
+项目采用 [MIT](LICENSE)，已公开于 [GitHub](https://github.com/luyangzhan111/writscope)。本次 S4 整理尚未更新 GitHub，也未运行新的远程 CI。当前文档从 [S4 导航](docs/s4/README.md)开始；[旧文档导航](docs/README.md)保留其哈希绑定原文。
 
-## 快速开始：无密钥离线演示
+## 当前证据与边界
 
-要求 Python 3.12 与 uv，在仓库根目录执行：
+| 证据 | 已完成 | 不能据此声称 |
+| --- | --- | --- |
+| 当前离线候选 `0ef9be84…` | 263 份源码/规格/提示词/测试绑定；51 项定向测试通过；9 组固定控制、67 次模拟尝试；恢复核对 1,038 份清单工件、11 份报告重算一致；942 份既有文件未变 | 真实模型已遵守新契约、当前版本 270 轨已验收或方法有收益 |
+| S4 v5 保存的真实单次试跑 | 三方法均因输出契约失败，原始响应、评分、费用与失败记录保留；离线回放通过 | 有效主终点；真实 no_change 已触发；完整增量终点已验证 |
+| 旧 R5 全批离线记录 | 当时版本的 30 例×三方法×R=3 共 270 轨完成 | 当前契约版本也已完成 270 轨 |
+| S3 历史开发验收 | v8 有真实自主回查、原文返回、续答接受和有效终点，满足作者审核开发口径 | 独立研究验收或 S4 正式比较完成 |
+
+当前参考仍为 **provisional**，逐例未签收；S4 实际独立审核状态为 `not_performed_skipped_by_user`。新契约只编译公开声明的重复字段与操作覆盖，不证明自然语言解释正确，也不追改旧结果。详见 [当前离线验收](docs/s4-contract-convergence-offline-20261104.md)、[v5 真实失败复核](docs/s4-owner-pilot-real-v5-review-20261104.md)与[项目状态](docs/project-status.md)。
+
+## S4 无密钥恢复、回放与演示
+
+当前冻结证据要求 **Python 3.12.4** 与锁文件中的依赖版本，在仓库根目录执行：
 
 ```powershell
-uv sync --locked --python 3.12
-uv run --locked python -m scripts.public_release demo
+uv sync --locked --python 3.12.4
+uv run --locked python -m scripts.s4_public_release restore --destination .work/s4-public-review
+uv run --locked python -m scripts.s4_public_release verify --root .work/s4-public-review
+uv run --locked python -m scripts.s4_public_release demo --root .work/s4-public-review
 ```
 
-演示从带哈希清单的[精选证据包](reports/public-v0.1/README.md)恢复必要依赖，随后用固定脚本完成五事件、历史回查、续答与终点，输出新报告路径。输出应包含 `execution_kind=offline_simulation`、`new_model_calls=0`、`status=completed` 与 `scripted_attempts=7`。报告中的 `offline_transport_only` 表示回查接线控制；脚本结果不计模型成绩。
+目标目录必须不存在；再次恢复时换一个新目录。新发布工具及 `reports/public-s4-v0.2/` 的本轮本地检查单独记录在[发布说明](docs/s4/public-release.md)，不把本文示例命令视为已经通过的远程 CI。
 
-这些命令无需 API 密钥，不发送模型请求。安装依赖可能访问软件包源；演示和回放在依赖就绪后可离线运行。重复执行会生成独立目录，不覆盖旧记录。Windows 与 Ubuntu 已通过 GitHub CI 的完整测试、演示和历史回放；macOS 尚未验证。
+恢复根独立于当前工作树，包含带哈希的原始工程证据。`verify` 只重建保存轨迹；`demo` 使用固定响应，不是模型成绩。这些操作不读取 API 密钥、不发起模型请求。安装依赖可能访问软件包源，依赖就绪后的演示和回放可离线执行。任何历史价格、预留金额、批准或已用收据都不提供新的运行权限。
 
-## 重放保存的真实开发证据
+## 验证范围
 
-```powershell
-uv run --locked python -m scripts.public_release replay
-```
+本次公开候选使用明确的检查集：旧版已跟踪的 48 个测试文件（47 个测试模块及 conftest）、当前契约的 51 项定向测试以及新增发布/扫描安全测试。它不是全仓库所有历史 S4 测试的重跑；各部分的实际结果及运行根在[发布说明](docs/s4/public-release.md)中单列。
 
-该命令离线重建 v8 成功轨迹、v7 失败轨迹和九任务共同覆盖，重新生成作者审核报告，并再次核对原始证据字节。输出 `new_model_calls=0`；`v8_saved_calls=7` 等字段指历史调用，绝非本次新调用。v7 应保持终点无效，九任务应保持六完成、三失败。v8 与旧共同轮不能拼接成方法排名。
+旧首发代码的 Windows/Ubuntu 369 项 CI 是历史记录，不代表当前 S4 候选的新远程验证；本次远程 CI 尚未运行。当前版本的 30×3×R=3 全批、真实模型完整增量链和正式比较仍待后续冻结与授权。
 
-历史一次性启动收据含原机器绝对路径；迁移适配只在 verifier 内存视图中定位到当前目录，输出逐项记录，原收据和原哈希不改。这种适配只用于离线验证，不能授权新的付费运行。具体规则见[证据说明](reports/public-v0.1/README.md)。
+## 保留的 S3 首发入口
 
-## 测试
+以下命令对应 `public-v0.1` 的 S3 精选证据，仍保留历史用途：
 
 ```powershell
 uv run --locked python -m scripts.public_release restore
-uv run --locked python -m pytest -q -p no:cacheprovider
+uv run --locked python -m scripts.public_release demo
+uv run --locked python -m scripts.public_release replay
 ```
 
-先恢复归档依赖，再运行测试。`evaluation_private/` 是评测器材料，可以随仓库提供，但不得进入模型请求；目录名本身不提供隔离。离线预检中的历史价格和预算只是冻结记录，不能当作新的授权或当前报价。
+旧演示为固定脚本五事件、历史回查、续答和终点；旧回放重建 v8 成功、v7 失败及九任务共同覆盖，均不增加模型请求。迁移适配只在 verifier 内存视图定位旧机器启动路径，原收据和哈希不改，也不能授权付费运行。详情见[旧精选证据说明](reports/public-v0.1/README.md)、[S3 最终审查](docs/experiments/s3-development-final-audit-20261027.md)、[首次公开版整理](docs/archive/releases/first-public-release.md)及[首次 GitHub 发布记录](docs/archive/releases/github-first-publication-20261028.md)。
 
-## 第一版边界
+## 项目范围与文档
 
-- Python / FastAPI 合成样例；固定候选补丁的离线复核。
-- 聚焦 HTTP 输出字段存在性与值语义；分别输出 `impact`、`authorization`、`decision`。
-- 比较完整上下文直接复核、完整上下文清单复核（核心强基线）、增量授权状态复核。
-- 正式比较要求各方法使用同等原始证据；提取、更新、回查、验证及失败重试全部计入总成本。
-- `allow` 仅表示通过所评估的兼容性与授权检查，不代表通过全部质量或安全审查。
-
-## 文档
+- Python / FastAPI 合成样例；固定候选补丁的兼容性与授权复核。
+- 三方法使用同等原始证据与工具权限，完整上下文清单复核是核心强基线。
+- 提取、更新、回查、终点、验证与失败成本全部计入，缺失用量或账单为 unknown。
+- 参考、配对、隐藏测试和参考修复只供评测器使用，不进入方法请求；目录名本身不是隔离。
+- `allow` 仅表示通过所评估的兼容性与授权检查，不代表全部质量或安全检查通过。
 
 | 阅读目的 | 入口 |
 | --- | --- |
-| 了解当前项目与代码入口 | [文档导航](docs/README.md) |
+| 接续当前 S4 工程 | [S4 当前导航](docs/s4/README.md) · [公开候选说明](docs/s4/public-release.md) |
 | 查看完成程度与剩余工作 | [项目状态](docs/project-status.md) |
-| 使用各阶段组件 | [组件级运行指南](docs/usage.md) |
+| 理解当前输出与编译规则 | [compact contract v2](specs/s4-compiled-contract-v2.md) |
+| 使用历史组件 | [组件级运行指南](docs/usage.md) · [旧导航](docs/README.md) |
 | 理解数据与公平评测 | [数据契约](specs/data-contracts.md) · [评测协议](docs/evaluation-protocol.md) |
-| 检查成功、失败与验收证据 | [实验记录](docs/experiments/README.md) |
-| 查找旧计划、预检和交接材料 | [历史归档](docs/archive/README.md) |
+| 检查成功、失败与历史记录 | [实验记录](docs/experiments/README.md) · [历史归档](docs/archive/README.md) |
 
-协作约定见 [AGENTS.md](AGENTS.md)。实验与归档保留各自时点，部分内容含参考答案，不得整体作为被测方法输入。
+协作约定见 [AGENTS.md](AGENTS.md)。冻结材料保留各自时点，部分内容含作者答案，不得整体作为被测方法输入。

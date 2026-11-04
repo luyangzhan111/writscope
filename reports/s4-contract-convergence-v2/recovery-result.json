@@ -1,0 +1,38 @@
+{
+  "candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+  "status": "passed",
+  "files_verified": 1038,
+  "exact_recomputed_reports": {
+    "normal": "verified_settled",
+    "no-lookup": "verified_settled",
+    "bad-anchor": "verified_settled",
+    "old-no-change": "verified_settled",
+    "source-fault": "verified_prefix_only",
+    "summary-conflict": "verified_settled",
+    "truncated": "verified_settled",
+    "timeout": "verified_settled",
+    "interrupted": "verified_prefix_only",
+    "historical-v2": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "historical-v5": [
+      "failed",
+      "failed",
+      "failed"
+    ]
+  },
+  "fresh_fixed_smoke_statuses": [
+    "completed",
+    "completed",
+    "completed"
+  ],
+  "fresh_fixed_smoke_attempts": 8,
+  "new_directory_isolated_imports": true,
+  "environment": "reused_project_venv_no_dependency_reinstallation",
+  "original_pack_bytes_unchanged": true,
+  "actual_model_calls": 0,
+  "key_reads": 0,
+  "real_transport_allowed": false
+}

@@ -1,0 +1,192 @@
+{
+  "version": "s4_compact_contract_acceptance_v2",
+  "status": "passed_bounded_offline_engineering",
+  "candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+  "source_files": 263,
+  "tests": {
+    "passed": 51,
+    "failed": 0,
+    "errors": 0,
+    "report_sha256": "fe893e28feca0a3106151b33a51b329b2622734f49c869de800f4caf211d3bd3"
+  },
+  "controls": {
+    "candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+    "scenarios": {
+      "normal": {
+        "statuses": [
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "attempts": 11,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 23429120,
+        "stop_reason": null,
+        "origin": "preserved_passing_test_trace"
+      },
+      "no-lookup": {
+        "statuses": [
+          "completed",
+          "completed",
+          "completed"
+        ],
+        "attempts": 8,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 17039360,
+        "stop_reason": null,
+        "origin": "additional_fixed_control"
+      },
+      "bad-anchor": {
+        "statuses": [
+          "completed",
+          "completed",
+          "failed"
+        ],
+        "attempts": 6,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 12779520,
+        "stop_reason": null,
+        "origin": "preserved_passing_test_trace"
+      },
+      "old-no-change": {
+        "statuses": [
+          "completed",
+          "completed",
+          "failed"
+        ],
+        "attempts": 8,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 17039360,
+        "stop_reason": null,
+        "origin": "preserved_passing_test_trace"
+      },
+      "source-fault": {
+        "statuses": [
+          "failed",
+          "not_run",
+          "not_run"
+        ],
+        "attempts": 2,
+        "replay": "verified_prefix_only",
+        "reference_read": false,
+        "reserved_cny_micro": 4259840,
+        "stop_reason": "compact_contract_source_rejected",
+        "origin": "preserved_passing_test_trace"
+      },
+      "summary-conflict": {
+        "statuses": [
+          "completed",
+          "completed",
+          "failed"
+        ],
+        "attempts": 11,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 23429120,
+        "stop_reason": null,
+        "origin": "preserved_passing_test_trace"
+      },
+      "truncated": {
+        "statuses": [
+          "failed",
+          "completed",
+          "completed"
+        ],
+        "attempts": 10,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 21299200,
+        "stop_reason": null,
+        "origin": "additional_fixed_control"
+      },
+      "timeout": {
+        "statuses": [
+          "failed",
+          "completed",
+          "completed"
+        ],
+        "attempts": 10,
+        "replay": "verified_settled",
+        "reference_read": true,
+        "reserved_cny_micro": 21299200,
+        "stop_reason": null,
+        "origin": "additional_fixed_control"
+      },
+      "interrupted": {
+        "statuses": [
+          "failed",
+          "not_run",
+          "not_run"
+        ],
+        "attempts": 1,
+        "replay": "verified_prefix_only",
+        "reference_read": false,
+        "reserved_cny_micro": 2129920,
+        "stop_reason": "interrupted",
+        "origin": "additional_fixed_control"
+      }
+    },
+    "total_fixed_attempts": 67,
+    "actual_model_calls": 0,
+    "real_transport_allowed": false,
+    "all_planned_denominators_preserved": true
+  },
+  "recovery": {
+    "candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+    "status": "passed",
+    "files_verified": 1038,
+    "exact_recomputed_reports": {
+      "normal": "verified_settled",
+      "no-lookup": "verified_settled",
+      "bad-anchor": "verified_settled",
+      "old-no-change": "verified_settled",
+      "source-fault": "verified_prefix_only",
+      "summary-conflict": "verified_settled",
+      "truncated": "verified_settled",
+      "timeout": "verified_settled",
+      "interrupted": "verified_prefix_only",
+      "historical-v2": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "historical-v5": [
+        "failed",
+        "failed",
+        "failed"
+      ]
+    },
+    "fresh_fixed_smoke_statuses": [
+      "completed",
+      "completed",
+      "completed"
+    ],
+    "fresh_fixed_smoke_attempts": 8,
+    "new_directory_isolated_imports": true,
+    "environment": "reused_project_venv_no_dependency_reinstallation",
+    "original_pack_bytes_unchanged": true,
+    "actual_model_calls": 0,
+    "key_reads": 0,
+    "real_transport_allowed": false
+  },
+  "preservation": {
+    "files_unchanged": 942,
+    "original_records_or_scores_modified": false
+  },
+  "reference_status": "provisional",
+  "user_case_by_case_review": "not_received",
+  "independent_review": "not_performed_skipped_by_user",
+  "real_transport_allowed": false,
+  "uncovered": [
+    "current_contract_full270_not_run",
+    "model_conformance_and_complete_real_incremental_chain_not_verified",
+    "full_legacy_fault_matrix_not_repeated",
+    "fresh_dependency_install_and_new_CI_not_performed",
+    "owner_semantic_dispositions_and_formal_experiment_freeze_pending",
+    "next_real_candidate_and_explicit_approval_absent"
+  ]
+}

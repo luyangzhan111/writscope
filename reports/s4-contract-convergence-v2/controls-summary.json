@@ -1,0 +1,126 @@
+{
+  "candidate_sha256": "0ef9be84a94f272109535b483813b5eb91f4ddb7fc158f70a8d9c89e340c17d7",
+  "scenarios": {
+    "normal": {
+      "statuses": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "attempts": 11,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 23429120,
+      "stop_reason": null,
+      "origin": "preserved_passing_test_trace"
+    },
+    "no-lookup": {
+      "statuses": [
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "attempts": 8,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 17039360,
+      "stop_reason": null,
+      "origin": "additional_fixed_control"
+    },
+    "bad-anchor": {
+      "statuses": [
+        "completed",
+        "completed",
+        "failed"
+      ],
+      "attempts": 6,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 12779520,
+      "stop_reason": null,
+      "origin": "preserved_passing_test_trace"
+    },
+    "old-no-change": {
+      "statuses": [
+        "completed",
+        "completed",
+        "failed"
+      ],
+      "attempts": 8,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 17039360,
+      "stop_reason": null,
+      "origin": "preserved_passing_test_trace"
+    },
+    "source-fault": {
+      "statuses": [
+        "failed",
+        "not_run",
+        "not_run"
+      ],
+      "attempts": 2,
+      "replay": "verified_prefix_only",
+      "reference_read": false,
+      "reserved_cny_micro": 4259840,
+      "stop_reason": "compact_contract_source_rejected",
+      "origin": "preserved_passing_test_trace"
+    },
+    "summary-conflict": {
+      "statuses": [
+        "completed",
+        "completed",
+        "failed"
+      ],
+      "attempts": 11,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 23429120,
+      "stop_reason": null,
+      "origin": "preserved_passing_test_trace"
+    },
+    "truncated": {
+      "statuses": [
+        "failed",
+        "completed",
+        "completed"
+      ],
+      "attempts": 10,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 21299200,
+      "stop_reason": null,
+      "origin": "additional_fixed_control"
+    },
+    "timeout": {
+      "statuses": [
+        "failed",
+        "completed",
+        "completed"
+      ],
+      "attempts": 10,
+      "replay": "verified_settled",
+      "reference_read": true,
+      "reserved_cny_micro": 21299200,
+      "stop_reason": null,
+      "origin": "additional_fixed_control"
+    },
+    "interrupted": {
+      "statuses": [
+        "failed",
+        "not_run",
+        "not_run"
+      ],
+      "attempts": 1,
+      "replay": "verified_prefix_only",
+      "reference_read": false,
+      "reserved_cny_micro": 2129920,
+      "stop_reason": "interrupted",
+      "origin": "additional_fixed_control"
+    }
+  },
+  "total_fixed_attempts": 67,
+  "actual_model_calls": 0,
+  "real_transport_allowed": false,
+  "all_planned_denominators_preserved": true
+}

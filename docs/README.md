@@ -15,6 +15,10 @@ WritScope 研究多轮编码任务中，候选补丁的兼容性影响是否被�
 | 理解事件、状态、引用和输出 | [数据契约](../specs/data-contracts.md) |
 | 理解公平比较、隔离和成本口径 | [评测协议](evaluation-protocol.md) |
 | 接续开发和了解待办 | [实现计划](implementation-plan.md) · [决策记录](decisions.md) |
+| R3 当前维护入口与验收 | [2026-11-02 离线工程验收](s4-r3-offline-acceptance-20261102.md) · [入口契约 v2](../specs/s4-r3-offline-entry-v2.md)；后续接 R4，真实发送仍关闭 |
+| R4 独立轨迹验证与评测接线 | [2026-11-02 验收说明](s4-r4-offline-acceptance-20261102.md) · [评测契约 v1](../specs/s4-r4-evaluation-v1.md)；从收到的响应重建，参考只在验证后读取，真实发送关闭 |
+| R5 同版本全批与交付恢复 | [2026-11-02 验收记录](s4-r5-offline-acceptance-20261102.md) · [恢复操作](s4-r5-delivery.md) · [契约 v1](../specs/s4-r5-acceptance-v1.md)；固定合成场景、完整计划分母，真实发送关闭 |
+| 推进下一阶段评测 | [最新剩余计划与 7 份执行提示词](s4-remaining-plan-review-20261030.md) · [R3 进程中断核对](s4-r3-interruption-review-20261030.md) · [R3 模拟计划与记录核对](s4-r3-proposal-audit-20261030.md) · [R3 检查点统一入口](s4-r3-checkpoint-offline-20261030.md) · [负责人确认与 R3 模拟接线](s4-owner-decisions-and-r3-bridge-20261030.md) · [R3 provider 与中断核对补充](s4-r3-provider-recovery-20261030.md) · [R3 模拟闸门与 R2 接口进度](s4-r3-mock-gate-20261030.md) · [R1/R2 中断审计补充](s4-r1-r2-recovery-followup-20261030.md) · [R2 单账本离线进度](s4-r2-unified-offline-20261030.md) · [虚拟金额预留](s4-synthetic-cost-gate-20261030.md) · [语义审核流程](s4-review-process.md) · [正式比较设计候选](s4-experiment-design.md)；[逐例矩阵](s4-p0-matrix.md)含参考答案，仅供评测器与设计审核 |
 | 查看初始需求依据 | [初始交接书](project-brief.md)，保留其历史时点 |
 
 ## 代码入口
