@@ -2,7 +2,7 @@
   "version": "s4_explicit_publication_inventory_v1",
   "files": {
     ".gitattributes": "d406fc7b00dd8a0145d3ab1e49afb272f01fec46b7ffb6ff25307bfc021d85b1",
-    ".github/workflows/tests.yml": "fd0ffe10069047cc1c9a8703bb87b642fdd0caa062f2aec42c94b451dc85dad7",
+    ".github/workflows/tests.yml": "6a58ec1e355350dc12cf38af38e5fd94ae29e442c00148958881e0a63f230cb1",
     ".gitignore": "20aa6b11013e713c54df3fe4a27510fb910d4b08d0268ac951fee2fba1f673e6",
     ".python-version": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d",
     "AGENTS.md": "a7672fcb39ecd794d22fb41fc178640a7986efa59f2f19c98c56da01c0aae239",

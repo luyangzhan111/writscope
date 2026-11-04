@@ -13,8 +13,9 @@ jobs:
     env:
       DEEPSEEK_API_KEY: ''
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-24.04]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
