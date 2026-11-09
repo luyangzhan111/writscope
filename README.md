@@ -4,24 +4,24 @@
 
 例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响 `impact`、有效用户授权 `authorization` 和最终决定 `decision`，保留来源、作用范围、撤销及替代关系。
 
-**当前阶段（2026-11-04）：S4-A 离线工程更新已公开，Windows／Ubuntu 24.04 CI 通过；S4 正式比较未运行。** 当前维护入口覆盖完整上下文直接复核、完整上下文清单复核（核心强基线）与增量复核。现有证据不支持方法优势、成本收益或泛化结论。
+**当前阶段（2026-11-09）：S4-A 方法 v8 的等配置和预算匹配开发比较已完成。** 两块各 270 轨，均已完整结算并通过独立离线回放。完整上下文清单在两块的主授权均为 77/78，增量分别为 74/78 和 71/78。在本批已调试样本中，未观察到增量相对完整清单的总体收益。见 [双块结果与费用](docs/s4/v8-development-closeout-20261109.md)。
 
-项目采用 [MIT](LICENSE)，已公开于 [GitHub](https://github.com/luyangzhan111/writscope)。本次更新与实际受测提交见 [双平台发布记录](docs/s4/github-publication-20261104.md)。当前文档从 [S4 导航](docs/s4/README.md)开始；[旧文档导航](docs/README.md)保留其哈希绑定原文。
+项目采用 [MIT](LICENSE)，已公开于 [GitHub](https://github.com/luyangzhan111/writscope)。11 月 4 日公开工程包及受测提交见 [双平台发布记录](docs/s4/github-publication-20261104.md)，恢复、回放和演示的历史入口见 [S4 工程导航](docs/s4/README.md)及[旧文档导航](docs/README.md)。
 
-## 当前证据与边界
+## 历史工程证据与边界
 
 | 证据 | 已完成 | 不能据此声称 |
 | --- | --- | --- |
-| 当前离线候选 `0ef9be84…` | 263 份源码/规格/提示词/测试绑定；51 项定向测试通过；9 组固定控制、67 次模拟尝试；恢复核对 1,038 份清单工件、11 份报告重算一致；942 份既有文件未变 | 真实模型已遵守新契约、当前版本 270 轨已验收或方法有收益 |
+| 11 月 4 日离线候选 `0ef9be84…` | 263 份源码/规格/提示词/测试绑定；51 项定向测试通过；9 组固定控制、67 次模拟尝试；恢复核对 1,038 份清单工件、11 份报告重算一致；942 份既有文件未变 | 真实模型已遵守该契约、该候选完成 270 轨或方法有收益 |
 | S4 v5 保存的真实单次试跑 | 三方法均因输出契约失败，原始响应、评分、费用与失败记录保留；离线回放通过 | 有效主终点；真实 no_change 已触发；完整增量终点已验证 |
-| 旧 R5 全批离线记录 | 当时版本的 30 例×三方法×R=3 共 270 轨完成 | 当前契约版本也已完成 270 轨 |
+| 旧 R5 全批离线记录 | 当时版本的 30 例×三方法×R=3 共 270 轨完成 | 方法 v8 的真实运行表现 |
 | S3 历史开发验收 | v8 有真实自主回查、原文返回、续答接受和有效终点，满足作者审核开发口径 | 独立研究验收或 S4 正式比较完成 |
 
-当前参考仍为 **provisional**，逐例未签收；S4 实际独立审核状态为 `not_performed_skipped_by_user`。新契约只编译公开声明的重复字段与操作覆盖，不证明自然语言解释正确，也不追改旧结果。详见 [当前离线验收](docs/s4-contract-convergence-offline-20261104.md)、[v5 真实失败复核](docs/s4-owner-pilot-real-v5-review-20261104.md)与[项目状态](docs/project-status.md)。
+方法 v8 双块比较使用项目负责人确认的 30 例参考和冻结评分规则，实际独立研究审核未开展。下方恢复与演示对应 11 月 4 日工程包及更早的历史证据。相关契约与原结果见 [历史离线验收](docs/s4-contract-convergence-offline-20261104.md)、[v5 真实失败复核](docs/s4-owner-pilot-real-v5-review-20261104.md)和[历史项目状态](docs/project-status.md)。
 
-## S4 无密钥恢复、回放与演示
+## 11 月 4 日工程包的无密钥恢复、回放与演示
 
-当前冻结证据要求 **Python 3.12.4** 与锁文件中的依赖版本，在仓库根目录执行：
+该工程包要求 **Python 3.12.4** 与锁文件中的依赖版本，在仓库根目录执行：
 
 ```powershell
 uv sync --locked --python 3.12.4
@@ -30,15 +30,15 @@ uv run --locked python -m scripts.s4_public_release verify --root .work/s4-publi
 uv run --locked python -m scripts.s4_public_release demo --root .work/s4-public-review
 ```
 
-目标目录必须不存在；再次恢复时换一个新目录。新发布工具及 `reports/public-s4-v0.2/` 的本轮本地检查单独记录在[发布说明](docs/s4/public-release.md)，不把本文示例命令视为已经通过的远程 CI。
+目标目录必须不存在，再次恢复时换一个新目录。发布工具、所带证据和当时的本地检查见 [历史发布说明](docs/s4/public-release.md)。
 
 恢复根独立于当前工作树，包含带哈希的原始工程证据。`verify` 只重建保存轨迹；`demo` 使用固定响应，不是模型成绩。这些操作不读取 API 密钥、不发起模型请求。安装依赖可能访问软件包源，依赖就绪后的演示和回放可离线执行。任何历史价格、预留金额、批准或已用收据都不提供新的运行权限。
 
-## 验证范围
+## 11 月 4 日公开验证范围
 
-本次公开候选使用明确的检查集：旧版已跟踪的 48 个测试文件（47 个测试模块及 conftest）、当前契约的 51 项定向测试以及新增发布/扫描安全测试。它不是全仓库所有历史 S4 测试的重跑；各部分的实际结果及运行根在[发布说明](docs/s4/public-release.md)中单列。
+11 月 4 日工程包使用明确的检查集，包含旧版 48 个测试文件（47 个测试模块及 conftest）、当时契约的 51 项定向测试以及发布和扫描安全测试。各部分的实际结果及运行根见 [历史发布说明](docs/s4/public-release.md)。
 
-旧首发的 369 项 CI 与本地准备的 482 项分别保留原时点；本次 [新远程 CI](https://github.com/luyangzhan111/writscope/actions/runs/41792070076) 在 Windows 和 Ubuntu 24.04 均成功。Ubuntu 日志记录 494 项通过；Windows 检查集、回放与演示步骤成功。Linux 使用单独绑定、仅固定响应的发布适配层，未开放真实发送。当前版本的 30×3×R=3 全批、真实模型完整增量链和正式比较仍待后续冻结与授权。
+旧首发的 369 项 CI 与本地准备的 482 项分别保留原时点。11 月 4 日的 [远程 CI](https://github.com/luyangzhan111/writscope/actions/runs/41792070076) 在 Windows 和 Ubuntu 24.04 均成功，受测代码提交为 `07f5108`。Ubuntu 日志记录 494 项通过，Windows 检查集、回放与演示步骤成功。Linux 使用单独绑定的固定响应发布适配层。
 
 ## 保留的 S3 首发入口
 
@@ -62,8 +62,9 @@ uv run --locked python -m scripts.public_release replay
 
 | 阅读目的 | 入口 |
 | --- | --- |
-| 接续当前 S4 工程 | [S4 当前导航](docs/s4/README.md) · [公开候选说明](docs/s4/public-release.md) |
-| 查看完成程度与剩余工作 | [项目状态](docs/project-status.md) |
+| 阅读 S4 v8 双块结果 | [结果、失败与费用](docs/s4/v8-development-closeout-20261109.md) |
+| 复核 11 月 4 日公开工程包 | [S4 工程导航](docs/s4/README.md) · [公开候选说明](docs/s4/public-release.md) |
+| 查看历史项目状态 | [项目状态](docs/project-status.md) |
 | 理解当前输出与编译规则 | [compact contract v2](specs/s4-compiled-contract-v2.md) |
 | 使用历史组件 | [组件级运行指南](docs/usage.md) · [旧导航](docs/README.md) |
 | 理解数据与公平评测 | [数据契约](specs/data-contracts.md) · [评测协议](docs/evaluation-protocol.md) |
