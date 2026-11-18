@@ -1,0 +1,37 @@
+{
+  "schema_version": "writscope_demo_public_sources_v1",
+  "files": {
+    "c001.jsonl": {
+      "source": "fixtures/case_001/inputs/c001.jsonl",
+      "sha256": "3983cf361b13bd3bea36d6746346592dbaed5fb2e01ea1182062c5db0dc92d9c"
+    },
+    "c002.jsonl": {
+      "source": "fixtures/case_001/inputs/c002.jsonl",
+      "sha256": "1e26aac601312bda49829a1590566dd1724d387c8436b8fc6e5fea8222582147"
+    },
+    "c003.jsonl": {
+      "source": "fixtures/case_001/inputs/c003.jsonl",
+      "sha256": "ca7e66f3a9b1f5ef456693a1d25402508f448c5806cfb39b8091f790cf249509"
+    },
+    "impact.json": {
+      "source": "reports/m1-2026-10-18/impact.json",
+      "sha256": "a057d100ee8e28b5eef6be8e4850c3f87f22fa5f3ceefbd2766c8621ac6c4eec"
+    },
+    "candidate.patch": {
+      "source": "fixtures/case_001/candidate.patch",
+      "sha256": "3bfe2099bf05dc938820e7740ae7a5730f9a4cc23eb5d66413218eed1d00455e"
+    },
+    "app.py": {
+      "source": "fixtures/case_001/base/app.py",
+      "sha256": "d34a59bf101f2d49d82e9c200ec42caf6aa1dc1e9659b1e4b5dec098f72a97d7"
+    },
+    "contract.md": {
+      "source": "fixtures/case_001/contract.md",
+      "sha256": "042cf2f74dfa2eb2f93868c88fcf2f61458c43b3c4cb5e6d5dd8cbf455c34b45"
+    }
+  },
+  "proposal_origin": "Hand-authored demonstration of the public first-case design; not model extraction.",
+  "design_source": "specs/first-case.md",
+  "impact_origin": "Saved public M1 impact evidence, run m1-e48b41a86211. No code is executed by this demo.",
+  "scope": "Field replacement coverage only; not a general semantic verifier or method comparison."
+}

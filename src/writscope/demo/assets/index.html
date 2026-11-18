@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+  <title>WritScope · 离线授权复核演示</title>
+  <!-- WRITSCOPE_DEMO_STYLE -->
+</head>
+<body>
+  <a class="skip-link" href="#case-tabs">跳到案例选择</a>
+  <div class="page-shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">W</span><span>WritScope <span class="brand-cn">约界</span></span></div>
+      <span class="offline-indicator"><span aria-hidden="true"></span>本地离线演示</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">从代码影响，走到授权边界</p>
+        <h1 id="page-title">同一份补丁，<br>为什么结论不同？</h1>
+        <p id="page-subtitle" class="intro-copy">服务端把 status 改为 state。改变用户授权，观察复核结论如何变化。</p>
+        <div class="demo-notice"><span class="notice-label">预置演示</span><p id="demo-disclaimer">使用固定事件与结构化提案，结果由本地状态内核生成，不代表真实模型成绩。</p></div>
+        <div class="runtime-facts" aria-label="演示运行边界"><span id="model-calls">模型请求 0</span><span>无密钥</span><span>无网络发送</span><span>可从保存证据重建</span></div>
+      </section>
+
+      <section class="case-selector" aria-labelledby="selector-title">
+        <div class="section-heading"><h2 id="selector-title"><span class="section-number">01</span>只改变用户授权</h2><p>代码与影响证据保持相同</p></div>
+        <div id="case-tabs" class="case-tabs" role="tablist" aria-label="选择用户授权场景"></div>
+      </section>
+
+      <section id="case-panel" class="case-panel" role="tabpanel" tabindex="0" aria-label="所选案例">
+        <div class="selected-heading"><div><p id="case-id" class="eyebrow"></p><h2 id="case-title"></h2></div><p id="case-summary"></p></div>
+        <div id="result-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div class="verdict-strip" aria-label="三轴复核结果">
+          <div class="verdict-cell"><span class="axis-label"><span>实际影响</span><code>impact</code></span><strong id="impact-value"></strong><span id="impact-detail" class="axis-detail"></span></div>
+          <div class="verdict-cell"><span class="axis-label"><span>有效授权</span><code>authorization</code></span><strong id="authorization-value"></strong><span id="authorization-detail" class="axis-detail"></span></div>
+          <div id="decision-cell" class="verdict-cell decision-cell"><span class="axis-label"><span>最终决定</span><code>decision</code></span><strong id="decision-value"></strong><span id="decision-detail" class="axis-detail"></span></div>
+        </div>
+        <p id="case-explanation" class="case-explanation"></p>
+
+        <div class="evidence-grid">
+          <section class="patch-section" aria-labelledby="patch-title">
+            <div class="section-heading"><h3 id="patch-title"><span class="section-number">02</span>补丁改变了什么</h3><span id="patch-file" class="file-label"></span></div>
+            <div class="code-snapshot before"><div class="code-caption"><span>修改前</span><span>旧 API</span></div><pre id="patch-before"></pre></div>
+            <div class="code-snapshot after"><div class="code-caption"><span>修改后</span><span>候选补丁</span></div><pre id="patch-after"></pre></div>
+            <details class="disclosure diff-disclosure"><summary>查看完整补丁</summary><pre id="patch-diff" class="diff-code"></pre></details>
+            <div class="impact-source"><span class="meta-label">影响证据来源</span><p id="impact-origin"></p><details class="disclosure"><summary>来源与哈希</summary><p id="impact-source" class="source-path"></p><code id="impact-hash" class="hash"></code></details></div>
+          </section>
+
+          <section class="history-section" aria-labelledby="history-title">
+            <div class="section-heading"><h3 id="history-title"><span class="section-number">03</span>决策时点前的原话</h3><span id="event-count" class="file-label"></span></div>
+            <ol id="event-list" class="event-list"></ol>
+          </section>
+        </div>
+
+        <section class="state-section" aria-labelledby="state-title">
+          <div class="section-heading"><h3 id="state-title"><span class="section-number">04</span>当前有效的约束与许可</h3><p>局部许可保留原约束</p></div>
+          <div class="state-grid"><div><h4>约束 <span id="constraint-count" class="count"></span></h4><div id="constraint-list" class="ledger-list"></div></div><div><h4>许可 <span id="authorization-count" class="count"></span></h4><div id="authorization-list" class="ledger-list"></div></div></div>
+          <div id="exceptions-area" class="exceptions-area"></div>
+          <details class="disclosure context-disclosure"><summary>任务背景（预置说明）</summary><div id="context-list"></div></details>
+        </section>
+
+        <section class="matching-section" aria-labelledby="matching-title">
+          <div class="section-heading"><h3 id="matching-title"><span class="section-number">05</span>逐项匹配授权范围</h3><p>逐影响保留理由与引用</p></div>
+          <div id="impact-list" class="impact-list"></div>
+        </section>
+
+        <details class="disclosure trace-disclosure"><summary>查看状态转换与重建标识</summary><ol id="transition-list" class="transition-list"></ol><div class="state-hash"><span class="meta-label">当前状态 SHA-256</span><code id="state-hash" class="hash"></code></div></details>
+      </section>
+      <p id="load-error" class="load-error" role="alert" hidden></p>
+      <noscript><p class="load-error">请启用浏览器 JavaScript 以切换三个预置案例。本文件不访问网络。</p></noscript>
+    </main>
+
+    <footer><span>WritScope · 兼容性约束与用户授权状态维护</span><p>allow 仅表示通过本次评估的兼容性与授权检查。</p></footer>
+  </div>
+  <!-- WRITSCOPE_DEMO_DATA -->
+  <!-- WRITSCOPE_DEMO_SCRIPT -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "schema_version": "offline_demo_legacy_publication_sources_v1",
+  "purpose": "Preserve original publication metadata for the historical frozen audit. Not new research results or an update to the old inventory.",
+  "original_descriptor": "reports/public-s4-v0.2/publish-files.json",
+  "original_descriptor_sha256": "a9e048e49e9a8ba3a135c123823d8f2ad0c8d81b2b3e54c7bd78b134f746e31a",
+  "source_clone": ".work/github-s4-publication-20261104",
+  "files": {
+    "README.md": {
+      "supplement_file": "README.md",
+      "source": ".work/github-s4-publication-20261104/README.md",
+      "sha256": "7f673ea0dc98cf6ca5ae96cf1105fef184074671b061f2ffc3267783a15f5972"
+    },
+    "docs/s4/README.md": {
+      "supplement_file": "docs-s4-README.md",
+      "source": ".work/github-s4-publication-20261104/docs/s4/README.md",
+      "sha256": "d7f48e2128eebf47e826814ed22b62399252e89027bb25e8d1112bf5a258bef4"
+    },
+    ".github/workflows/tests.yml": {
+      "supplement_file": "tests-workflow.yml",
+      "source": ".work/github-s4-publication-20261104/.github/workflows/tests.yml",
+      "sha256": "6a58ec1e355350dc12cf38af38e5fd94ae29e442c00148958881e0a63f230cb1"
+    },
+    "docs/project-status.md": {
+      "supplement_file": "project-status.md",
+      "source": ".work/github-s4-publication-20261104/docs/project-status.md",
+      "sha256": "1266f0cfdbbdd4a534d4577da74dd6980802ab863ae811ddf8aafb118edc3015"
+    }
+  },
+  "additional_published_versions": [
+    {
+      "logical_path": "README.md",
+      "materialized_path": "reports/offline-demo-release-sources-v1/readme-20261109.md",
+      "source": "https://github.com/luyangzhan111/writscope/blob/7604e2b/README.md",
+      "source_commit_prefix": "7604e2b",
+      "verified_git_blob_prefix": "acd422",
+      "sha256": "0073e94949c5da551cab885115416f26f70c2c9b11a4bdf8cdeb1cf3b218506e"
+    },
+    {
+      "logical_path": "docs/s4/v8-development-closeout-20261109.md",
+      "materialized_path": "docs/s4/v8-development-closeout-20261109.md",
+      "source": "https://github.com/luyangzhan111/writscope/blob/7604e2b/docs/s4/v8-development-closeout-20261109.md",
+      "source_commit_prefix": "7604e2b",
+      "verified_git_blob_prefix": "ecfe337",
+      "sha256": "1a25d9cda0134164d3876efe4bcd5115cefc22a031e466c3464daccef68fe4ca"
+    }
+  ],
+  "version_selection": "The publication inventory expected SHA-256 selects its exact README original. November 4 and November 9 bytes are retained separately; unknown versions are rejected."
+}

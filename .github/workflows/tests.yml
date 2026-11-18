@@ -25,8 +25,29 @@ jobs:
         run: python -m pip install uv
       - name: Sync locked project
         run: uv sync --locked --python 3.12.4
-      - name: Scan the explicit publication inventory and nested evidence
-        run: uv run --locked python -m scripts.s4_public_release audit
+      - name: Scan the frozen archive and publishable Git history
+        run: uv run --locked python -m scripts.offline_demo_release_check --output .work/public-s4-audit
+      - name: Check the maintained offline demo
+        run: uv run --offline --locked python -m pytest tests/test_demo.py -q -p no:cacheprovider
+      - name: Generate the standalone demo page
+        run: uv run --offline --locked writscope demo --output .work/demo-ui
+      - name: Check offline case selection and keyboard behavior
+        run: node tests/demo-ui-smoke.cjs .work/demo-ui/index.html
+      - name: Build the installable package with demo resources
+        run: uv build --wheel --offline --out-dir .work/demo-wheel
+      - name: Install the wheel away from the checkout
+        shell: bash
+        run: uv pip install --offline --python .venv/Scripts/python.exe --target .work/demo-installed --no-deps .work/demo-wheel/*.whl
+        if: runner.os == 'Windows'
+      - name: Install the wheel away from the checkout
+        shell: bash
+        run: uv pip install --offline --python .venv/bin/python --target .work/demo-installed --no-deps .work/demo-wheel/*.whl
+        if: runner.os != 'Windows'
+      - name: Run the wheel from outside the checkout
+        env:
+          WRITSCOPE_WHEEL_TARGET: ${{ github.workspace }}/.work/demo-installed
+          WRITSCOPE_DEMO_SMOKE_OUTPUT: ${{ runner.temp }}/writscope-demo-wheel
+        run: uv run --offline --locked python scripts/demo_package_smoke.py
       - name: Restore the S4 candidate into an independent root
         run: uv run --locked python -m scripts.s4_public_release restore --destination .work/public-s4-check
       - name: Run the explicit no-key publication suite in the recovered root
