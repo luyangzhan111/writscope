@@ -23,6 +23,8 @@ def main(argv=None):
     review.add_argument("--path", required=True, help="OpenAPI 中的接口路径模板")
     review.add_argument("--ledger", type=Path, help="调用者独立选择的可信维护者授权 JSONL")
     review.add_argument("--output", type=Path, help="保存报告、输入副本和哈希的新目录")
+    review.add_argument("--check", action="store_true",
+                        help="用于 CI：生成报告后，allow 退出 0，revise 或 investigate 退出 3")
     args = parser.parse_args(argv)
     if args.command == "review":
         try:
@@ -35,6 +37,8 @@ def main(argv=None):
         print(f'{report["impact"]} / {report["authorization"]} / {report["decision"]}')
         print(f"HTML：{output / 'index.html'}")
         print(f"JSON：{output / 'review.json'}")
+        if args.check and report["decision"] != "allow":
+            return 3
         return 0
     try:
         from .demo import generate
