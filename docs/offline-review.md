@@ -20,9 +20,34 @@ uv run --offline --locked writscope review --before before.openapi.json --after 
 
 默认在当前目录的 `.work` 下创建独立结果目录，并打印 HTML 和 JSON 路径。也可用 `--output .work/order-review` 指定新目录。报告包括 `review.json`、自包含页面 `index.html`、原始输入副本 `inputs/` 和逐文件 SHA-256 清单 `manifest.json`。从报告目录按页面末尾的说明复算。输入副本及台账包含原文，请按其原有访问范围保管。
 
-命令成功生成报告时退出码为 0。CI 应从 `review.json` 的 `decision` 读取业务决定。输入格式错误、非法台账或输出路径冲突会退出 1。完整报告以最后写入的 `manifest.json` 为准。
+默认模式成功生成报告后退出 0，最终决定保存在 `review.json` 的 `decision` 中。完整报告以最后写入的 `manifest.json` 为准。
 
 两次外部案例使用了上游 PR 两端的完整契约。Immich 的旧接口标记弃用后仍保留必需字段。Country State City 的查询参数继续叫 `value`，响应却改为承诺 `input`。[Immich 接口迁移](case-studies/immich-server-ping.md) · [Country State City 响应字段改名](case-studies/csc-iso-convert.md)
+
+## 在 CI 中检查
+
+在 `writscope review` 上加 `--check`，CI 就能根据报告的最终决定通过或停止。比如旧字段被删除但获得了精确许可，报告仍记录 `breaking`，决定为 `allow`，检查通过。相同的改动在许可撤销后得到 `revise`，检查失败。
+
+| `--check` 退出码 | 含义 | 去哪里查看原因 |
+| --- | --- | --- |
+| 0 | 复核完成，决定为 `allow` | HTML 或 JSON 报告 |
+| 3 | 复核完成，决定为 `revise` 或 `investigate` | HTML 或 JSON 报告中的字段影响、许可记录或待查项 |
+| 1 | 读取输入、校验台账或写入报告失败 | 标准错误 |
+| 2 | 命令行参数用法错误 | 标准错误中的用法提示 |
+
+下面的 Bash 步骤适用于已安装 WritScope 的 CI 环境。由 CI 提供本地 Git 仓库中可用的两个提交 SHA。把契约文件路径和接口路径换成项目实际值，两份输入均从指定提交直接读取。
+
+```bash
+set -eu
+case_dir=$(mktemp -d)
+spec=api/openapi.json
+git show "${BASE_SHA}:$spec" > "$case_dir/before.json"
+git show "${HEAD_SHA}:$spec" > "$case_dir/after.json"
+writscope review --check --before "$case_dir/before.json" --after "$case_dir/after.json" \
+  --method GET --path '/api/v1/orders/{order_id}' --output .work/order-review
+```
+
+在干净的 CI 作业中运行，或为每次执行指定新的输出目录。需要在失败后查看结果时，让 CI 在复核步骤失败时也保存 `.work/order-review/index.html` 与 `review.json`。如果团队使用授权台账，由 CI 从维护者控制的位置传入 `--ledger`。报告中含有许可原文，保存时应沿用台账的访问范围。
 
 ## 复现 FastAPI 样例
 

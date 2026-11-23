@@ -212,10 +212,61 @@ def test_invalid_or_injected_ledger_is_rejected(bad_events):
         read_ledger(bad_events)
 
 
-def test_cli_reports_are_portable_deterministic_and_never_overwrite(monkeypatch):
+@pytest.fixture
+def review_dir():
     # Ordinary ACLs avoid pytest's Windows 0700 temporary directory issue.
     root = Path(__file__).resolve().parents[1] / ".work" / f"review-test-{uuid4().hex}"
     root.mkdir(parents=True)
+    return root
+
+
+@pytest.mark.parametrize("after,events,decision,exit_code", [
+    pytest.param(FIXED, None, "allow", 0, id="compatible"),
+    pytest.param(BREAKING, ledger(grant()), "allow", 0, id="exact-grant"),
+    pytest.param(BREAKING, None, "revise", 3, id="missing-grant"),
+    pytest.param(BREAKING, ledger(grant(), REVOKE), "revise", 3, id="revoked-grant"),
+    pytest.param(contract({}, [], schema_override={"oneOf": [{"type": "object"}]}), None, "investigate", 3,
+                 id="unsupported-schema"),
+])
+def test_check_uses_final_decision_and_preserves_report(review_dir, capsys, after, events, decision, exit_code):
+    before_file = review_dir / "before.json"
+    after_file = review_dir / "after.json"
+    before_file.write_bytes(BEFORE)
+    after_file.write_bytes(after)
+    args = ["review", "--before", str(before_file), "--after", str(after_file), "--method", "GET", "--path", PATH]
+    if events is not None:
+        ledger_file = review_dir / "approval.jsonl"
+        ledger_file.write_bytes(events)
+        args.extend(["--ledger", str(ledger_file)])
+
+    ordinary = review_dir / "ordinary"
+    checked = review_dir / "checked"
+    assert main([*args, "--output", str(ordinary)]) == 0
+    assert main([*args, "--check", "--output", str(checked)]) == exit_code
+    assert json.loads((checked / "review.json").read_bytes())["decision"] == decision
+    stdout = capsys.readouterr().out
+    for name in ("index.html", "review.json"):
+        assert str(checked / name) in stdout
+    for name in ("index.html", "review.json", "manifest.json"):
+        assert (ordinary / name).read_bytes() == (checked / name).read_bytes()
+
+
+def test_check_distinguishes_invalid_input_and_usage(review_dir):
+    before_file = review_dir / "before.json"
+    after_file = review_dir / "invalid.json"
+    before_file.write_bytes(BEFORE)
+    after_file.write_bytes(b"{")
+    output = review_dir / "invalid-review"
+    assert main(["review", "--check", "--before", str(before_file), "--after", str(after_file),
+                 "--method", "GET", "--path", PATH, "--output", str(output)]) == 1
+    assert not (output / "manifest.json").exists()
+    with pytest.raises(SystemExit) as usage_error:
+        main(["review", "--check"])
+    assert usage_error.value.code == 2
+
+
+def test_cli_reports_are_portable_deterministic_and_never_overwrite(monkeypatch, review_dir):
+    root = review_dir
     before, after, approvals = (root / name for name in ("before.json", "after.json", "approval.jsonl"))
     before.write_bytes(BEFORE)
     after.write_bytes(BREAKING)

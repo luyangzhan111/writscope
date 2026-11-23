@@ -22,6 +22,8 @@ uv run --offline --locked writscope review --before before.openapi.json --after 
 
 打开终端打印的 `index.html`。如果旧客户端依赖的 `status` 从必需字段中消失，报告会指出它的位置。有可信维护者台账时，用 `--ledger` 指向它。匹配的许可可以让本次改动通过，兼容性影响仍显示为 `breaking`。首版检查指定接口的 HTTP 200 JSON 响应；遇到无法判定的结构，结论为 `investigate`，需要人工复核。安装依赖后，复核可离线运行，无需模型密钥。
 
+要在 CI 中拦下需要处理的变更，在同一条命令末尾加 `--check`。`allow` 退出 0，`revise` 和 `investigate` 在写完报告后退出 3。维护者可以从报告中查看触发检查的字段或缺失的证据。[接入 CI](docs/offline-review.md#在-ci-中检查)
+
 手头没有契约文件时，可用下面的命令在本机运行仓库自带的 FastAPI 订单接口，查看未授权、授权、撤销和兼容修复四份报告：
 
 ```powershell
