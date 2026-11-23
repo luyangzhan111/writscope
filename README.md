@@ -1,10 +1,34 @@
 # WritScope（约界）
 
-研究编码任务中的兼容性约束与用户授权状态维护：结合历史要求、候选补丁和影响证据，判断变更是否处于有效授权范围内，并提供可追溯依据。
+WritScope 帮 API 维护者在合并前检查，旧客户端会失去哪项响应字段保证，以及哪条仍然有效的许可覆盖了这次变更。它读取本地 OpenAPI 文件，在报告中保留字段位置、授权原文和撤销记录。
 
 例如：页面需要 `state`，但旧 API 必须保留 `status`。客户端本地映射的许可，能否覆盖服务端删除旧字段的补丁？WritScope 分别记录补丁影响 `impact`、有效用户授权 `authorization` 和最终决定 `decision`，保留来源、作用范围、撤销及替代关系。
 
-项目采用 [MIT](LICENSE)，公开仓库为 [luyangzhan111/writscope](https://github.com/luyangzhan111/writscope)。下面的离线演示用于理解项目；保存的研究运行与旧发布证据另有明确版本。
+## 审查自己的 API 变更
+
+准备变更前后的 OpenAPI 3.0 或 3.1 JSON 文件。在装有 Git 和 uv 的终端执行一次：
+
+```powershell
+git clone https://github.com/luyangzhan111/writscope.git
+cd writscope
+uv sync --locked --python 3.12.4
+```
+
+把下面两个文件名换成你的文件路径。方法和路径使用契约里声明的值，包括花括号中的参数名：
+
+```powershell
+uv run --offline --locked writscope review --before before.openapi.json --after after.openapi.json --method GET --path '/api/v1/orders/{order_id}'
+```
+
+打开终端打印的 `index.html`。如果旧客户端依赖的 `status` 从必需字段中消失，报告会指出它的位置。有可信维护者台账时，用 `--ledger` 指向它。匹配的许可可以让本次改动通过，兼容性影响仍显示为 `breaking`。首版检查指定接口的 HTTP 200 JSON 响应；遇到无法判定的结构，结论为 `investigate`，需要人工复核。安装依赖后，复核可离线运行，无需模型密钥。
+
+手头没有契约文件时，可用下面的命令在本机运行仓库自带的 FastAPI 订单接口，查看未授权、授权、撤销和兼容修复四份报告：
+
+```powershell
+uv run --offline --locked python -m examples.review_fastapi.run --repeat
+```
+
+[复核指南与台账格式](docs/offline-review.md) · [真实案例：Immich 接口迁移](docs/case-studies/immich-server-ping.md) · [MIT 许可证](LICENSE)
 
 ## 几分钟看懂三个案例
 

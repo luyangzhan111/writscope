@@ -1,4 +1,4 @@
-"""Run an installed demo wheel outside the checkout with external work blocked."""
+"""Exercise both installed CLI commands outside the checkout with external work blocked."""
 
 from __future__ import annotations
 
@@ -32,21 +32,21 @@ class NoResearchImports(importlib.abc.MetaPathFinder):
         if (fullname == "scripts" or fullname.startswith("scripts.") or
                 fullname.startswith("writscope.providers") or
                 fullname == "writscope.evaluation" or fullname == "dotenv"):
-            raise AssertionError("demo imported a model or evaluation entry")
+            raise AssertionError("installed CLI imported a model or evaluation entry")
 
 sys.meta_path.insert(0, NoResearchImports())
 def audit(event, args):
     if event.startswith("socket.") or event == "subprocess.Popen":
-        raise AssertionError("demo attempted network or process work")
+        raise AssertionError("installed CLI attempted network or process work")
     if event == "open" and isinstance(args[0], (str, bytes)):
         path = os.fsdecode(args[0]).replace("\\", "/")
         if "evaluation_private" in path.split("/") or Path(path).name.startswith(".env"):
-            raise AssertionError("demo read a private input")
+            raise AssertionError("installed CLI read a private input")
 sys.addaudithook(audit)
 original_getitem = os._Environ.__getitem__
 def env_getitem(self, name):
     if any(word in str(name).upper() for word in ("API_KEY", "TOKEN", "SECRET")):
-        raise AssertionError("demo read a credential environment variable")
+        raise AssertionError("installed CLI read a credential environment variable")
     return original_getitem(self, name)
 os._Environ.__getitem__ = env_getitem
 
@@ -60,8 +60,25 @@ assert actual == [("c001", "breaking", "not_covered", "revise"),
                   ("c002", "breaking", "covered", "allow"),
                   ("c003", "breaking", "not_covered", "revise")]
 assert data["model_calls"] == 0 and data["code_executions"] == 0
+
+endpoint = "/v1/items"
+for filename, field in (("before.json", "label"), ("after.json", "title")):
+    schema = {"type": "object", "required": [field],
+              "properties": {field: {"type": "string"}}}
+    response = {"description": "OK", "content": {"application/json": {"schema": schema}}}
+    contract = {"openapi": "3.1.0", "info": {"title": "Wheel smoke", "version": "1"},
+                "paths": {endpoint: {"get": {"responses": {"200": response}}}}}
+    Path(filename).write_text(json.dumps(contract), encoding="utf-8")
+
+assert main(["review", "--before", "before.json", "--after", "after.json",
+             "--method", "GET", "--path", endpoint, "--output", "review"]) == 0
+review = json.loads(Path("review/review.json").read_bytes())
+assert (review["impact"], review["authorization"], review["decision"]) == (
+    "breaking", "not_covered", "revise")
+assert [item["field"] for item in review["impacts"]] == ["label"]
+assert Path("review/index.html").is_file() and Path("review/manifest.json").is_file()
 print(json.dumps({"installed_package": str(target), "outside_checkout": outside,
-                  "offline_cases": 3, "status": "passed"}))
+                  "offline_cases": 3, "contract_reviews": 1, "status": "passed"}))
 '''
 
 
