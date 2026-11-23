@@ -1,4 +1,4 @@
-"""Audit the frozen S4 publication separately from today's offline demo files.
+"""Audit the frozen S4 publication separately from the maintained offline CLI.
 
 The old publication inventory remains immutable. Its checks run in a new
 restored directory, using archived bytes wherever the checkout has changed.
@@ -40,6 +40,11 @@ CURRENT_FILES = (
     "scripts/offline_demo_release_check.py", ".github/workflows/tests.yml",
     "src/writscope/cli.py", "src/writscope/__main__.py",
     "scripts/demo_package_smoke.py", "tests/demo-ui-smoke.cjs", "docs/offline-demo.md",
+    "src/writscope/review.py", "src/writscope/review_html.py", "src/writscope/review_openapi.py",
+    "tests/test_review.py", "docs/offline-review.md", "docs/case-studies/immich-server-ping.md",
+    "examples/review_fastapi/__init__.py", "examples/review_fastapi/export.py",
+    "examples/review_fastapi/run.py", "examples/review_fastapi/service.py",
+    "examples/review_fastapi/README.md",
     "reports/offline-demo-release-sources-v1/manifest.json",
     "reports/offline-demo-release-sources-v1/readme-20261109.md",
     "docs/s4/v8-development-closeout-20261109.md",
