@@ -22,7 +22,7 @@ uv run --offline --locked writscope review --before before.openapi.json --after 
 
 命令成功生成报告时退出码为 0。CI 应从 `review.json` 的 `decision` 读取业务决定。输入格式错误、非法台账或输出路径冲突会退出 1。完整报告以最后写入的 `manifest.json` 为准。
 
-真实外部契约的运行步骤和首轮发现见 [Immich 接口迁移案例](case-studies/immich-server-ping.md)。
+两次外部案例使用了上游 PR 两端的完整契约。Immich 的旧接口标记弃用后仍保留必需字段。Country State City 的查询参数继续叫 `value`，响应却改为承诺 `input`。[Immich 接口迁移](case-studies/immich-server-ping.md) · [Country State City 响应字段改名](case-studies/csc-iso-convert.md)
 
 ## 复现 FastAPI 样例
 
@@ -59,6 +59,7 @@ uv run --offline --locked python -m examples.review_fastapi.run --repeat
 - 检查 OpenAPI 3.0 或 3.1 JSON 中指定方法和路径的 HTTP 200 `application/json` 响应。
 - 支持顶层简单对象、无额外约束的标量字段、布尔形状策略和同一文档内的 `components/schemas` 引用。缺少目标响应、外部引用、组合结构、已保留字段类型变化等会给出 `investigate`。
 - 标量字段可以标记布尔 `readOnly`。出现在响应的 `required` 中时，仍按必需字段检查。`writeOnly` 的响应字段留给人工复核。
+- 字符串字段支持非空、无重复值的字符串 `enum`。仅调整值的顺序时可继续比较；保留字段的枚举值集合发生增删、或新增、取消枚举限制时，报告记录差异并给出 `investigate`。
 - 报告记录旧字段是否仍为必需。字段从必需改为可选也属于保证的丢失。若同时出现新字段，报告只陈述这一已观察到的契约变化。
 - `compatible` 和 `allow` 的范围是报告声明的响应契约规则。示例脚本单独保存运行时检查，`review` 本身只解析选择的输入数据。
 

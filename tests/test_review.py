@@ -114,6 +114,59 @@ def test_boolean_readonly_keeps_response_only_guarantees(old, new):
     assert lost["impacts"][0]["field"] == "status"
 
 
+def test_string_enum_order_keeps_the_same_guarantee():
+    before = response_field({"enum": ["open", "", "done"]})
+    after = response_field({"enum": ["done", "open", ""]})
+    report = build_review(before, after, None, "GET", PATH)
+    assert axes(report) == ("compatible", "not_needed", "allow")
+    for side in ("before", "after"):
+        assert report["schemas"][side]["string_enums"] == {"status": ["", "done", "open"]}
+
+
+@pytest.mark.parametrize("old,new", [
+    ({}, {"enum": ["open"]}),
+    ({"enum": ["open"]}, {}),
+    ({"enum": ["open"]}, {"enum": ["open", "closed"]}),
+    ({"enum": ["open", "closed"]}, {"enum": ["open"]}),
+])
+def test_changed_enum_requires_review_even_with_a_grant_for_field_optionality(old, new):
+    before = response_field(old)
+    after = response_field(new, required=False)
+    report = build_review(before, after, ledger(grant(before, after)), "GET", PATH)
+    assert axes(report) == ("unknown", "ambiguous", "investigate")
+    assert [row["field"] for row in report["impacts"]] == ["status"]
+    assert report["impacts"][0]["authorization"] == "covered"
+    assert [row["code"] for row in report["findings"]] == ["field_enum_changed"]
+
+
+def test_unchanged_sibling_enum_preserves_a_required_field_removal():
+    def version(field):
+        return contract({}, [], schema_override={
+            "type": "object", "required": ["role", field],
+            "properties": {"role": {"type": "string", "enum": ["buyer", "seller"]},
+                           field: {"type": "string"}},
+        })
+
+    report = build_review(version("status"), version("state"), None, "GET", PATH)
+    assert axes(report) == ("breaking", "not_covered", "revise")
+    assert [(row["field"], row["presence_after"]) for row in report["impacts"]] == [
+        ("status", "undeclared")
+    ]
+
+
+@pytest.mark.parametrize("definition", [
+    {"enum": []}, {"enum": "open"}, {"enum": ["open", "open"]}, {"enum": ["open", {}]},
+    {"type": "integer", "enum": [1, 2]},
+])
+def test_unsupported_enums_leave_schema_unassessed(definition):
+    report = build_review(response_field({}), response_field(definition), None, "GET", PATH)
+    assert axes(report) == ("unknown", "not_needed", "investigate")
+    assert "string_enums" not in report["schemas"]["before"]
+    assert report["schemas"]["after"] is None
+    assert report["findings"][0]["code"] == "unsupported_after_schema"
+    assert "#/components/schemas/Order/properties/status/enum" in report["findings"][0]["detail"]
+
+
 @pytest.mark.parametrize("annotations", [{"readOnly": "true"}, {"writeOnly": True},
                                           {"readOnly": True, "writeOnly": True}])
 def test_unjudged_response_annotations_leave_authorization_unassessed(annotations):
