@@ -42,6 +42,7 @@ CURRENT_FILES = (
     "scripts/demo_package_smoke.py", "tests/demo-ui-smoke.cjs", "docs/offline-demo.md",
     "src/writscope/review.py", "src/writscope/review_html.py", "src/writscope/review_openapi.py",
     "tests/test_review.py", "docs/offline-review.md", "docs/case-studies/immich-server-ping.md",
+    "docs/case-studies/csc-iso-convert.md", "docs/case-studies/csc-iso-convert.review.json",
     "examples/review_fastapi/__init__.py", "examples/review_fastapi/export.py",
     "examples/review_fastapi/run.py", "examples/review_fastapi/service.py",
     "examples/review_fastapi/README.md",

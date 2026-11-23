@@ -1,0 +1,120 @@
+{
+  "schema_version": "writscope_review_v1",
+  "impact": "breaking",
+  "authorization": "not_covered",
+  "decision": "revise",
+  "scope": {
+    "method": "GET",
+    "path": "/iso/country/convert",
+    "response_status": "200",
+    "media_type": "application/json"
+  },
+  "inputs": {
+    "before": {
+      "artifact": "inputs/before.json",
+      "sha256": "27cd8381d9f1d9adc3d7bb876e446babcc496010234cc88b979d9256860712a2"
+    },
+    "after": {
+      "artifact": "inputs/after.json",
+      "sha256": "5751f74be8fc1ec2eb3b632f28ee279064add6df35382dcaeb635c5764514817"
+    },
+    "ledger": null
+  },
+  "schemas": {
+    "before": {
+      "pointer": "#/components/schemas/IsoConvert",
+      "required": [
+        "from",
+        "result",
+        "to",
+        "value"
+      ],
+      "properties": {
+        "from": "string",
+        "result": "string",
+        "to": "string",
+        "value": "string"
+      },
+      "additional_properties": true,
+      "string_enums": {
+        "from": [
+          "iso2",
+          "iso3",
+          "numeric"
+        ],
+        "to": [
+          "iso2",
+          "iso3",
+          "numeric"
+        ]
+      }
+    },
+    "after": {
+      "pointer": "#/components/schemas/IsoConvert",
+      "required": [
+        "from",
+        "input",
+        "result",
+        "to"
+      ],
+      "properties": {
+        "from": "string",
+        "input": "string",
+        "result": "string",
+        "to": "string"
+      },
+      "additional_properties": true,
+      "string_enums": {
+        "from": [
+          "iso2",
+          "iso3",
+          "numeric"
+        ],
+        "to": [
+          "iso2",
+          "iso3",
+          "numeric"
+        ]
+      }
+    }
+  },
+  "impacts": [
+    {
+      "impact_id": "required-field:value",
+      "field": "value",
+      "change_type": "remove_required_response_field",
+      "before_pointer": "#/components/schemas/IsoConvert/required/2",
+      "after_pointer": "#/components/schemas/IsoConvert",
+      "presence_after": "undeclared",
+      "authorization": "not_covered",
+      "active_grant_ids": [],
+      "revoked_grant_ids": [],
+      "different_revision_grant_ids": []
+    }
+  ],
+  "findings": [],
+  "ledger": [],
+  "reproduce": {
+    "argv": [
+      "writscope",
+      "review",
+      "--before",
+      "inputs/before.json",
+      "--after",
+      "inputs/after.json",
+      "--method",
+      "GET",
+      "--path",
+      "/iso/country/convert",
+      "--output",
+      "reproduced-review"
+    ]
+  },
+  "boundary": "只检查指定 HTTP 200 JSON 响应的简单 OpenAPI 契约。字段失去必需声明不代表推断出改名或运行时行为。调用者须独立选择可信维护者台账。工具按原文和顺序回放，未验证人员身份。",
+  "instructions": "至少一个旧响应必需字段失去保证，提供的材料中没有覆盖该影响的有效许可。",
+  "execution": {
+    "kind": "offline_contract_review",
+    "model_calls": 0,
+    "candidate_code_executions": 0
+  }
+}

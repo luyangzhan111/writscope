@@ -55,14 +55,20 @@ class ResponseSchema:
     required: tuple[str, ...]
     properties: dict[str, str]
     additional_properties: bool
+    string_enums: dict[str, tuple[str, ...]]
 
     def report(self):
-        return {
+        report = {
             "pointer": self.pointer,
             "required": sorted(self.required),
             "properties": dict(sorted(self.properties.items())),
             "additional_properties": self.additional_properties,
         }
+        if self.string_enums:
+            report["string_enums"] = {
+                field: list(values) for field, values in sorted(self.string_enums.items())
+            }
+        return report
 
 
 def response_schema(document: dict, method: str, path: str) -> ResponseSchema:
@@ -102,9 +108,10 @@ def response_schema(document: dict, method: str, path: str) -> ResponseSchema:
             or len(required) != len(set(required)) or not set(required) <= properties.keys()):
         raise UnsupportedContract(f"{schema_pointer} 的 required 必须唯一且全部在 properties 声明。")
     field_types = {}
+    string_enums = {}
     for field, definition in properties.items():
         field_pointer = schema_pointer + "/properties/" + pointer_token(field)
-        if not isinstance(definition, dict) or set(definition) - ({"type", "readOnly"} | ANNOTATIONS):
+        if not isinstance(definition, dict) or set(definition) - ({"type", "readOnly", "enum"} | ANNOTATIONS):
             raise UnsupportedContract(f"{field_pointer} 只支持没有额外约束的标量。")
         # A readOnly field still belongs to the response and any required guarantee still applies.
         if "readOnly" in definition and type(definition["readOnly"]) is not bool:
@@ -112,8 +119,14 @@ def response_schema(document: dict, method: str, path: str) -> ResponseSchema:
         field_type = definition.get("type")
         if not isinstance(field_type, str) or field_type not in FIELD_TYPES:
             raise UnsupportedContract(f"{field_pointer} 的字段类型超出支持范围。")
+        if "enum" in definition:
+            values = definition["enum"]
+            if (field_type != "string" or not isinstance(values, list) or not values
+                    or any(not isinstance(value, str) for value in values) or len(values) != len(set(values))):
+                raise UnsupportedContract(f"{field_pointer}/enum 仅支持字符串字段上的非空数组，且各值必须是互异的字符串。")
+            string_enums[field] = tuple(sorted(values))
         field_types[field] = field_type
-    return ResponseSchema(schema_pointer, tuple(required), field_types, additional)
+    return ResponseSchema(schema_pointer, tuple(required), field_types, additional, string_enums)
 
 
 def compare_responses(before: ResponseSchema, after: ResponseSchema):
@@ -132,13 +145,18 @@ def compare_responses(before: ResponseSchema, after: ResponseSchema):
         for field in sorted(removed)
     ]
     findings = []
+    shared_fields = before.properties.keys() & after.properties.keys()
     typed_changes = sorted(
-        field for field in before.properties.keys() & after.properties.keys()
-        if before.properties[field] != after.properties[field]
+        field for field in shared_fields if before.properties[field] != after.properties[field]
+    )
+    enum_changes = sorted(
+        field for field in shared_fields if before.string_enums.get(field) != after.string_enums.get(field)
     )
     optional_removed = sorted(before.properties.keys() - after.properties.keys() - removed)
     if typed_changes:
         findings.append({"code": "field_type_changed", "detail": "存在类型变化：" + "、".join(typed_changes)})
+    if enum_changes:
+        findings.append({"code": "field_enum_changed", "detail": "字符串字段的允许取值发生变化：" + "、".join(enum_changes)})
     if optional_removed:
         findings.append({"code": "optional_declaration_removed", "detail": "存在可选字段声明删除：" + "、".join(optional_removed)})
     if before.additional_properties != after.additional_properties:

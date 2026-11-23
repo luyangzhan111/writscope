@@ -28,7 +28,7 @@ uv run --offline --locked writscope review --before before.openapi.json --after 
 uv run --offline --locked python -m examples.review_fastapi.run --repeat
 ```
 
-[复核指南与台账格式](docs/offline-review.md) · [真实案例：Immich 接口迁移](docs/case-studies/immich-server-ping.md) · [MIT 许可证](LICENSE)
+[复核指南与台账格式](docs/offline-review.md) · [Immich 接口弃用后仍保留旧字段](docs/case-studies/immich-server-ping.md) · [Country State City 移除旧响应字段](docs/case-studies/csc-iso-convert.md) · [MIT 许可证](LICENSE)
 
 ## 几分钟看懂三个案例
 
